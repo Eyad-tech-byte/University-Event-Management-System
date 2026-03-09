@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+    background-color: rgb(186, 186, 186);
+}
+    header, nav, footer{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        padding-inline: 1rem;
+    }
+    /* --------------------- header --------------------- */
+    header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px;
+        align-items: center;
+        a {
+            color: black;
+        }
+
+        a hr{
+            text-align: center;
+        }
+    }
+
+    .button{
+        padding-right: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .login{
+        padding-top: 5px;
+        padding-bottom: 5%;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 14px;
+    }
+    /* ---------------------  --------------------- */
+
+    nav, footer{
+        background-color: black;
+        padding: 15px;
+    }
+
+    /* --------------------- nav --------------------- */
+    .navAll{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .navBar ul{
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navBar ul a {
+        padding: 10px 2.5vw;
+    }
+    .navBar ul a:hover {
+        background-color: grey;
+    }
+    .search {
+        display: flex;
+        gap: 0.5vw;
+    }
+    /* ---------------------  --------------------- */
+    
+    .big{
+        display: flex;
+    }
+
+    aside, section, article{
+        background-color: white;
+    }
+    /* --------------------- aside --------------------- */
+    aside{
+        margin-top: 40px;
+        margin-left: 1.5vw;
+        margin-right: 5vw;
+        margin-bottom: 40px;
+
+        padding: 15px;
+        padding-left: 3vw;
+        width: 20%;
+    
+    #date{
+        font-size: 18px;
+        width: 80%;
+        padding: 10px;
+        border: 1px solid;
+    }
+
+    input[type=text], textarea {
+        padding: 5px;
+        width: 80%;
+        font-size: 16px;
+        border: 1px solid black;
+    }
+
+    #commentBox{
+        width: 80%;
+        min-height: 65dvh;
+        border: 1px solid black;
+        padding: 10px;
+    }
+}
+    /* ---------------------  --------------------- */
+
+    .small{
+        width: 80%;
+    }
+
+    /* --------------------- section --------------------- */
+    article{
+        margin-top: 40px;
+        margin-left: 5vw;
+        margin-right: 1.5vw;
+        margin-bottom: 65px;
+
+        padding: 15px;
+        font-size: 20px;
+
+        a{
+            color: black;
+        }
+
+        hr {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border: none;
+    }
+    }
+
+    .tittle{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+
+    .news {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .news img{
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    /* ---------------------  --------------------- */
+
+    /* --------------------- article --------------------- */
+    section{
+        margin-top: 65px;
+        margin-left: 5vw;
+        margin-right: 1.5vw;
+        margin-bottom: 40px;
+
+        padding: 15px;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+        button{
+            padding: 15px;
+        }
+        hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        }
+    }
+        
+    .events{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .events img{
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* ---------------------  --------------------- */
+
+    /* --------------------- footer --------------------- */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        flex-wrap: wrap;
+    }
+
+    footer address {
+        padding: 15px;
+    }
+
+    @media screen and (max-width: 1620px) {
+        .events{
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        
+        header, .navBar ul, footer{
+            flex-direction: column;
+        }
+        .search{
+            padding: 10px;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .navAll{
+            flex-direction: column;
+        }
+        .big{
+            flex-direction: column;
+        }
+        .small{
+            width: 100%;
+        }
+        section, article{
+            margin-right: 5vw;
+        }
+        aside{
+        margin-top: 20px;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-bottom: 40px;
+        width: auto;
+        padding: 15px;
+        
+        #commentBox{
+            min-height: 30vw;
+        }
+        }
+    }
