@@ -1,7 +1,7 @@
 {
   "tasks": {
     "serve": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --watch main.js",
-    "db-create": "deno --allow-env --allow-ffi --allow-read --allow-write=C:/Users/ham29/AppData/Local/deno/plug ./app/tasks/db-create.js"
+    "db-create-events": "deno --allow-env --allow-ffi --allow-read --allow-write=C:/Users/ham29/AppData/Local/deno/plug ./P2896775/app/tasks/db-create-events.js"
   },
 
   "imports": {
