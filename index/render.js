@@ -11,7 +11,7 @@ export function render(viewFn, data, request, status = 200) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Managment System</title>
+    <title>University Event Managment System</title>
 
     <link rel="icon" href="/index/assets/img/logo.png">
     <link rel="stylesheet" href="/index/assets/index.css">
@@ -19,7 +19,7 @@ export function render(viewFn, data, request, status = 200) {
 <body>
     <header>
         <h1></h1>
-        <a href="index.html"><h1>Event Managment System</h1></a>
+        <a href="/"><h1>University Event Managment System</h1></a>
         <div class="button">
             <a href="admin.html">
             <button class="login">Log in</button>

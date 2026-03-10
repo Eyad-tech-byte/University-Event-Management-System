@@ -33,14 +33,16 @@ export function eventsCategoriesView(data) {
     
         <nav>
           <ul>
-            <li><a href="/">All Events</a></li>
+            <li><a href="/events/events-homepage">All Events</a></li>
             ${categoriesNav}
           </ul>
     
-          <form action="/">
-            <label for="search-category">Search:</label>
-            <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
-            <button type="button">Search</button>
+          <form action="/events/events-homepage" method="GET">
+            <div class="search-container">
+              <label for="search-category">Search:</label>
+              <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
+              <button type="submit" class="search-btn">Search</button>
+            </div>
           </form>
         </nav>
     

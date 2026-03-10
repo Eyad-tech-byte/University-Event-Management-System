@@ -1,12 +1,8 @@
 import { escape } from "@std/html/entities";
 import { formatDate, formatLineBreaks, formatURL } from "../assets/events-script.js";
 
-export function eventsHomeView(data) {
+export function adminEventsHomeView(data) {
 
-  const categoriesNav = data.categories.map(category => `
-    <li><a href="/events/category=${escape(category.category_name).toLowerCase()}/${category.category_id}">${escape(category.category_name)}</a></li>
-    `).join("");
-    
   let searchText = data.searchItem ? `Search results for "${escape(data.searchItem).trim()}"` : ``;
 
   let eventsHtml;
@@ -15,8 +11,8 @@ export function eventsHomeView(data) {
     eventsHtml =
     data.events.map(event => 
     `
-    <a href="/events/events-details/${event.event_id}/${formatURL(escape(event.event_name))}">
-        <article class="${escape(event.category_name).toLowerCase()}">
+    <article class="${escape(event.category_name).toLowerCase()}">
+    <a href="/events/admin/events-details/${event.event_id}/${formatURL(escape(event.event_name))}">
             <img src="${escape(event.event_image_link)}" alt="${escape(event.event_name)}" width="200" height="100">
             <p class="category">${escape(event.category_name).toUpperCase()}</p>
             <time datetime="${escape(event.event_date)}">
@@ -25,8 +21,17 @@ export function eventsHomeView(data) {
             <h3>${escape(event.event_name)}</h3>
             <p class="short-desc">${formatLineBreaks(escape(event.event_short_description))}</p>
             <p class="view-details">View Details</p>
-        </article>
-        </a>
+    </a>
+    <div class="home-button-container">
+      <form action="/events/admin/event-deletion-confirmation/${event.event_id}/${formatURL(escape(event.event_name))}" method="GET">
+        <button type="submit" class="home-admin-buttons" id="delete-btn">DELETE</button>
+      </form>
+
+      <form action="/events/admin/event-update-form/${event.category_id}/${event.event_id}/${formatURL(escape(event.event_name))}" method="GET">
+        <button type="submit" class="home-admin-buttons" id="update-btn">UPDATE</button>
+      </form>
+    </div>
+    </article>
     `).join("");
   }
 
@@ -47,22 +52,23 @@ export function eventsHomeView(data) {
   return`
     <div class="page-wrapper">
     <header>
-      <h1>Events at Imaginary University</h1>
+      <h1>Admin events page</h1>
       <br>
-      <p>Explore upcoming events and register to participate</p>
+      <p>Create, Delete and Update events</p>
     </header>
 
     <nav>
       <ul>
-        <li><a href="/events/events-homepage">All Events</a></li>
-        ${categoriesNav}
-        <li><a href="/events/admin/events-homepage">Admin Page</a></li>
+        <li><a href="/events/admin/events-homepage">Dashboard</a></li>
+        <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+        <li><a href="#">Log out</a></li>
+        <li><a href="/events/events-homepage">Student Page</a></li>
       </ul>
 
-      <form action="/events/events-homepage" method="GET">
+      <form action="/events/admin/events-homepage" method="GET">
         <div class="search-container">
           <label for="search-category">Search:</label>
-          <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
+          <input type="search" id="search-category" name="search-admin" placeholder="Type an event to search"/>
           <button type="submit" class="search-btn">Search</button>
         </div>
       </form>
@@ -72,6 +78,10 @@ export function eventsHomeView(data) {
       <p id="search-text">${searchText}</p>
       <section id="all-events">
         ${eventsHtml}
+
+        <form action="/events/admin/event-creation-form" method="GET">
+          <button type="submit" id="create-btn">+ Create New Event</button>
+        </form>
       </section>  
     </main>
     </div>

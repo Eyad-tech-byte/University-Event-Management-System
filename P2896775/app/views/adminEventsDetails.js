@@ -1,11 +1,7 @@
 import { escape } from "@std/html/entities";
-import { formatDate, formatLineBreaks, formatTime } from "../assets/events-script.js";
+import { formatDate, formatLineBreaks, formatTime, formatURL } from "../assets/events-script.js";
 
-export function eventsDetailsView(data) {
-
-  const categoriesNav = data.categories.map(category => `
-    <li><a href="/events/category=${escape(category.category_name).toLowerCase()}/${category.category_id}">${escape(category.category_name)}</a></li>
-    `).join("");
+export function adminEventsDetailsView(data) {
 
   let contentHtml = ``;
 
@@ -41,11 +37,10 @@ export function eventsDetailsView(data) {
       </p>
     `;
   }
-
+  
   const eventTime = data.events.event_end_time ? 
   `${formatTime(escape(data.events.event_start_time))} – ${formatTime(escape(data.events.event_end_time))}` 
   : `${formatTime(escape(data.events.event_start_time))}`;
-  
 
   let contactHtml = ``;
 
@@ -69,7 +64,7 @@ export function eventsDetailsView(data) {
     <p>
       <strong>${escape(data.contact2.contact_designation)}</strong><br />
       ${escape(data.contact2.contact_name)}<br />
-      📞 ${data.contact2.contact_phone}<br />
+      📞 ${escape(data.contact2.contact_phone)}<br />
       ✉
        <a href="mailto:${escape(data.contact2.contact_email)}">
        ${escape(data.contact2.contact_email)}
@@ -83,8 +78,9 @@ export function eventsDetailsView(data) {
      <header>
       <nav>
         <ul>
-          <li><a href="/events/events-homepage">All Events</a></li>
-          ${categoriesNav}
+          <li><a href="/events/admin/events-homepage">Dashboard</a></li>
+          <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+          <li><a href="#">Log out</a></li>
         </ul>
       </nav>
     </header>
@@ -129,6 +125,17 @@ export function eventsDetailsView(data) {
       </section>
 
       <button id="register-button" type="button">Register Now</button>
+
+      <div class="details-button-container">
+
+        <form action="/events/admin/event-deletion-confirmation/${data.events.event_id}/${formatURL(escape(data.events.event_name))}" method="GET">
+          <button type="submit" class="details-admin-buttons" id="delete-btn" >DELETE</button>
+        </form>
+
+        <form action="/events/admin/event-update-form/${data.events.category_id}/${data.events.event_id}/${formatURL(escape(data.events.event_name))}" method="GET">
+          <button type="submit" class="details-admin-buttons" id="update-btn">UPDATE</button>
+        </form>
+      </div>
     </main>
     `
 }
