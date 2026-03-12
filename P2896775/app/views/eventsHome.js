@@ -4,7 +4,7 @@ import { formatDate, formatLineBreaks, formatURL } from "../assets/events-script
 export function eventsHomeView(data) {
 
   const categoriesNav = data.categories.map(category => `
-    <li><a href="/events/category=${escape(category.category_name).toLowerCase()}/${category.category_id}">${escape(category.category_name)}</a></li>
+    <li><a href="/events/category=${formatURL(escape(category.category_name))}/${category.category_id}">${escape(category.category_name)}</a></li>
     `).join("");
     
   let searchText = data.searchItem ? `Search results for "${escape(data.searchItem).trim()}"` : ``;
@@ -59,7 +59,7 @@ export function eventsHomeView(data) {
         <li><a href="/events/admin/events-homepage">Admin Page</a></li>
       </ul>
 
-      <form action="/events/events-homepage" method="GET">
+      <form action="/" method="GET">
         <div class="search-container">
           <label for="search-category">Search:</label>
           <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
