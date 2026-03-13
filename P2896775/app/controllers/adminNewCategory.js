@@ -4,7 +4,6 @@ import { redirect } from "../tools/redirect.js";
 import render from "../tools/render.js";
 import { adminNewCategoryView } from "../views/adminNewCategory.js";
 
-
 export function adminNewCategoryController({ request }) {
 
     const categories = getCategories();
@@ -37,5 +36,12 @@ export async function addNewCategoryController({ request }) {
     }
 
     addCategory(firstLetterUpperCase(newCategory));
-    return redirect("/events/admin/event-creation-form");
+
+    const headers = new Headers();
+
+    return redirect(
+        headers, 
+        "/events/admin/event-creation-form", 
+        `✅ Category "${firstLetterUpperCase(newCategory)}" added successfully!`
+    );
 }
