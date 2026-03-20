@@ -54,6 +54,7 @@ export function eventsHomeView(data) {
 
     <nav>
       <ul>
+        <li><a href="/">Back</a></li>
         <li><a href="/events/events-homepage">All Events</a></li>
         ${categoriesNav}
         <li><a href="/events/admin/events-homepage">Admin Page</a></li>
