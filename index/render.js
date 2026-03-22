@@ -13,7 +13,7 @@ export function render(viewFn, data, request, status = 200) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Event Managment System</title>
 
-    <link rel="icon" href="/index/assets/img/logo.png">
+    <link rel="icon" href="/p2897238/assets/img/logo.png">
     <link rel="stylesheet" href="/index/assets/index.css">
 </head>
 <body>
@@ -31,7 +31,7 @@ export function render(viewFn, data, request, status = 200) {
         <div class="navBar">
         <ul>
             <li><a href="/events/events-homepage">Events</a></li>
-            <li><a href="project.html">News</a></li>
+            <li><a href="/news/news-home-page">News</a></li>
         </ul>
     </nav>
 

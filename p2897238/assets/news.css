@@ -15,34 +15,15 @@ body {
     }
     /* --------------------- header --------------------- */
     header {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
         padding: 10px;
-        align-items: center;
+        text-align: center;
         a {
             color: black;
         }
-
-        a hr{
-            text-align: center;
-        }
     }
-
-    .button{
-        padding-right: 10px;
-    }
-
     a {
         text-decoration: none;
         color: white;
-    }
-    .login{
-        padding-top: 5px;
-        padding-bottom: 5%;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 14px;
     }
     /* ---------------------  --------------------- */
 
@@ -208,7 +189,65 @@ body {
     footer address {
         padding: 15px;
     }
+     /* ---------------------  --------------------- */
+      /* --------------------- news styling --------------------- */
+      .news-styling article {
+        margin-top: 40px;
+        margin-left: 20vw;
+        margin-right: 20vw;
+        margin-bottom: 40px;
+        padding: 2vw;
+        background-color: white;
+        text-align: center;
+        font-size: 22px;
 
+        .news-styling p{
+            padding-left: 3vw;
+            padding-right: 3vw;
+        }
+        .news-styling h3{
+            padding-left: 3vw;
+            padding-right: 3vw;
+        }
+       }
+
+       .news-styling article img{
+        float: center;
+        margin-top: 20px;
+        margin-bottom: 0;
+        height: 30vw;
+        width: 45vw;
+       }
+
+       .news-styling .type{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 5vw;
+        padding-right: 2vw;
+        margin-top: 0;
+       }
+       
+       .news-styling .both{
+        display: flex;        
+       }
+       .news-styling section {
+        margin-top: 40px;
+        margin-left: 20vw;
+        margin-right: 20vw;
+        margin-bottom: 50px;
+
+        padding: 20px;
+        background-color: white;
+        font-size: 22px;
+       }
+
+       .news-styling a{
+        color: black;
+       }
+
+     /* ---------------------  --------------------- */
+      /* --------------------- media query --------------------- */
     @media screen and (max-width: 1620px) {
         .events{
             flex-direction: column;
@@ -244,9 +283,24 @@ body {
         margin-bottom: 40px;
         width: auto;
         padding: 15px;
-        
+        }
         #commentBox{
             min-height: 30vw;
         }
+        .news-styling article {
+            margin-left: 10vw;
+            margin-right: 10vw;
+            font-size: 18px;
         }
-    }
+        .news-styling article img{
+            height: 40vw;
+            width: 65vw;
+        }
+        .news-styling section{
+            margin-top: 10px;
+            margin-left: 10vw;
+            margin-right: 10vw;
+            font-size: 18px;
+        }
+        }
+    

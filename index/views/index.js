@@ -32,7 +32,7 @@ export function indexView(data) {
     </article>
 
     <section>
-        <a href="project.html">
+        <a href="/news/news-home-page">
             <h2>Event News</h2>
         </a>
             <div class="new">
@@ -69,7 +69,7 @@ export function indexView(data) {
                     </a>
                 </div>
                 </div>
-                <a href="project.html">
+                <a href="/news/news-home-page">
                 <button class="more" onclick="">More News...</button>
                 </a>
             </section>
