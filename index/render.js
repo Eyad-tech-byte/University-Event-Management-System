@@ -18,20 +18,15 @@ export function render(viewFn, data, request, status = 200) {
 </head>
 <body>
     <header>
-        <h1></h1>
         <a href="/"><h1>University Event Managment System</h1></a>
-        <div class="button">
-            <a href="admin.html">
-            <button class="login">Log in</button>
-            </a>
-        </div>
     </header>
 
     <nav>
         <div class="navBar">
         <ul>
             <li><a href="/events/events-homepage">Events</a></li>
-            <li><a href="/news/news-home-page">News</a></li>
+            <li><a href="/news/news-home">News</a></li>
+            <li><a href="/admin/admin">Admin</a></li>
         </ul>
     </nav>
 

@@ -32,7 +32,7 @@ export function indexView(data) {
     </article>
 
     <section>
-        <a href="/news/news-home-page">
+        <a href="/news/news-home">
             <h2>Event News</h2>
         </a>
             <div class="new">
@@ -40,7 +40,7 @@ export function indexView(data) {
                         <div class="tittle">
                         <b>Football Champions</b> <time datetime="2026-02-22"> 22 Feb 2026 </time> 
                         </div>
-                        <a href="football.html">
+                        <a href="/news/news-football-event">
                         <img src="/p2897238/assets/img/football.jpg" alt="football" width="200" height="150">
                         The university football team won the football tournament after a season full of
                         hard work and practice.  <ins>view more...</ins><br>
@@ -51,7 +51,7 @@ export function indexView(data) {
                     <div class="tittle">
                         <b>MUN</b> <time datetime="2026-01-8">8 Jan 2026</time>
                         </div>
-                    <a href="united.html">
+                    <a href="/news/news-mun-event">
                         <img src="/p2897238/assets/img/united.jpg" alt="MUN" width="200" height="150">
                         The university recently hosted its annual MUN Conference, where students participated 
                         in diplomatic and global discussions. <ins>view more...</ins><br>
@@ -62,7 +62,7 @@ export function indexView(data) {
                     <div class="tittle">
                         <b>Robotics Champions</b> <time datetime="2025-01-3"> 3 Jan 2025 </time>
                         </div>
-                    <a href="robotics.html">
+                    <a href="/news/news-robotics-event">
                         <img src="/p2897238/assets/img/robotics2.jpg" alt="robotics" width="200" height="150">
                         The university robotics team won a major robotics competition by designing and 
                         building an impressive robot.<ins>view more...</ins><br>

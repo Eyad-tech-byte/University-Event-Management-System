@@ -25,14 +25,14 @@ db.exec(`
         );
     
         INSERT INTO article (idName, title, date, image, catagory, content) VALUES
-            ('Football', 'Football Champions','2026-02-22','/assets/img/football.jpg','sports',
+            ('Football', 'Football Champions','2026-02-22','/p2897238/assets/img/football.jpg','sports',
             'The university football team achieved a remarkable victory this season by winning the championship after 
             months of dedication and teamwork. Their strong defense and smart strategy secured success in the final 
             match, bringing pride to the entire campus. Students and faculty celebrated the achievement, marking it 
             as one of the most memorable sports moments of the year. The victory reflects the team’s discipline, unity, 
             and commitment to excellence.'),
 
-            ('MUN', 'Model United Nations','2026-01-8','/assets/img/united.jpg','academic',
+            ('MUN', 'Model United Nations','2026-01-8','/p2897238/assets/img/united.jpg','academic',
             'The university recently hosted its annual Model United Nations Conference, where students participated 
             in diplomatic debates and global discussions. Delegates represented different countries and addressed 
             international issues in a professional setting. The event encouraged public speaking, negotiation skills, 
@@ -40,21 +40,21 @@ db.exec(`
             for outstanding delegates, highlighting the university’s commitment to leadership and global 
             awareness.'),
 
-            ('Robotics', 'Robotics Champions','2025-01-3','/assets/img/robotics2.jpg','technology',
+            ('Robotics', 'Robotics Champions','2025-01-3','/p2897238/assets/img/robotics2.jpg','technology',
             'The university robotics team secured first place in a major robotics competition after designing and 
             building an innovative robot capable of completing complex challenges with speed and precision. The team 
             demonstrated strong technical skills, creativity, and collaboration throughout the project. Their achievement 
             showcases the university’s excellence in science, technology, and innovation, proving that campus talent extends 
             beyond sports into advanced engineering and problem-solving.'),
 
-            ('Art', 'Campus Art festival','2024-06-12','/assets/img/art.avif','art',
+            ('Art', 'Campus Art festival','2024-06-12','/p2897238/assets/img/art.avif','art',
             'The Annual Campus Art Festival transformed the university into a vibrant creative space filled with 
             exhibitions, workshops, and live artistic performances. Students showcased their talents through paintings, 
             sculptures, digital artwork, and multimedia projects. The event encouraged collaboration between artists and 
             attracted large attendance from students and faculty. The festival highlighted the importance of creativity and 
             artistic expression within the university community.'),
 
-            ('Audition', 'Hamlet Auditions','2024-04-14','/assets/img/audi.webp','art',
+            ('Audition', 'Hamlet Auditions','2024-04-14','/p2897238/assets/img/audi.webp','art',
             'The university recently presented a remarkable performance of Hamlet, featuring students from various 
             departments. Actors delivered compelling portrayals of the characters, while the production crew enhanced the 
             play with creative staging, lighting, and music. Audiences of students, faculty, and visitors were captivated, 
@@ -62,7 +62,7 @@ db.exec(`
             talent and the cultural vibrancy of campus life, leaving attendees inspired and excited for future theater 
             productions.'),
 
-            ('Basketball', 'Basketball Champions', '2023-05-8','/assets/img/basketball.jpg','sports',
+            ('Basketball', 'Basketball Champions', '2023-05-8','/p2897238/assets/img/basketball.jpg','sports',
             'The university basketball team celebrated an impressive championship victory after demonstrating skill, 
             teamwork, and determination throughout the tournament. Their fast passes, accurate shooting, and resilience 
             under pressure secured success in the final game. Fans filled the stands and campus celebrations followed the 
@@ -70,9 +70,9 @@ db.exec(`
             competitive sports.');
 
             INSERT INTO section (section_image, section_title, section_content, section_date) VALUES
-            ('/assets/img/run.jpeg', 'Campus Marathon 5km', 'A fun and inclusive 5K marathon open to all students and staff.', '2026-04-02'),
+            ('/p2897238/assets/img/run.jpeg', 'Campus Marathon 5km', 'A fun and inclusive 5K marathon open to all students and staff.', '2026-04-02'),
 
-            ('/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative
+            ('/p2897238/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative
             performance.', '2026-05-20');
 
     CREATE TABLE news_article (
@@ -117,7 +117,7 @@ db.exec(`
         ) VALUES
             ('football',
         'University Football Team Wins ChampionShip',
-             '/assets/img/football.jpg',
+             '/p2897238/assets/img/football.jpg',
               '2026-02-22',
               'sports',
                'Champions Victory', 
@@ -132,7 +132,7 @@ db.exec(`
             
             ('mun',
             'Model United Nations Conference',
-            '/assets/img/united.jpg',
+            '/p2897238/assets/img/united.jpg',
             '2026-01-08',
             'academic',
             'Model United Nations',
@@ -147,7 +147,7 @@ db.exec(`
 
             ('robotics',
             'Robotics Competetion Victory',
-            '/assets/img/robotics.jpg',
+            '/p2897238/assets/img/robotics.jpg',
             '2025-01-03',
             'technology',
             'Robotics Team Wins Major Competition',
@@ -162,7 +162,7 @@ db.exec(`
 
             ('art',
             'Univeristy Art Festival',
-            '/assets/img/art.avif',
+            '/p2897238/assets/img/art.avif',
             '2024-06-012',
             'art',
             'Annual Campus Art Festival',
@@ -177,7 +177,7 @@ db.exec(`
 
             ('audition',
             'Hamlet Auditions Event',
-            '/assets/img/audi.webp',
+            '/p2897238/assets/img/audi.webp',
             '2024-04-14',
             'art',
             'University Theater Presents “Hamlet”',
@@ -192,7 +192,7 @@ db.exec(`
 
             ('basketball',
             'Basketball Champions',
-            '/assets/img/basketball2.webp',
+            '/p2897238/assets/img/basketball2.webp',
             '2023-05-08',
             'sports',
             'Basketball Team Wins Championship',
