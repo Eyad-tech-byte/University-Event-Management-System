@@ -1,8 +1,8 @@
 {
   "tasks": {
     "serve": "deno run --allow-net --allow-read --allow-write --allow-env --allow-ffi --watch main.js",
-    "db-create-events": "deno --allow-env --allow-ffi --allow-read --allow-write=C:/Users/ham29/AppData/Local/deno/plug ./P2896775/app/tasks/db-create-events.js"
-    "db-create-news": "deno --allow-env --allow-ffi --allow-read=C:\\Users\\user\\AppData\\Local\\deno\\plug ./p2897238/app/tasks/db-create-news.js"
+    "db-create-events": "deno --allow-env --allow-ffi --allow-read --allow-write=C:/Users/ham29/AppData/Local/deno/plug ./P2896775/app/tasks/db-create-events.js",
+    "db-create-news": "deno --allow-env --allow-ffi --allow-read --allow-write=C:/Users/user/AppData/Local/deno/plug ./p2897238/app/tasks/db-create-news.js"
 
   },
 
