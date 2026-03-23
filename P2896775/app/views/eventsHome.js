@@ -60,7 +60,7 @@ export function eventsHomeView(data) {
         <li><a href="/events/admin/events-homepage">Admin Page</a></li>
       </ul>
 
-      <form action="/" method="GET">
+      <form action="/events/events-homepage" method="GET">
         <div class="search-container">
           <label for="search-category">Search:</label>
           <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
