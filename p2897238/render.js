@@ -16,7 +16,7 @@ export default function render(viewFn, data, status = 200){
 
             <body>
                 <header>
-                    <a href="/news/news-home"><h1>Event Managment System </h1></a>
+                    <a href="/"><h1>Event Managment System </h1></a>
                 </header>
 
                 <nav>
@@ -57,8 +57,6 @@ export default function render(viewFn, data, status = 200){
                         <p>&copy Fake University. All rights reserved.</p>
                     </div>
                 </footer>
-
-                <script src="/assets/news.js"></script>
 
             </body>
         </html>
