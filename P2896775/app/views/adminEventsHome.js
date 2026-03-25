@@ -62,14 +62,13 @@ export function adminEventsHomeView(data) {
         <li><a href="/">Back</a></li>
         <li><a href="/events/admin/events-homepage">Dashboard</a></li>
         <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-        <li><a href="#">Log out</a></li>
         <li><a href="/events/events-homepage">Student Page</a></li>
       </ul>
 
       <form action="/events/admin/events-homepage" method="GET">
         <div class="search-container">
           <label for="search-category">Search:</label>
-          <input type="search" id="search-category" name="search-admin" placeholder="Type an event to search"/>
+          <input type="search" id="search-category" name="search-admin" placeholder="Type an event to search">
           <button type="submit" class="search-btn">Search</button>
         </div>
       </form>
