@@ -1,4 +1,4 @@
-import { formatURL } from "../assets/events-script.js";
+import { formatURL } from "../../assets/events-script.js";
 
 export async function saveImage(imageFile, eventName) {
 
@@ -18,12 +18,12 @@ export async function saveImage(imageFile, eventName) {
     
     // convert raw data into byte format (Uint8Array) and save to file system
     await Deno.writeFile(
-        `./P2896775/app/assets/event-images/${finalFileName}`,
+        `./P2896775/assets/event-images/${finalFileName}`,
         new Uint8Array(buffer)
     );
     
     // return the file path to store in database
-    return `/P2896775/app/assets/event-images/${finalFileName}`;
+    return `/P2896775/assets/event-images/${finalFileName}`;
 }
 
 export async function deleteImage(eventImageLink) {

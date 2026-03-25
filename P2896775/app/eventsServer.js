@@ -25,7 +25,7 @@ eventsApp.use(withHeaders);
 eventsApp.use(withLogs);
 
 // student facing pages
-eventsApp.get("/assets/*", staticController);
+eventsApp.get("/P2896775/assets/*", staticController);
 eventsApp.get("/events/events-homepage", eventsHomeController);
 eventsApp.get("/events/events-details/*", eventsDetailsController);
 eventsApp.get("/events/category=:category/:categoryId", eventsCategoriesController);

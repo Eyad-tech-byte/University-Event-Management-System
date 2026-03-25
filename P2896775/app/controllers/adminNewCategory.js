@@ -1,4 +1,4 @@
-import { firstLetterUpperCase } from "../assets/events-script.js";
+import { firstLetterUpperCase } from "../../assets/events-script.js";
 import { addCategory, getCategories } from "../models/categories.js";
 import { redirect } from "../tools/redirect.js";
 import render from "../tools/render.js";

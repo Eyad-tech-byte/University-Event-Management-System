@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { formatURL } from "../assets/events-script.js";
+import { formatURL } from "../../assets/events-script.js";
 
 export function adminDeleteEventView(data) {
     return `

@@ -5,7 +5,7 @@ import { adminCreateEventView } from "../views/adminCreateEvent.js"
 import { addEvent } from "../models/events.js";
 import { addContact } from "../models/contacts.js";
 import { saveImage } from "../tools/imageHelpers.js";
-import { firstLetterUpperCase } from "../assets/events-script.js";
+import { firstLetterUpperCase } from "../../assets/events-script.js";
 
 export function adminCreateEventController(ctx) {
     const { errors } = ctx;

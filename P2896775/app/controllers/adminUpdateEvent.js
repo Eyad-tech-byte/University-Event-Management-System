@@ -5,7 +5,7 @@ import render from "../tools/render.js";
 import { adminUpdateEventView } from "../views/adminUpdateEvent.js";
 import { redirect } from "../tools/redirect.js";
 import { deleteImage, saveImage } from "../tools/imageHelpers.js";
-import { firstLetterUpperCase } from "../assets/events-script.js";
+import { firstLetterUpperCase } from "../../assets/events-script.js";
 
 
 export function adminUpdateEventController(ctx) {

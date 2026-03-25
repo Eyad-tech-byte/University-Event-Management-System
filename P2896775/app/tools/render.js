@@ -34,8 +34,8 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>University Events Management System</title>
-        <link rel="stylesheet" href="/P2896775/app/assets/events-styles.css">
-        <link rel="icon" href="/P2896775/app/assets/favicon.svg">
+        <link rel="stylesheet" href="/P2896775/assets/events-styles.css">
+        <link rel="icon" href="/P2896775/assets/favicon.svg">
       </head>
 
       <body class="${bodyClass}">
@@ -65,7 +65,7 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
 
       <p>© 2026 Imaginary University. All rights reserved.</p>
       </footer>
-      <script src="/P2896775/app/assets/events-script.js"></script>
+      <script src="/P2896775/assets/events-script.js"></script>
       </body>
     </html>
   `;
