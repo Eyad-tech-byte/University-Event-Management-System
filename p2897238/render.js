@@ -16,37 +16,37 @@ export default function render(viewFn, data, status = 200){
 
             <body>
                 <header>
-                    <a href="/"><h1>Event Managment System </h1></a>
+                    <h1><a href="/">Event Managment System </a></h1>
                 </header>
 
                 <nav>
-                    <nav class="navAll">
-                    <div class="navBar">
-                    <ul>
-                        <li><a href="/news/news-home">All</a></li>
-                        <li><a href="/news/news-sports">Sports</a></li>
-                        <li><a href="/news/news-art">Art</a></li>
-                        <li><a href="/news/news-technology">Technology</a></li>
-                        <li><a href="/news/news-academic">Academic</a></li>
-                        <li><a href="/news/news-admin">Admin</a></li>
-                    </ul>
+                    <div class="navAll">
+                        <div class="navBar">
+                            <ul>
+                                <li><a href="/news/news-home">All</a></li>
+                                <li><a href="/news/news-sports">Sports</a></li>
+                                <li><a href="/news/news-art">Art</a></li>
+                                <li><a href="/news/news-technology">Technology</a></li>
+                                <li><a href="/news/news-academic">Academic</a></li>
+                                <li><a href="/news/news-admin">Admin</a></li>
+                            </ul>
+                        </div>
+                        <div class="search">
+                            <label style="color: white;">Search: </label>
+                            <input class="serch" type="search" id="search" name="search">
+                            <button class="sarch">Search</button>    
+                        </div>
                     </div>
-                    <div class="search">
-                        <label style="color: white;">Search: </label>
-                        <input class="serch" type="search" id="search" name="search">
-                        <button class="sarch" onclick="searchResult()">Search</button>    
-                    </div>
-                </nav>
                 </nav>
 
                 ${content}
    
                 <footer>
                     <div>
-                    <address style="align-self: flex-end;">
-                        Email: <a href="mailto:fake_university@example.com">fake_university@example.com</a><br>
-                        Leicester, UK
-                    </address>
+                        <address style="align-self: flex-end;">
+                            Email: <a href="mailto:fake_university@example.com">fake_university@example.com</a><br>
+                            Leicester, UK
+                        </address>
                     </div>
 
                     <div>
@@ -57,6 +57,8 @@ export default function render(viewFn, data, status = 200){
                         <p>&copy Fake University. All rights reserved.</p>
                     </div>
                 </footer>
+
+                
 
             </body>
         </html>

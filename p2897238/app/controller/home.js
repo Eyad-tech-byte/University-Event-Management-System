@@ -19,6 +19,7 @@ export function artController(){
     const events = getAllSections();
     return render(homesView, { news, events });
 }
+
 export function technologyController(){
     const news = getTechnologyArticles();
     const events = getAllSections();
