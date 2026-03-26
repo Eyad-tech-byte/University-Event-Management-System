@@ -12,14 +12,13 @@ export function eventsCategoriesView(data) {
 
     // checking if there are any events for the selected category
     if (data.events.length == 0) {
-      eventsHtml = `<p id="category-error">There are currently no events available for the category 
-      <strong>"${escape(data.selectedCategory.category_name)}"</strong></p>`
+      eventsHtml = `<p id="no-events-error">There are currently no events available for the category <strong>"${escape(data.selectedCategory.category_name)}"</strong></p>`
       
     } else {
       eventsHtml = data.events.map(event => 
         `
         <a href="/events/events-details/${event.event_id}/${formatURL(escape(event.event_name))}">
-            <article class="${escape(event.category_name).toLowerCase()}">
+            <article class="event-card">
                 <img src="${escape(event.event_image_link)}" alt="${escape(event.event_name)}" width="200" height="100">
                 <p class="category">${escape(event.category_name).toUpperCase()}</p>
                 <time datetime="${escape(event.event_date)}">
@@ -52,13 +51,14 @@ export function eventsCategoriesView(data) {
             <div class="search-container">
               <label for="search-category">Search:</label>
               <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
-              <button type="submit" class="search-btn">Search</button>
+              <button class="search-btn">Search</button>
             </div>
           </form>
         </nav>
     
         <main>
           <section id="all-events">
+            <h2>All ${data.selectedCategory.category_name} Events</h2>
             ${eventsHtml}
           </section>  
         </main>

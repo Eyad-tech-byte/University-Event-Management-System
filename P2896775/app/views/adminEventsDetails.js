@@ -77,21 +77,19 @@ export function adminEventsDetailsView(data) {
 
 
     return `
-     <header>
-      <nav>
-        <ul>
-          <li><a href="/events/admin/events-homepage">Dashboard</a></li>
-          <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <ul>
+        <li><a href="/events/admin/events-homepage">Dashboard</a></li>
+        <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+      </ul>
+    </nav>
 
     <main>
       <section class="event-image">
         <img
           src="${escape(data.events.event_image_link)}"
           alt="Event-Image"
-        />
+        >
       </section>
 
       <section class="event-content-wrapper">
@@ -130,11 +128,11 @@ export function adminEventsDetailsView(data) {
       <div class="details-button-container">
 
         <form action="/events/admin/event-deletion-confirmation/${data.events.event_id}/${formatURL(escape(data.events.event_name))}" method="GET">
-          <button type="submit" class="details-admin-buttons" id="delete-btn" >DELETE</button>
+          <button class="details-admin-buttons" id="delete-btn-details" >DELETE</button>
         </form>
 
         <form action="/events/admin/event-update-form/${data.events.category_id}/${data.events.event_id}/${formatURL(escape(data.events.event_name))}" method="GET">
-          <button type="submit" class="details-admin-buttons" id="update-btn">UPDATE</button>
+          <button class="details-admin-buttons" id="update-btn-details">UPDATE</button>
         </form>
       </div>
     </main>
