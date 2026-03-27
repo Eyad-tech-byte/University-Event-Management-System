@@ -1,6 +1,17 @@
-export default function render(viewFn, data, status = 200){
+import { escape } from "@std/html/entities";
+import { getFlash } from "./app/flash.js";
+
+export default function render(viewFn, data, request, status = 200){
     const content = viewFn(data);
     const headers = new Headers();
+
+    const flash = getFlash(request.headers, headers);
+    const flashMessage = flash ? `
+    <aside id="flash">
+        <p>${escape(flash)}</p>
+    </aside>
+    ` : ''
+
     headers.set("content-type", "text/html");
     const html =`
         <!DOCTYPE html>
@@ -39,7 +50,7 @@ export default function render(viewFn, data, status = 200){
                         </div>
                     </div>
                 </nav>
-
+                ${flashMessage}
                 ${content}
    
                 <footer>

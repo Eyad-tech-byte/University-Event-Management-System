@@ -575,6 +575,29 @@ body {
         padding: 20px;
      }
 
+     /* -------------------- flash massage  --------------------- */
+     aside#flash{
+        background-color: rgb(247, 173, 62);
+        color: black;
+        position: fixed;
+        top: 7rem;
+        right: 0;
+        padding-inline: 2rem;
+        font-size: 1.2rem;
+        translate: calc(100% - 1rem);
+        transition: translate 200ms;
+        animation: flash 2s;
+
+        &:hover {
+        translate: none;
+        }
+    }
+    
+    @keyframes flash {
+        10%, 90%{
+            translate: none;
+        }
+    }
       /* --------------------- media query --------------------- */
     @media screen and (max-width: 1620px) {
         .events{

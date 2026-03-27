@@ -70,8 +70,8 @@ export function indexView(data) {
                         </a>
                     </div>
                 </div>
-                <a href="/news/news-home-page">
-                    <button class="more" onclick="">More News...</button>
+                <a href="/news/news-home">
+                    <button class="more">More News...</button>
                 </a>
             </section>
 

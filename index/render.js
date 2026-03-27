@@ -21,7 +21,7 @@ export function render(viewFn, data, request, status = 200) {
                 <h1></h1>
                 <h1><a href="/">Imaginary University Managment System</a></h1>
                 <div class="button">
-                    <a href="/log-in">
+                    <a href="/Imaginary-University-Managment-System/admin">
                         <button class="login">Log in</button>
                     </a>
                 </div>

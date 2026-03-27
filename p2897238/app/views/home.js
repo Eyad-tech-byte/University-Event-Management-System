@@ -1,16 +1,18 @@
+import { escape } from "@std/html/entities";
+
 export function homesView({ news, events }){
     
     const news_events = news.map(article => `
         <article class="news"> 
             <div class="tittle">
-                <strong>${article.title}</strong>
+                <strong>${escape(article.title)}</strong>
                 <time datetime="${article.date}"> ${article.date}</time>
             </div>
 
             <figure class="first_image">
-                <a href="/news/news-${article.idName.toLowerCase()}-event">
-                    <img src="/file/${article.idName}" alt="${article.title}" width="300" height="200">
-                    ${article.content}
+                <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
+                    <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
+                    ${escape(article.content)}
                     <ins> view more...</ins><br>
                 </a>
             </figure>
@@ -22,12 +24,12 @@ export function homesView({ news, events }){
         
         const events_news = events.map(section => `
             <article class="events">
-                <img src=${section.section_image} alt="${section.section_title}" width="300" height="200">
+                <img src=${section.section_image} alt=${escape(section.section_title)} width="300" height="200">
                 <div>
                     <b>${section.section_title}</b><br><br>
                     ${section.section_content}<br><br>
                     <time datetime=${section.section_date}>${section.section_date}</time><br><br>
-                    <button type="button"><a href="/events/events-homepage">View Details</a></button>
+                    <button type="button">View Details</button>
                 </div>
             </article>
             <hr>
@@ -45,7 +47,7 @@ export function homesView({ news, events }){
             <section class="events_page">
                 <h2><mark>Dont miss these events!</mark></h2>
                 ${events_news}
-                <button type="button"><a href="/events/events-homepage">view more events</a></button>
+                <button type="button">view more events</button>
             </section>
         </div>
 

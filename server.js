@@ -3,6 +3,7 @@ import { staticController } from "./index/controllers/static.js";
 import { eventsServer } from "./P2896775/app/eventsServer.js";
 import newsServer from "./p2897238/server.js";
 import { imageController } from "./p2897238/app/controller/add.js";
+import { adminController } from "./index/controllers/indexAdmin.js";
 
 export default function server(request) {
     const url = new URL(request.url);
@@ -10,6 +11,9 @@ export default function server(request) {
 
     if(url.pathname == "/") {
         return indexController({ request });
+    }
+    if(url.pathname == "/Imaginary-University-Managment-System/admin"){
+        return adminController({ request });
     }
 
     if(url.pathname.includes("/assets")) {

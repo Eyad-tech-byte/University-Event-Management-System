@@ -14,8 +14,9 @@ export function getExampleSimilarArticle(){
 
 export function createShortNews(idName, title, date, image, image_type, catagory, content) {
     db.prepare(`
-        INSERT INTO article (idName, title, date, image, image_type, catagory, content) VALUES ( ?, ?, ?, ?, ?, ?, ? )
-        `).run(idName, title, date, image, image_type, catagory, content);
+        INSERT INTO article (idName, title, date, image, image_type, catagory, content) 
+        VALUES ( :idName, :title, :date, :image, :image_type, :catagory, :content )
+        `).run({ idName, title, date, image, image_type, catagory, content });
 }
 
 export function getShortImage(idName){
@@ -58,8 +59,23 @@ export function createLongNews(
                 news_title_5,
                 news_content_4, 
                 news_content_5 ) 
-                VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-            `).run(
+                VALUES ( 
+                    :news_id,
+                    :news_title_1, 
+                    :news_image,
+                    :news_image_type, 
+                    :news_date, 
+                    :news_catagory, 
+                    :news_title_2, 
+                    :news_content_1, 
+                    :news_title_3, 
+                    :news_content_2, 
+                    :news_title_4, 
+                    :news_content_3, 
+                    :news_title_5,
+                    :news_content_4, 
+                    :news_content_5 )
+            `).run({
                 news_id,
                 news_title_1, 
                 news_image,
@@ -74,7 +90,7 @@ export function createLongNews(
                 news_content_3, 
                 news_title_5,
                 news_content_4, 
-                news_content_5 );
+                news_content_5 });
 }
 
 export function createSimilar(news_section_id, news_section_target, news_section_content){

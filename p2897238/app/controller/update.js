@@ -2,11 +2,12 @@ import { getUpdateShortArticle, getNews, UpdateFirstNews, UpdateSecondNews } fro
 import render from "../../render.js";
 import { updateView } from "../views/update.js";
 import { updateSecondView } from "../views/update2.js";
+import redirect from "../redirect.js";
 
-export function updateController(){
+export function updateController({ request }){
     const update = getUpdateShortArticle();
 
-    return render(updateView, { update });
+    return render(updateView, { update }, request);
 }
 
 export async function UpdatedController({ request }){
@@ -15,7 +16,7 @@ export async function UpdatedController({ request }){
 
     const headers = new Headers();
     headers.set('location', `/news/news-admin-update-choosen-news-event?id=${id}`);
-    return new Response(null, { headers, status: 303});
+    return new Response(null, { headers, status: 303}, request);
     
 }
 
@@ -24,7 +25,7 @@ export function updatesController({ request }){
     const id = url.searchParams.get('id');
 
     const { first, second } = getNews(id);
-    return render(updateSecondView, { first, second });
+    return render(updateSecondView, { first, second }, request);
 }
 
 export async function UpdateNewsController({ request }){
@@ -53,6 +54,5 @@ export async function UpdateNewsController({ request }){
     );
 
     const headers = new Headers();
-    headers.set('location', '/news/news-home');
-    return new Response(null, { headers, status: 303 });
+    return redirect(headers, '/news/news-home', `updated Successfully`);
 }

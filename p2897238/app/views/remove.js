@@ -1,17 +1,18 @@
+import { escape } from "@std/html/entities";
 
 export function removeView({ checkbox }){
     
     const remove_news = checkbox.map(article => `
             <article class="remove-news">
                 <div class="remove-tittle">
-                    <strong>${article.title}</strong>
+                    <strong>${escape(article.title)}</strong>
                     <time datetime="${article.date}"> ${article.date}</time>
                 </div>
 
                 <figure class="remove-img">
-                    <a href="/news/news-${article.idName.toLowerCase()}-event">
-                        <img src="/file/${article.idName}" alt="${article.title}" width="300" height="200">
-                        ${article.content}
+                    <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
+                        <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
+                        ${escape(article.content)}
                         <ins> view more...</ins><br>
                     </a>
                 </figure>
@@ -21,8 +22,8 @@ export function removeView({ checkbox }){
             </article>
 
             <div>
-                <input type="checkbox" id="${article.idName}" name="news_delete" value="${article.idName}">
-                <label for="${article.idName}">To remove this one tick the checkbox</label>
+                <input type="checkbox" id="${escape(article.idName)}" name="news_delete" value="${escape(article.idName)}">
+                <label for="${escape(article.idName)}">To remove this one tick the checkbox</label>
             </div>
         `).join("\n");
 

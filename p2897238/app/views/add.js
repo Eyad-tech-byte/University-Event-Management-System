@@ -1,14 +1,16 @@
-export function addView({short, long, similar}){
+import { escape } from "@std/html/entities";
+
+export function addView({short, long, similar, error}){
     const short_news = short.map(short_article => `
         <article class="add-news"> 
             <div class="add-tittle">
-                <strong>${short_article.short_article_title}</strong>
+                <strong>${escape(short_article.short_article_title)}</strong>
                 <time datetime="${short_article.short_article_date}"> ${short_article.short_article_date}</time>
             </div>
 
             <figure class="add-img">
-                    <img src="${short_article.short_article_image}" alt="${short_article.short_article_title}" width="300" height="200">
-                    ${short_article.short_article_content}
+                    <img src="${short_article.short_article_image}" alt="${escape(short_article.short_article_title)}" width="300" height="200">
+                    ${escape(short_article.short_article_content)}
                     <ins> view more...</ins><br>
             </figure>
 
@@ -19,10 +21,10 @@ export function addView({short, long, similar}){
 
     const long_news = long.map(long_article => `
         <article class="add-news-items">
-            <h1>${long_article.long_article_title_1}</h1>
+            <h1>${escape(long_article.long_article_title_1)}</h1>
 
             <figure class="add-news-img">
-                <img src="${long_article.long_article_image}" alt="${long_article.long_article_title_2}" width="400" height="450">
+                <img src="${long_article.long_article_image}" alt="${escape(long_article.long_article_title_2)}" width="400" height="450">
             </figure>
             
             <div class="add-time">
@@ -30,26 +32,26 @@ export function addView({short, long, similar}){
                 <span>#${long_article.long_article_catagory}</span>
             </div>
 
-            <h3>${long_article.long_article_title_2}</h3>
-            <p>${long_article.long_article_content_1}</p>
+            <h3>${escape(long_article.long_article_title_2)}</h3>
+            <p>${escape(long_article.long_article_content_1)}</p>
             <br>
             
             <div class="add-both">
                 <div>
-                    <h3>${long_article.long_article_title_3}</h3>
-                    <p>${long_article.long_article_content_2}</p>
+                    <h3>${escape(long_article.long_article_title_3)}</h3>
+                    <p>${escape(long_article.long_article_content_2)}</p>
                 </div>
                 <div>
-                    <h3>${long_article.long_article_title_4}</h3>
-                    <p>${long_article.long_article_content_3}</p>
+                    <h3>${escape(long_article.long_article_title_4)}</h3>
+                    <p>${escape(long_article.long_article_content_3)}</p>
                 </div>
             </div>
             <br>
 
-            <h3>${long_article.long_article_title_5}</h3>
-            <p>${long_article.long_article_content_4}</p>
+            <h3>${escape(long_article.long_article_title_5)}</h3>
+            <p>${escape(long_article.long_article_content_4)}</p>
             
-            <p>${long_article.long_article_content_5} <a href="/"><ins>here</ins></a></p>
+            <p>${escape(long_article.long_article_content_5)} <a href="/"><ins>here</ins></a></p>
         </article>
         `).join("\n");
         
@@ -61,6 +63,8 @@ export function addView({short, long, similar}){
                 <hr>
             </aside>
         `).join("\n");
+
+        const errorMessage = error ? `<p class="error">${escape(error)}</p>` : '';
     
     return `
      <main class="add-form">
@@ -104,6 +108,7 @@ export function addView({short, long, similar}){
                         <div>
                             <label for="idName">ID-Name:</label>
                             <input type="text" id="idName" name="short_idName" required>
+                            ${errorMessage}
                         </div>
                     </div>
             
@@ -200,5 +205,3 @@ export function addView({short, long, similar}){
     </main>
     `
 }
-
-

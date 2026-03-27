@@ -1,13 +1,14 @@
 import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle, createShortNews, createLongNews, createSimilar, getShortImage, getLongImage } from "../models/add.js";
 import render from "../../render.js";
 import { addView } from "../views/add.js";
+import redirect from "../redirect.js";
 
-export function exampleController(){
+export function exampleController({ request }){
     const short = getExampleShortArticle();
     const long = getExampleLongArticle();
     const similar = getExampleSimilarArticle();
    
-    return render(addView, { short, long, similar });
+    return render(addView, { short, long, similar }, request);
 }
 
 export async function imageController({ request }){
@@ -121,8 +122,7 @@ export async function createNewsController({ request }){
         createSimilar(news_id, 'mun', 'The university successfully hosted its annual Model United Nations (MUN)');
     }
     const headers = new Headers();
-    headers.set('location', '/news/news-home');
-    return new Response(null, { headers, status: 303 });
+    return redirect(headers, '/news/news-home', `added '${short_article_title}' Successfully`);
 }
 
 

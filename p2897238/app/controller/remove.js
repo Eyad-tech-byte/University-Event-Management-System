@@ -1,11 +1,12 @@
 import { getRemoveNews, getDeleteNews } from "../models/remove.js";
 import render from "../../render.js";
 import { removeView } from "../views/remove.js";
+import redirect from "../redirect.js";
 
-export function removeController(){
+export function removeController({ request }){
     const checkbox = getRemoveNews();
    
-    return render(removeView, { checkbox });
+    return render(removeView, { checkbox }, request);
 }
 
 export async function deleteController({ request }){
@@ -17,7 +18,6 @@ export async function deleteController({ request }){
     }
 
     const headers = new Headers();
-    headers.set('location', '/news/news-home');
-    return new Response(null, { headers, status: 303});
+    return redirect(headers, '/news/news-home', `removed Successfully`);
     
 }

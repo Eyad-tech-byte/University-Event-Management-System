@@ -1,12 +1,14 @@
+import { escape } from "@std/html/entities";
+
 export function newsView({ content, similarThings }){
     
     const contentOfNews = content.map(news_article => `
         <article class="news-items">
-            <h1>${news_article.news_title_1}</h1>
+            <h1>${escape(news_article.news_title_1)}</h1>
 
             <figure class="news_img">
                 <a target="_self" href="${news_article.news_image}">
-                    <img src="/file/${news_article.news_id}" alt="${news_article.news_title_2}" width="400" height="450">
+                    <img src="/file/${escape(news_article.news_id)}" alt="${escape(news_article.news_title_2)}" width="400" height="450">
                 </a>
             </figure> 
 
@@ -15,26 +17,26 @@ export function newsView({ content, similarThings }){
                 <span>#${news_article.news_catagory}</span>
             </div>
 
-            <h3>${news_article.news_title_2}</h3>
-            <p>${news_article.news_content_1}</p>
+            <h3>${escape(news_article.news_title_2)}</h3>
+            <p>${escape(news_article.news_content_1)}</p>
             <br>
             
             <div class="both">
                 <div>
-                    <h3>${news_article.news_title_3}</h3>
-                    <p>${news_article.news_content_2}</p>
+                    <h3>${escape(news_article.news_title_3)}</h3>
+                    <p>${escape(news_article.news_content_2)}</p>
                 </div>
                 <div>
-                    <h3>${news_article.news_title_4}</h3>
-                    <p>${news_article.news_content_3}</p>
+                    <h3>${escape(news_article.news_title_4)}</h3>
+                    <p>${escape(news_article.news_content_3)}</p>
                 </div>
             </div>
             <br>
 
-            <h3>${news_article.news_title_5}</h3>
-            <p>${news_article.news_content_4}</p>
+            <h3>${escape(news_article.news_title_5)}</h3>
+            <p>${escape(news_article.news_content_4)}</p>
             
-            <p>${news_article.news_content_5} <a href="/events/events-homepage"><ins>here</ins></a></p>
+            <p>${escape(news_article.news_content_5)} <a href="/"><ins>here</ins></a></p>
         </article>
         `).join("\n");
         

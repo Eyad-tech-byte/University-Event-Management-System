@@ -75,7 +75,8 @@ db.exec(`
     );
     INSERT INTO section (section_image, section_title, section_content, section_date) VALUES
         ('/p2897238/assets/img/run.jpeg', 'Campus Marathon 5km', 'A fun and inclusive 5K marathon open to all students and staff.', '2026-04-02'),
-        ('/p2897238/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative performance.', '2026-05-20');
+        ('/p2897238/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative
+        performance.', '2026-05-20');
 
 
     CREATE TABLE news_article (
@@ -213,7 +214,7 @@ db.exec(`
     CREATE TABLE news_section (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         news_section_id TEXT NOT NULL,
-        news_section_target TEXT NOT NULL,
+        news_section_target TEXT NOTT NULL,
         news_section_content TEXT NOT NULL
     );
     INSERT INTO news_section (news_section_id, news_section_target, news_section_content) VALUES
