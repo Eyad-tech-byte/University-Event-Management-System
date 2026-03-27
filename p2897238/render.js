@@ -16,13 +16,14 @@ export default function render(viewFn, data, status = 200){
 
             <body>
                 <header>
-                    <h1><a href="/">Event Managment System </a></h1>
+                    <h1><a href="/">Imaginary University Managment System</a></h1>
                 </header>
 
                 <nav>
                     <div class="navAll">
                         <div class="navBar">
                             <ul>
+                                <li><a href="/">Back</a></li>
                                 <li><a href="/news/news-home">All</a></li>
                                 <li><a href="/news/news-sports">Sports</a></li>
                                 <li><a href="/news/news-art">Art</a></li>
@@ -44,17 +45,21 @@ export default function render(viewFn, data, status = 200){
                 <footer>
                     <div>
                         <address style="align-self: flex-end;">
-                            Email: <a href="mailto:fake_university@example.com">fake_university@example.com</a><br>
-                            Leicester, UK
+                            Address<br><br>
+                            123 University Avenue<br>
+                            Dubai, UAE<br>
+                            LE1 XXX
                         </address>
+                    </div>
+                    
+                    <div>
+                        <p>&copy Imaginary University.All rights reserved.</p>
                     </div>
 
                     <div>
-                        <h3>Powerd by</h3>
-                        <h4>Footer</h4>
-                    </div>
-                    <div>
-                        <p>&copy Fake University. All rights reserved.</p>
+                        <span>Contact Information</span>
+                        <p>Email: <a href="mailto:info@imaginaryuniversity.ac.ae">info@imaginaryuniversity.ac.ae</a></p>
+                        <span>Phone: +971 5412345678 </span>
                     </div>
                 </footer>
 

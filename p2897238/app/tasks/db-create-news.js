@@ -75,8 +75,7 @@ db.exec(`
     );
     INSERT INTO section (section_image, section_title, section_content, section_date) VALUES
         ('/p2897238/assets/img/run.jpeg', 'Campus Marathon 5km', 'A fun and inclusive 5K marathon open to all students and staff.', '2026-04-02'),
-        ('/p2897238/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative
-        performance.', '2026-05-20');
+        ('/p2897238/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative performance.', '2026-05-20');
 
 
     CREATE TABLE news_article (

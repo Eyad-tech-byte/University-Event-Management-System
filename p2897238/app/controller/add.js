@@ -17,7 +17,7 @@ export async function imageController({ request }){
     const shortImgId = getShortImage(id);
     if(shortImgId){
         if (shortImgId.image_type == "small") {
-            const shortImg = await Deno.readFile("." + shortImgId.image.replace("/p2897238/", ""));
+            const shortImg = await Deno.readFile("." + shortImgId.image);
             return new Response(shortImg, { headers: { "Content-Type": "image/jpeg"}});
         }
         if (shortImgId.image_type == "not_small"){
@@ -28,7 +28,7 @@ export async function imageController({ request }){
     const longImgId = getLongImage(id);
     if(longImgId){
         if (longImgId.image_type == "big") {
-            const longImg = await Deno.readFile("." + longImgId.image.replace("/p2897238/", ""));
+            const longImg = await Deno.readFile("." + longImgId.image);
             return new Response(longImg, { headers: { "Content-Type": "image/jpeg"}});
         }
         if (longImgId.image_type == "not_big"){
@@ -37,6 +37,7 @@ export async function imageController({ request }){
     }
     return new Response("Not Found", { status: 404});
 }
+
 
 
 

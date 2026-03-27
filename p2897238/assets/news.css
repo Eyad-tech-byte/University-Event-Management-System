@@ -162,7 +162,10 @@ body {
     section button{
         padding: 15px;
     }
-
+    section a{
+        color: black;
+    }
+    
     .events hr {
         margin-top: 20px;
         margin-bottom: 20px;

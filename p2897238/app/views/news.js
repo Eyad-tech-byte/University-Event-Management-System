@@ -34,7 +34,7 @@ export function newsView({ content, similarThings }){
             <h3>${news_article.news_title_5}</h3>
             <p>${news_article.news_content_4}</p>
             
-            <p>${news_article.news_content_5} <a href="/"><ins>here</ins></a></p>
+            <p>${news_article.news_content_5} <a href="/events/events-homepage"><ins>here</ins></a></p>
         </article>
         `).join("\n");
         

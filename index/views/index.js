@@ -20,58 +20,72 @@ export function indexView(data) {
 
 
     return `
-    <article>
-        <h2>Events</h2>
-        <div class="events">
-            ${eventsHtml}
-        </div>
+        <main>
+            <article>
+                <h2>Events</h2>
+                <div class="events">
+                    ${eventsHtml}
+                </div>
 
-        <form action="/events/events-homepage">
-          <button class="more">More Events...</button>
-        </form>
-    </article>
+                <form action="/events/events-homepage">
+                    <button class="more">More Events...</button>
+                </form>
+            </article>
 
-    <section>
-        <a href="/news/news-home">
-            <h2>Event News</h2>
-        </a>
-            <div class="new">
-            <div class="news sports" id="football">
+            <section>
+                <a href="/news/news-home">
+                    <h2>Event News</h2>
+                </a>
+                <div class="new">
+                    <div class="news sports" id="football">
                         <div class="tittle">
-                        <b>Football Champions</b> <time datetime="2026-02-22"> 22 Feb 2026 </time> 
+                            <b>Football Champions</b> <time datetime="2026-02-22"> 22 Feb 2026 </time> 
                         </div>
                         <a href="/news/news-football-event">
-                        <img src="/p2897238/assets/img/football.jpg" alt="football" width="200" height="150">
-                        The university football team won the football tournament after a season full of
-                        hard work and practice.  <ins>view more...</ins><br>
+                            <img src="/p2897238/assets/img/football.jpg" alt="football" width="200" height="150">
+                            The university football team won the football tournament after a season full of
+                            hard work and practice.  <ins>view more...</ins><br>
                         </a>
-                </div>
+                    </div>
 
-                <div class="news Academic" id="Academic">
-                    <div class="tittle">
-                        <b>MUN</b> <time datetime="2026-01-8">8 Jan 2026</time>
+                    <div class="news Academic" id="Academic">
+                        <div class="tittle">
+                            <b>MUN</b> <time datetime="2026-01-8">8 Jan 2026</time>
                         </div>
-                    <a href="/news/news-mun-event">
-                        <img src="/p2897238/assets/img/united.jpg" alt="MUN" width="200" height="150">
-                        The university recently hosted its annual MUN Conference, where students participated 
-                        in diplomatic and global discussions. <ins>view more...</ins><br>
-                    </a>
-                </div>
+                        <a href="/news/news-mun-event">
+                            <img src="/p2897238/assets/img/united.jpg" alt="MUN" width="200" height="150">
+                            The university recently hosted its annual MUN Conference, where students participated 
+                            in diplomatic and global discussions. <ins>view more...</ins><br>
+                        </a>
+                    </div>
 
-                <div class="news technology" id="robotics">
-                    <div class="tittle">
-                        <b>Robotics Champions</b> <time datetime="2025-01-3"> 3 Jan 2025 </time>
+                    <div class="news technology" id="robotics">
+                        <div class="tittle">
+                            <b>Robotics Champions</b> <time datetime="2025-01-3"> 3 Jan 2025 </time>
                         </div>
-                    <a href="/news/news-robotics-event">
-                        <img src="/p2897238/assets/img/robotics2.jpg" alt="robotics" width="200" height="150">
-                        The university robotics team won a major robotics competition by designing and 
-                        building an impressive robot.<ins>view more...</ins><br>
-                    </a>
-                </div>
+                        <a href="/news/news-robotics-event">
+                            <img src="/p2897238/assets/img/robotics2.jpg" alt="robotics" width="200" height="150">
+                            The university robotics team won a major robotics competition by designing and 
+                            building an impressive robot.<ins>view more...</ins><br>
+                        </a>
+                    </div>
                 </div>
                 <a href="/news/news-home-page">
-                <button class="more" onclick="">More News...</button>
+                    <button class="more" onclick="">More News...</button>
                 </a>
             </section>
+
+            <aside>
+                <div class="register">
+                    <h2>Registration Form</h2>
+                    <div class="reg">
+                        <p>If you want to register to any event you can register from here<p>
+                    </div>
+                    <a href="/register/registration-form">
+                        <button>Register here</button>
+                    </a>
+                </div>
+            </aside>
+        </main>
     `
 }
