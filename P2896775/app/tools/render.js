@@ -37,7 +37,7 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>University Events Management System</title>
         <link rel="stylesheet" href="/P2896775/assets/events-styles.css">
-        <link rel="icon" href="/P2896775/assets/favicon.svg">
+        <link rel="icon" href="/P2896775/assets/favicon.png">
       </head>
 
       <body class="${bodyClass}">
@@ -51,17 +51,17 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
         <address id="uni-address">
           <h4>Address</h4>
           123 University Avenue<br />
-          Leicester, UK<br />
+          Dubai, UAE<br />
           LE1 XXX<br />
         </address>
 
         <address id="contact-info">
           <h4>Contact Information</h4>
           Email:
-          <a href="mailto:info@imaginaryuniversity.ac.uk"
-            >info@imaginaryuniversity.ac.uk</a
+          <a href="mailto:info@imaginaryuniversity.ae"
+            >info@imaginaryuniversity.ae</a
           ><br />
-          Phone: +44 1234 567890
+          Phone: +971561234567
         </address>
       </div>
 
