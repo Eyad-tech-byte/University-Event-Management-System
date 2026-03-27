@@ -6,16 +6,17 @@ export function render(viewFn, data, request, status = 200) {
     headers.set("content-type", "text/html");
 
     const html = `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Event Managment System</title>
 
-    <link rel="icon" href="/p2897238/assets/img/logo.png">
+    <link rel="icon" href="/index/assets/img/logo.png">
     <link rel="stylesheet" href="/index/assets/index.css">
-</head>
+  </head>
+  
 <body>
     <header>
         <a href="/"><h1>University Event Managment System</h1></a>

@@ -37,7 +37,7 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>University Events Management System</title>
         <link rel="stylesheet" href="/P2896775/assets/events-styles.css">
-        <link rel="icon" href="/P2896775/assets/favicon.svg">
+        <link rel="icon" href="/P2896775/assets/favicon.png">
       </head>
 
       <body class="${bodyClass}">
