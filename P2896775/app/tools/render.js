@@ -1,12 +1,10 @@
 import { escape } from "@std/html/entities";
 import { getFlash } from "./flash.js";
 
-export default function render(viewFn, data, request, bodyClass = "", status = 200) {
+export default function render(viewFn, data, ctx, bodyClass = "") {
+  const { request, headers, status = 200 } = ctx;
 
   const content = viewFn(data);
-  const headers = new Headers();
-
-  headers.set("content-type", "text/html");
 
   // retrieving flash messages if there are any
   const flash = getFlash(request.headers, headers);
@@ -23,20 +21,23 @@ export default function render(viewFn, data, request, bodyClass = "", status = 2
   }
 
   const flashMessage = flash ?
-  `<aside id="flash" class=${className}>
+  `<aside id="flash" class="${className}">
       <p>${escape(flash)}</p>
    </aside>`
    : '';
+
+  headers.set("content-type", "text/html");
 
   const html = `
     <!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Hamza Kazi">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>University Events Management System</title>
-        <link rel="stylesheet" href="/P2896775/app/assets/events-styles.css">
-        <link rel="icon" href="/P2896775/app/assets/favicon.svg">
+        <link rel="stylesheet" href="/P2896775/assets/events-styles.css">
+        <link rel="icon" href="/P2896775/assets/favicon.svg">
       </head>
 
       <body class="${bodyClass}">
@@ -66,7 +67,7 @@ export default function render(viewFn, data, request, bodyClass = "", status = 2
 
       <p>© 2026 Imaginary University. All rights reserved.</p>
       </footer>
-      <script src="/P2896775/app/assets/events-script.js"></script>
+      <script src="/P2896775/assets/events-script.js"></script>
       </body>
     </html>
   `;

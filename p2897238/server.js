@@ -43,9 +43,7 @@ export default function server(request){
     if (url.pathname =="/news/news-admin-add-news-event" && request.method == "POST"){
         return createNewsController({ request });
     }
-    if (request.method == "GET" && url.pathname.startsWith("/file/")){
-        return imageController({ request });
-    }
+    
     if (url.pathname == "/news/news-admin-remove-news-event" && request.method == "GET"){
         return removeController({ request });
     }

@@ -9,33 +9,31 @@ export function adminNewCategoryView({ errors = {} }) {
 
     return `
     <div class="page-wrapper">
-    <header>
       <nav>
         <ul>
           <li><a href="/events/admin/events-homepage">Dashboard</a></li>
           <li><a href="/events/admin/event-creation-form">Create Event</a></li>
           <li><a href="#">Log out</a></li>
-          <li><a href="/">Student Page</a></li>
+          <li><a href="/events/events-homepage">Student Page</a></li>
         </ul>
       </nav>
-    </header>
 
     <main>
         <h1 id="category-header">Add a new Category</h1><br>
           <form id="category-form" method="POST">
            <div class="form-label-row">
             <label for="new-category-name">Category Name: </label>
-            <input type="text" id="new-category-name" name="new-category-name"${newCategory.value || ""}>
 
-            <br>${newCategory.message || ""}
+             <div class="input-group">
+               <input type="text" id="new-category-name" name="new-category-name"${newCategory.value || ""}>
+               ${newCategory.message || ""}
+             </div>
            </div>
 
-            <br>
-
-            <div id="category-btn-row">
-              <a href="/events/admin/event-creation-form" id="category-back-btn" class="button">Back to form</a>
-              <button id="category-submit-btn" type="submit">Submit</button>
-            </div>
+           <div id="category-btn-row">
+             <a href="/events/admin/event-creation-form" id="category-back-btn" class="button">Back to form</a>
+             <button id="category-submit-btn" type="submit">Submit</button>
+           </div>
           </form>
     </main>
     </div>

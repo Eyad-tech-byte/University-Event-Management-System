@@ -19,7 +19,7 @@ export const eventSchema = {
     },
 
     "event-short-desc": {
-        validators: [required, minLength(3), maxLength(150)],
+        validators: [required,minLength(3), maxLength(150)],
         displayName: "Event short description"
     },
 
@@ -29,7 +29,7 @@ export const eventSchema = {
     },
 
     "event-long-desc": {
-        validators: [required, minLength(200)],
+        validators: [required, minLength(150)],
         displayName: "Event long description"
     },
 
@@ -44,7 +44,7 @@ export const eventSchema = {
     },
 
     "event-location": {
-        validators: [required, minLength(3)],
+        validators: [required, minLength(2)],
         displayName: "Event location"
     },
 

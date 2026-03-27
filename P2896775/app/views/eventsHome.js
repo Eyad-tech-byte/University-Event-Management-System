@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { formatDate, formatLineBreaks, formatURL } from "../assets/events-script.js";
+import { formatDate, formatLineBreaks, formatURL } from "../../assets/events-script.js";
 
 export function eventsHomeView(data) {
 
@@ -7,7 +7,19 @@ export function eventsHomeView(data) {
     <li><a href="/events/category=${formatURL(escape(category.category_name))}/${category.category_id}">${escape(category.category_name)}</a></li>
     `).join("");
     
-  let searchText = data.searchItem ? `Search results for "${escape(data.searchItem).trim()}"` : ``;
+
+  let searchText;
+
+  if (data.searchItem && data.events.length != 0) {
+    searchText = `Search results for "${escape(data.searchItem).trim()}"`;
+
+  } else if (data.searchItem && data.events.length == 0) {
+    searchText = `Search result for "${escape(data.searchItem).trim()}" not found. Please try again.`;
+
+  } else if (!data.searchItem) {
+    searchText = ``;
+  }
+
 
   let eventsHtml;
 
@@ -16,7 +28,7 @@ export function eventsHomeView(data) {
     data.events.map(event => 
     `
     <a href="/events/events-details/${event.event_id}/${formatURL(escape(event.event_name))}">
-        <article class="${escape(event.category_name).toLowerCase()}">
+        <article class="event-card">
             <img src="${escape(event.event_image_link)}" alt="${escape(event.event_name)}" width="200" height="100">
             <p class="category">${escape(event.category_name).toUpperCase()}</p>
             <time datetime="${escape(event.event_date)}">
@@ -28,18 +40,6 @@ export function eventsHomeView(data) {
         </article>
         </a>
     `).join("");
-  }
-
-
-  if (data.events.length == 0) {
-    searchText = ``;
-
-    eventsHtml =
-    `
-    <div id="search-error">
-    <h2>Search result for "${escape(data.searchItem).trim()}" not found. Please try again.</h2>
-    </div>
-    `
   }
   
 
@@ -60,19 +60,19 @@ export function eventsHomeView(data) {
         <li><a href="/events/admin/events-homepage">Admin Page</a></li>
       </ul>
 
-      <form action="/" method="GET">
+      <form action="/events/events-homepage" method="GET">
         <div class="search-container">
           <label for="search-category">Search:</label>
           <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
-          <button type="submit" class="search-btn">Search</button>
+          <button class="search-btn">Search</button>
         </div>
       </form>
     </nav>
 
     <main>
-      <p id="search-text">${searchText}</p>
       <section id="all-events">
-        ${eventsHtml}
+        <h2>${searchText || "All Events"}</h2>
+        ${eventsHtml || `<p id="no-events-error">No events available for the search result.</p>`}
       </section>  
     </main>
     </div>

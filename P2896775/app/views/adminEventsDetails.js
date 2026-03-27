@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { formatDate, formatLineBreaks, formatTime, formatURL } from "../assets/events-script.js";
+import { formatDate, formatLineBreaks, formatTime, formatURL } from "../../assets/events-script.js";
 
 export function adminEventsDetailsView(data) {
 
@@ -47,13 +47,12 @@ export function adminEventsDetailsView(data) {
   if (data.contact1) {
     contactHtml += `
     <p>
-      <strong>${escape(data.contact1.contact_designation)}</strong><br />
-      ${escape(data.contact1.contact_name)}<br />
-      📞 ${escape(data.contact1.contact_phone)}<br />
-      ✉
-       <a href="mailto:${escape(data.contact1.contact_email)}">
-       ${escape(data.contact1.contact_email)}
-       </a>
+      <strong>${escape(data.contact1.contact_designation)}</strong><br>
+      ${escape(data.contact1.contact_name)}<br>
+      📞 ${escape(data.contact1.contact_phone)}<br>
+      ✉ <a href="mailto:${escape(data.contact1.contact_email)}">
+           ${escape(data.contact1.contact_email)}
+         </a>
     </p>
     `;
   }
@@ -62,35 +61,35 @@ export function adminEventsDetailsView(data) {
   if (data.contact2) {
     contactHtml += `
     <p>
-      <strong>${escape(data.contact2.contact_designation)}</strong><br />
-      ${escape(data.contact2.contact_name)}<br />
-      📞 ${escape(data.contact2.contact_phone)}<br />
-      ✉
-       <a href="mailto:${escape(data.contact2.contact_email)}">
-       ${escape(data.contact2.contact_email)}
-       </a>
+      <strong>${escape(data.contact2.contact_designation)}</strong><br>
+      ${escape(data.contact2.contact_name)}<br>
+
+      ${escape(data.contact2.contact_phone) ? `📞 ${escape(data.contact2.contact_phone)}<br>` : ""}
+
+      ${escape(data.contact2.contact_email) ? `
+        ✉ <a href="mailto:${escape(data.contact2.contact_email)}">
+           ${escape(data.contact2.contact_email)}
+         </a>` : ""
+      }
     </p>
     `;
   }
 
 
     return `
-     <header>
-      <nav>
-        <ul>
-          <li><a href="/events/admin/events-homepage">Dashboard</a></li>
-          <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-          <li><a href="#">Log out</a></li>
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <ul>
+        <li><a href="/events/admin/events-homepage">Dashboard</a></li>
+        <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+      </ul>
+    </nav>
 
     <main>
       <section class="event-image">
         <img
           src="${escape(data.events.event_image_link)}"
           alt="Event-Image"
-        />
+        >
       </section>
 
       <section class="event-content-wrapper">
@@ -129,11 +128,11 @@ export function adminEventsDetailsView(data) {
       <div class="details-button-container">
 
         <form action="/events/admin/event-deletion-confirmation/${data.events.event_id}/${formatURL(escape(data.events.event_name))}" method="GET">
-          <button type="submit" class="details-admin-buttons" id="delete-btn" >DELETE</button>
+          <button class="details-admin-buttons" id="delete-btn-details" >DELETE</button>
         </form>
 
         <form action="/events/admin/event-update-form/${data.events.category_id}/${data.events.event_id}/${formatURL(escape(data.events.event_name))}" method="GET">
-          <button type="submit" class="details-admin-buttons" id="update-btn">UPDATE</button>
+          <button class="details-admin-buttons" id="update-btn-details">UPDATE</button>
         </form>
       </div>
     </main>
