@@ -1,6 +1,10 @@
 export function notFound(){
     return `
-            <h2>Not Found</h2>
-            <p>The request resource does not exist</p> 
+        <main class="not-found">
+            <article class="empty">
+                <h1>Not Found</h1>
+                <p>The request resource does not exist</p> 
+            </article>
+        </main>
         `
 }

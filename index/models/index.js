@@ -14,6 +14,10 @@ export function getSomeEvents() {
         JOIN categories
         ON events.category_id = categories.category_id
         ORDER BY events.event_date ASC
-        LIMIT 5
+        LIMIT 4
     `).all();
 }
+
+    export function getNews(){
+        return db.prepare(`SELECT * FROM article WHERE catagory = 'sports' OR catagory = 'academic'`).all();
+    }

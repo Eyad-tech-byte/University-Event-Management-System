@@ -2,7 +2,7 @@ import { indexController } from "./index/controllers/index.js";
 import { staticController } from "./index/controllers/static.js";
 import { eventsServer } from "./P2896775/app/eventsServer.js";
 import newsServer from "./p2897238/server.js";
-
+import { imageController } from "./p2897238/app/controller/add.js";
 
 export default function server(request) {
     const url = new URL(request.url);
@@ -22,6 +22,9 @@ export default function server(request) {
 
     if(url.pathname.startsWith("/news")){
         return newsServer(request);
+    }
+    if (request.method == "GET" && url.pathname.startsWith("/file/")){
+        return imageController({ request });
     }
     return new Response("Not Found", { status: 404});
 }
