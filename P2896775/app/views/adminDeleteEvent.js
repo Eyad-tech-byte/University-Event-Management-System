@@ -15,9 +15,9 @@ export function adminDeleteEventView(data) {
 
     <main>
       <section id="delete-message">
-        <p>Are you sure you want to delete the event <strong>"${escape(data.event.event_name)}"</strong>?</p>
-        <br><p>This action will permanently remove all the data related to this event.</p>
-        <br><p>You can cancel this action or review the event details before deleting.</p>
+        <p class="space-between">Are you sure you want to delete the event <strong>"${escape(data.event.event_name)}"</strong>?</p>
+        <p class="space-between">This action will permanently remove all the data related to this event.</p>
+        <p class="space-between">You can cancel this action or review the event details before deleting.</p>
       </section>
 
       <div class="delete-btn-container">

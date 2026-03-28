@@ -104,7 +104,6 @@ footer p {
 .events-homepage #all-events {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    justify-content: center;
     gap: 2rem;
     padding: 2rem;
 }
@@ -455,6 +454,11 @@ footer p {
     cursor: pointer;
 }
 
+.admin-event-forms .form-headings {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
 .admin-event-forms input, textarea, select {
     padding: 0.5rem;
     width: 100%;
@@ -476,17 +480,10 @@ footer p {
     margin-top: 0.25rem;
 }
 
-.admin-event-forms img#event-image {
-    margin-bottom: 3rem;
-}
-
-.admin-event-forms label[for="image"] {
-    margin-top: 0;
-}
-
 .admin-event-forms #current-img {
     width: 100%;
     max-width: 800px;
+    margin-bottom: 3rem;
 }
 
 /* =========================
@@ -521,6 +518,10 @@ footer p {
 .admin-event-forms #cancel-btn, 
 .admin-event-forms #form-view-details-btn {
     color: blue;
+}
+
+.admin-event-forms .space-between {
+    margin-bottom: 3rem;
 }
 
 

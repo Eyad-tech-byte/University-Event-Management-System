@@ -100,15 +100,15 @@ export function adminUpdateEventView(data) {
       <ul>
         <li><a href="/events/admin/events-homepage">Dashboard</a></li>
         <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-        <li><a href="#">Log out</a></li>
-        <li><a href="/events/events-homepage">Student Page</a></li>
+        <li><a href="/logout">Log Out</a></li>
       </ul>
     </nav>
 
     <main>
         <article class="event-forms">
           <h1>Update Event</h1>
-          <h2>Event Card Details</h2><br>
+
+          <h2 class="form-headings">Event Card Details</h2>
 
           <form method="POST" enctype="multipart/form-data">
           <div class="form-label-row">
@@ -149,11 +149,8 @@ export function adminUpdateEventView(data) {
               </div>
             </div>
 
-            <br>
 
-            <h2>Events details page information</h2>
-
-            <br>
+            <h2 class="form-headings">Events details page information</h2>
 
             <h3>(Required)</h3>
 
@@ -243,11 +240,8 @@ export function adminUpdateEventView(data) {
               </div>
             </div>
 
-            <br><br>
 
-            <h2>Event Information & Contact Details</h2>
-            
-            <br>
+            <h2 class="form-headings">Event Information & Contact Details</h2>
 
             <div class="form-label-row">
               <label for="event-start-time"><strong>(Required)</strong> Start Time: </label>
@@ -355,11 +349,8 @@ export function adminUpdateEventView(data) {
               </div>
             </div>
 
-            <br>
 
-            <h2>Event Image</h2>
-
-            <br>
+            <h2 class="form-headings">Event Image</h2>
 
             <p class="form-hint">
               Upload a new image only if you want to replace the existing one.
@@ -373,7 +364,7 @@ export function adminUpdateEventView(data) {
 
             <div class="form-label-row">
               <p>Current Image:</p>
-              <img src=${data.events.event_image_link} alt="${escape(eventName)}" id="current-img" width="200" id="event-image">
+              <img src=${data.events.event_image_link} alt="${escape(eventName)}" width="200" id="current-img">
 
               <label for="image">Upload New Image: <strong>(optional)</strong> </label>
 

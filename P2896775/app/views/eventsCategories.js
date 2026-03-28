@@ -45,6 +45,7 @@ export function eventsCategoriesView(data) {
           <ul>
             <li><a href="/events/events-homepage">All Events</a></li>
             ${categoriesNav}
+            <li><a href="/login">Admin Login</a></li>
           </ul>
     
           <form action="/events/events-homepage" method="GET">

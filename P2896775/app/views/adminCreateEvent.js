@@ -54,7 +54,6 @@ export function adminCreateEventView({ categories, errors = {} }) {
        <ul>
          <li><a href="/events/admin/events-homepage">Dashboard</a></li>
          <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-         <li><a href="/events/events-homepage">Student Page</a></li>
          <li><a href="/logout">Log Out</a></li>
        </ul>
      </nav>
@@ -62,7 +61,8 @@ export function adminCreateEventView({ categories, errors = {} }) {
      <main>
         <article class="event-forms">
           <h1>Create Event</h1>
-          <h2>Event Card Details</h2><br>
+          
+          <h2 class="form-headings">Event Card Details</h2>
 
           <form method="POST" enctype="multipart/form-data">
           <div class="form-label-row">
@@ -106,9 +106,8 @@ export function adminCreateEventView({ categories, errors = {} }) {
               </div>
             </div>
 
-            <br>
 
-            <h2>Events details page information</h2>
+            <h2 class="form-headings">Events details page information</h2>
 
             <h3>(Required)</h3>
 
@@ -194,9 +193,8 @@ export function adminCreateEventView({ categories, errors = {} }) {
               </div>
             </div>
 
-            <br>
 
-            <h2>Event Information & Contact Details</h2><br>
+            <h2 class="form-headings">Event Information & Contact Details</h2><br>
 
             <div class="form-label-row">
               <label for="event-start-time"><strong>(Required)</strong> Start Time: </label>
@@ -303,9 +301,8 @@ export function adminCreateEventView({ categories, errors = {} }) {
               </div>
             </div>
 
-            <br>
 
-            <h2>Event Image</h2>
+            <h2 class="form-headings">Event Image</h2>
 
             <br>
 
