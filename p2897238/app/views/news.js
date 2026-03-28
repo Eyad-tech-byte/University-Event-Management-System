@@ -7,7 +7,7 @@ export function newsView({ content, similarThings }){
             <h1>${escape(news_article.news_title_1)}</h1>
 
             <figure class="news_img">
-                <a target="_self" href="${news_article.news_image}">
+                <a target="_self" href="/file/${escape(news_article.news_id)}">
                     <img src="/file/${escape(news_article.news_id)}" alt="${escape(news_article.news_title_2)}" width="400" height="450">
                 </a>
             </figure> 
@@ -36,7 +36,7 @@ export function newsView({ content, similarThings }){
             <h3>${escape(news_article.news_title_5)}</h3>
             <p>${escape(news_article.news_content_4)}</p>
             
-            <p>${escape(news_article.news_content_5)} <a href="/"><ins>here</ins></a></p>
+            <p>${escape(news_article.news_content_5)} <a href="/events/events-homepage"><ins>here</ins></a></p>
         </article>
         `).join("\n");
         

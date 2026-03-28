@@ -2,6 +2,8 @@ import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle
 import render from "../../render.js";
 import { addView } from "../views/add.js";
 import redirect from "../redirect.js";
+import { validateField, required, minLength, validateSchema }  from "../validation.js";
+import { addingNewsSchema } from "../schema/add.js";
 
 export function exampleController({ request }){
     const short = getExampleShortArticle();
@@ -45,6 +47,8 @@ export async function imageController({ request }){
 export async function createNewsController({ request }){
     const formData = await request.formData();
 
+    const { isValid, errors } = validateSchema(formData, addingNewsSchema);
+
     const short_article_id = formData.get('short_idName');
     const short_article_title = formData.get('short_title');
     const short_article_date = formData.get('short_date');
@@ -74,6 +78,15 @@ export async function createNewsController({ request }){
 
     const short_article_image_type = 'not_small';
     const long_article_image_type = 'not_big';
+
+
+    if(!isValid){
+        const short = getExampleShortArticle();
+        const long = getExampleLongArticle();
+        const similar = getExampleSimilarArticle();
+
+        return render(addView, { short, long, similar, errors }, request, 400);
+    }
 
     createShortNews(
         short_article_id, 

@@ -29,7 +29,7 @@ export function homesView({ news, events }){
                     <b>${section.section_title}</b><br><br>
                     ${section.section_content}<br><br>
                     <time datetime=${section.section_date}>${section.section_date}</time><br><br>
-                    <button type="button">View Details</button>
+                    <button type="button"><a href="/events/events-homepage">View Details</a></button>
                 </div>
             </article>
             <hr>
@@ -47,7 +47,7 @@ export function homesView({ news, events }){
             <section class="events_page">
                 <h2><mark>Dont miss these events!</mark></h2>
                 ${events_news}
-                <button type="button">view more events</button>
+                <button type="button"><a href="/events/events-homepage">view more events</a></button>
             </section>
         </div>
 

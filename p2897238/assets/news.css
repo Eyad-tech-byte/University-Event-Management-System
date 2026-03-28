@@ -598,6 +598,21 @@ body {
             translate: none;
         }
     }
+    
+    /*---------------------- validation error ------------------*/
+    .error-message{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0 1rem;
+        place-self: start;
+        p.error{
+            color: red;
+            margin-top: 0;
+            grid-column: span 2;
+            text-align: right;
+            margin-bottom: 5px;
+        }
+    }
       /* --------------------- media query --------------------- */
     @media screen and (max-width: 1620px) {
         .events{

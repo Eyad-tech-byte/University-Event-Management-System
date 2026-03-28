@@ -1,6 +1,31 @@
 import { escape } from "@std/html/entities";
 
-export function addView({short, long, similar, error}){
+export function fragments(errors){
+    return Object.fromEntries(Object.keys(errors).map(key => {
+            const { error, value, message } = errors[key] || {};
+            return [key, {
+                value: value ? `value="${escape(value)}"` : "",
+                message: error ? `<p class="error">${escape(message)}</p>` : ""
+            }];
+        }));
+}
+
+export function addView({short, long, similar, 
+    errors = { 
+        short_title: {}, 
+        short_idName: {}, 
+        short_paragraph: {},
+        long_title: {},
+        long_header: {},
+        long_paragraph: {},
+        long_header_2: {},
+        long_paragraph_2: {},
+        long_header_3: {},
+        long_paragraph_3: {},
+        long_header_4: {},
+        long_paragraph_4: {},
+        long_paragraph_5: {}
+     }}){
     const short_news = short.map(short_article => `
         <article class="add-news"> 
             <div class="add-tittle">
@@ -64,8 +89,23 @@ export function addView({short, long, similar, error}){
             </aside>
         `).join("\n");
 
-        const errorMessage = error ? `<p class="error">${escape(error)}</p>` : '';
-    
+                
+        const { 
+            short_title, 
+            short_idName, 
+            short_paragraph,
+            long_title,
+            long_header,
+            long_paragraph,
+            long_header_2,
+            long_paragraph_2,
+            long_header_3,
+            long_paragraph_3,
+            long_header_4,
+            long_paragraph_4,
+            long_paragraph_5
+         } = fragments(errors);
+
     return `
      <main class="add-form">
         <h2>Add News</h2>
@@ -80,9 +120,10 @@ export function addView({short, long, similar, error}){
                 <div class="short-info">
             
                     <div class="general-info">
-                        <div class="title">
+                        <div class="error-message">
                             <label for="title">Title:</label>
-                            <input type="text" id="title" name="short_title" required>
+                            <input type="text" id="title" name="short_title" >
+                            ${short_title.message}
                         </div>
 
                         <div>
@@ -105,18 +146,19 @@ export function addView({short, long, similar, error}){
                             <input id="img" name="short_image" type="file" accept="image/*" required>
                         </div>
 
-                        <div>
+                        <div class="error-message">
                             <label for="idName">ID-Name:</label>
-                            <input type="text" id="idName" name="short_idName" required>
-                            ${errorMessage}
+                            <input type="text" id="idName" name="short_idName" >
+                            ${short_idName.message}
                         </div>
                     </div>
             
             
                     <div class="short-parag">
-                        <div>
+                        <div class"error-message">
                             <label for="paragraph">write your paragraph here:</label><br>
-                            <textarea id="paragraph" name="short_paragraph" placeholder="Type your first paragraph..." required></textarea>
+                            <textarea id="paragraph" name="short_paragraph" placeholder="Type your first paragraph..." ></textarea>
+                            ${short_paragraph.message}
                         </div>
                     </div>
             </fieldset>
@@ -127,9 +169,11 @@ export function addView({short, long, similar, error}){
             </section> 
             <fieldset>
                 <legend>Long Information:</legend>
-                
+                    <div class="error-message">
                     <label for="title_1">Title:</label>
-                    <input type="text" id="title_1" name="long_title" required><br><br>
+                    <input type="text" id="title_1" name="long_title"><br><br>
+                    ${long_title.message}
+                    </div>
 
                     <div class="file">
                         <label for="img_1">img: </label>
@@ -138,30 +182,39 @@ export function addView({short, long, similar, error}){
                     <hr>
 
                     <label for="title_2">Header:</label>
-                    <input type="text" id="title_2" name="long_header" required><br><br>
+                    <input type="text" id="title_2" name="long_header" ><br><br>
+                    ${long_header.message}
                     <label for="paragraph_1">write your paragraph here:</label>
-                    <textarea id="paragraph_1" name="long_paragraph"  placeholder="Type your paragraph..." required></textarea><br><br>
+                    <textarea id="paragraph_1" name="long_paragraph"  placeholder="Type your paragraph..." ></textarea><br><br>
+                    ${long_paragraph.message}
                     <hr>
 
                     <label for="title_3">Header 2:</label>
-                    <input type="text" id="title_3" name="long_header_2"  required><br><br>
+                    <input type="text" id="title_3" name="long_header_2"><br><br>
+                    ${long_header_2.message}
                     <label for="paragraph_2">write your paragraph here:</label>
-                    <textarea id="paragraph_2" name="long_paragraph_2" placeholder="Type your paragraph..." required></textarea><br><br>
+                    <textarea id="paragraph_2" name="long_paragraph_2" placeholder="Type your paragraph..." ></textarea><br><br>
+                    ${long_paragraph_2.message}
                     <hr>
 
                     <label for="title_4">Header 3:</label>
-                    <input type="text" id="title_4" name="long_header_3"  required><br><br>
+                    <input type="text" id="title_4" name="long_header_3"  ><br><br>
+                    ${long_header_3.message}
                     <label for="paragraph_3">write your paragraph here:</label>
-                    <textarea id="paragraph_3" name="long_paragraph_3" placeholder="Type your paragraph..." required></textarea><br><br>
+                    <textarea id="paragraph_3" name="long_paragraph_3" placeholder="Type your paragraph..." ></textarea><br><br>
+                    ${long_paragraph_3.message}
                     <hr>
 
                     <label for="title_5">Header 4:</label>
-                    <input type="text" id="title_5" name="long_header_4"  required><br><br>
+                    <input type="text" id="title_5" name="long_header_4"  ><br><br>
+                    ${long_header_4.message}
                     <label for="paragraph_4">write your paragraph here:</label>
-                    <textarea id="paragraph_4" name="long_paragraph_4" placeholder="Type your paragraph..." required></textarea><br><br>
+                    <textarea id="paragraph_4" name="long_paragraph_4" placeholder="Type your paragraph..." ></textarea><br><br>
+                    ${long_paragraph_4.message}
                     
                     <label for="paragraph_5">write your paragraph here:</label>
-                    <textarea id="paragraph_5" name="long_paragraph_5" placeholder="Type your paragraph..." required></textarea><br><br>
+                    <textarea id="paragraph_5" name="long_paragraph_5" placeholder="Type your paragraph..." ></textarea><br><br>
+                    ${long_paragraph_5.message}
                 
             </fieldset>
             </div>
