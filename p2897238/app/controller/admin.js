@@ -1,6 +1,6 @@
 import render from "../../render.js";
 import { adminView } from "../views/admin.js";
 
-export function adminController({ request }){
-    return render(adminView, {}, request, 200);
+export function adminController(ctx){
+    return render(adminView, {}, ctx, 200);
 }

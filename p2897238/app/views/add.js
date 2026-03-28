@@ -122,18 +122,18 @@ export function addView({short, long, similar,
                     <div class="general-info">
                         <div class="error-message">
                             <label for="title">Title:</label>
-                            <input type="text" id="title" name="short_title" required>
+                            <input type="text" id="title" name="short_title" >
                             ${short_title.message}
                         </div>
 
                         <div>
                             <label for="add-date">Date:</label>
-                            <input type="date" id="add-date" name="short_date" required>
+                            <input type="date" id="add-date" name="short_date" >
                         </div>
                     
                         <div>
                             <label for="catagory">catagory:</label>
-                            <select id="catagory" name="short_catagory" required>
+                            <select id="catagory" name="short_catagory" >
                                 <option value="sports">Sports</option>
                                 <option value="art">Art</option>
                                 <option value="technology">Technology</option>
@@ -143,12 +143,12 @@ export function addView({short, long, similar,
 
                         <div>
                             <label for="img">img: </label>
-                            <input id="img" name="short_image" type="file" accept="image/*" required>
+                            <input id="img" name="short_image" type="file" accept="image/*" >
                         </div>
 
                         <div class="error-message">
                             <label for="idName">ID-Name:</label>
-                            <input type="text" id="idName" name="short_idName" required>
+                            <input type="text" id="idName" name="short_idName" >
                             ${short_idName.message}
                         </div>
                     </div>
@@ -177,7 +177,7 @@ export function addView({short, long, similar,
 
                     <div class="file">
                         <label for="img_1">img: </label>
-                        <input id="img_1" name="long_image" type="file" accept="image/*" required><br><br>
+                        <input id="img_1" name="long_image" type="file" accept="image/*" ><br><br>
                     </div>
                     <hr>
 

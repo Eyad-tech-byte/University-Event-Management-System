@@ -7,8 +7,16 @@ import { deleteController, removeController } from "./app/controller/remove.js";
 import { staticController } from "../index/controllers/static.js";
 import { updateController, UpdatedController,updatesController, UpdateNewsController } from "./app/controller/update.js";
 import ApplicationRouter from "../router.js";
+import { newsHome } from "./app/middleware/newsHome.js";
+import { withHeaders } from "./app/middleware/header.js";
+import { addingNewsSchema } from "./app/schema/add.js"
+import { validate } from "./app/middleware/validate.js"
+import { updatingNewsSchema } from "./app/schema/update.js";
 
 const app = new ApplicationRouter();
+
+app.use(newsHome);
+app.use(withHeaders);
 
 app.get("/assets/*", staticController);
 
@@ -20,7 +28,7 @@ app.get("/news/news-academic", academicController);
 app.get("/news/news-admin", adminController);
 
 app.get("/news/news-admin-add-news-event", exampleController);
-app.post("/news/news-admin-add-news-event", createNewsController);
+app.post("/news/news-admin-add-news-event", exampleController, validate(addingNewsSchema), createNewsController);
 
 app.get("/news/news-admin-remove-news-event", removeController);
 app.post("/news/news-admin-remove-news-event", deleteController);
@@ -29,7 +37,7 @@ app.get("/news/news-admin-update-choose-news-event", updateController);
 app.post("/news/news-admin-update-choose-news-event", UpdatedController);
 
 app.get("/news/news-admin-update-choosen-news-event", updatesController);
-app.post("/news/news-admin-update-choosen-news-event", UpdateNewsController);
+app.post("/news/news-admin-update-choosen-news-event", updatesController, validate(updatingNewsSchema), UpdateNewsController);
 
 app.get("/news/news-football-event", footballController);
 app.get("/news/news-mun-event", munController);
@@ -44,8 +52,5 @@ app.get("*", notFoundController);
 app.post("*", notFoundController);
 
 export default function server(request){
-    const url = new URL(request.url);
-    console.log(`\n${request.method} ${url.pathname}${url.search}`);
-
     return app.handle({ request });
 }

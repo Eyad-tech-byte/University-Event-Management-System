@@ -4,55 +4,66 @@ import { updateView } from "../views/update.js";
 import { updateSecondView } from "../views/update2.js";
 import redirect from "../redirect.js";
 
-export function updateController({ request }){
+export function updateController(ctx){
     const update = getUpdateShortArticle();
 
-    return render(updateView, { update }, request);
+    return render(updateView, { update }, ctx);
 }
 
-export async function UpdatedController({ request }){
+export async function UpdatedController(ctx){
+    const { request, headers } = ctx;
     const formData = await request.formData();
-    const id = formData.get('update_news');
+    const id = formData.getAll('update_news');
 
-    const headers = new Headers();
-    headers.set('location', `/news/news-admin-update-choosen-news-event?id=${id}`);
-    return new Response(null, { headers, status: 303}, request);
+    if(id.length == 0) {
+        return redirect(headers, '/news/news-admin-update-choose-news-event', 'Please choose one news event to update it');
+    }
+    if(id.length > 1){
+        return redirect(headers, '/news/news-admin-update-choose-news-event', 'dont choose more than one news event');
+    }
     
+    headers.set('location', `/news/news-admin-update-choosen-news-event?id=${id}`);
+    return new Response(null, { headers, status: 303}, ctx);    
 }
 
-export function updatesController({ request }){
+export function updatesController(ctx){
+    const { request, errors } = ctx;
     const url = new URL(request.url);
     const id = url.searchParams.get('id');
 
     const { first, second } = getNews(id);
-    return render(updateSecondView, { first, second }, request);
+    return render(updateSecondView, { first, second, errors }, ctx);
 }
 
-export async function UpdateNewsController({ request }){
-    const formData = await request.formData();
+export function UpdateNewsController(ctx, next){
+    const { headers, isValid, validated, errors } = ctx;
+    
+    if(!isValid) {
+        return next(ctx);
+    }
+    
 
     UpdateFirstNews(
-        formData.get('first_idName'),
-        formData.get('first_title'),
-        formData.get('first_date'),
-        formData.get('first_paragraph')
+        validated['first_idName'],
+        validated['first_title'],
+        validated['first_date'],
+        validated['first_paragraph']
     );
 
     UpdateSecondNews(
-        formData.get('first_idName'),
-        formData.get('second_title'),
-        formData.get('first_date'),        
-        formData.get('second_header'),
-        formData.get('second_paragraph'),
-        formData.get('second_header_2'),
-        formData.get('second_paragraph_2'),
-        formData.get('second_header_3'),
-        formData.get('second_paragraph_3'),
-        formData.get('second_header_4'),
-        formData.get('second_paragraph_4'),
-        formData.get('second_paragraph_5')
+        validated['first_idName'],
+        validated['second_title'],
+        validated['first_date'],        
+        validated['second_header'],
+        validated['second_paragraph'],
+        validated['second_header_2'],
+        validated['second_paragraph_2'],
+        validated['second_header_3'],
+        validated['second_paragraph_3'],
+        validated['second_header_4'],
+        validated['second_paragraph_4'],
+        validated['second_paragraph_5']
     );
 
-    const headers = new Headers();
     return redirect(headers, '/news/news-home', `updated Successfully`);
 }

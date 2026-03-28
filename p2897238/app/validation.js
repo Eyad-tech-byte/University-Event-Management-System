@@ -1,5 +1,5 @@
 export function required(name, value){
-    if (!value || value.trim() == "") return `${name} is a required field`;
+    if (!value) return `${name} is a required field`;
 }
 
 export function minLength(min){
@@ -25,17 +25,21 @@ export function validateField(name, value, validators){
     }
 }
 
-export function validateSchema(formData, schema){
+export function validateSchema(formData, schema){ 
     const entries = Object.entries(schema);
+    const validated = {};
     let isValid = true;
 
     const errorEntries = entries.map(([key, {validators, displayName}]) => {
-    const value = formData.get(key);
-    const message = validateField(displayName || key, value, validators) || "";
-    if(message) isValid = false;
-    return [key, {value, message, error: !!message }];
+        const value = formData.get(key);
+        const message = validateField(displayName || key, value, validators) || "";
+        if(message) {
+            isValid = false;
+        } else {
+            validated[key] = value;
+        };
+        return [key, {value, message, error: !!message }];
     });
     const errors = Object.fromEntries(errorEntries);
-    return { isValid, errors};
-
+    return { isValid, errors, validated};
 }
