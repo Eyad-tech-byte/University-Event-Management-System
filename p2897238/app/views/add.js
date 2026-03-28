@@ -122,7 +122,7 @@ export function addView({short, long, similar,
                     <div class="general-info">
                         <div class="error-message">
                             <label for="title">Title:</label>
-                            <input type="text" id="title" name="short_title" >
+                            <input type="text" id="title" name="short_title" required>
                             ${short_title.message}
                         </div>
 
@@ -148,7 +148,7 @@ export function addView({short, long, similar,
 
                         <div class="error-message">
                             <label for="idName">ID-Name:</label>
-                            <input type="text" id="idName" name="short_idName" >
+                            <input type="text" id="idName" name="short_idName" required>
                             ${short_idName.message}
                         </div>
                     </div>

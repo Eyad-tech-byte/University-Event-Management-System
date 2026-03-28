@@ -4,6 +4,7 @@ import { eventsServer } from "./P2896775/app/eventsServer.js";
 import newsServer from "./p2897238/server.js";
 import { imageController } from "./p2897238/app/controller/add.js";
 import { adminController } from "./index/controllers/indexAdmin.js";
+import { notFoundController } from "./index/controllers/notFoundIndex.js";
 
 export default function server(request) {
     const url = new URL(request.url);
@@ -30,5 +31,5 @@ export default function server(request) {
     if (request.method == "GET" && url.pathname.startsWith("/file/")){
         return imageController({ request });
     }
-    return new Response("Not Found", { status: 404});
+    return notFoundController({ request });
 }
