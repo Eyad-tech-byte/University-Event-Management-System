@@ -48,7 +48,6 @@ export function eventsHomeView(data) {
     <div class="page-wrapper">
     <header>
       <h1>Events at Imaginary University</h1>
-      <br>
       <p>Explore upcoming events and register to participate</p>
     </header>
 
@@ -57,7 +56,6 @@ export function eventsHomeView(data) {
         <li><a href="/">Back</a></li>
         <li><a href="/events/events-homepage">All Events</a></li>
         ${categoriesNav}
-        <li><a href="/login">Admin Login</a></li>
       </ul>
 
       <form action="/events/events-homepage" method="GET">

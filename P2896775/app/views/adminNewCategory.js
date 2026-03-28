@@ -13,8 +13,8 @@ export function adminNewCategoryView({ errors = {} }) {
         <ul>
           <li><a href="/events/admin/events-homepage">Dashboard</a></li>
           <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-          <li><a href="#">Log out</a></li>
-          <li><a href="/events/events-homepage">Student Page</a></li>
+          <!-- Log Out logic handled by teammate (p2898534) -->
+          <li><a href="/logout">Log out</a></li>
         </ul>
       </nav>
 

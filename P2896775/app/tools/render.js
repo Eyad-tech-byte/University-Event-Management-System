@@ -36,8 +36,8 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
         <meta name="author" content="Hamza Kazi">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>University Events Management System</title>
-        <link rel="stylesheet" href="/P2896775/assets/events-styles.css">
-        <link rel="icon" href="/P2896775/assets/favicon.png">
+        <link rel="stylesheet" href="/p2896775/assets/events-styles.css">
+        <link rel="icon" href="/p2896775/assets/favicon.png">
       </head>
 
       <body class="${bodyClass}">
@@ -51,8 +51,8 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
         <address id="uni-address">
           <h4>Address</h4>
           123 University Avenue<br />
-          Dubai, UAE<br />
-          LE1 XXX<br />
+          Dubai, UAE <br>
+          LE1 XXX <br>
         </address>
 
         <address id="contact-info">
@@ -60,14 +60,14 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
           Email:
           <a href="mailto:info@imaginaryuniversity.ae"
             >info@imaginaryuniversity.ae</a
-          ><br />
+          > <br>
           Phone: +971561234567
         </address>
       </div>
 
       <p>© 2026 Imaginary University. All rights reserved.</p>
       </footer>
-      <script src="/P2896775/assets/events-script.js"></script>
+      <script src="/p2896775/assets/events-script.js"></script>
       </body>
     </html>
   `;

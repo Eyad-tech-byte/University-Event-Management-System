@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { formatDate, formatLineBreaks, formatTime, formatURL } from "../../assets/events-script.js";
+import { formatDate, formatLineBreaks, formatTime } from "../../assets/events-script.js";
 
 export function eventsDetailsView(data) {
 
@@ -128,6 +128,7 @@ export function eventsDetailsView(data) {
         </aside>
       </section>
 
+      <!-- Register button page handled by teammate (p2898534): redirects to student registration form -->
       <button type="button"
       onclick="location.href='/register'"
       id="register-button">

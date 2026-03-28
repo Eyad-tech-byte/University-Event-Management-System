@@ -8,8 +8,8 @@ export function adminDeleteEventView(data) {
         <ul>
           <li><a href="/events/admin/events-homepage">Dashboard</a></li>
           <li><a href="/events/admin/event-creation-form">Create Event</a></li>
-          <li><a href="#">Log out</a></li>
-          <li><a href="/events/events-homepage">Student Page</a></li>
+          <!-- Log Out logic handled by teammate (p2898534) -->
+          <li><a href="/logout">Log out</a></li>
         </ul>
       </nav>
 
@@ -21,17 +21,24 @@ export function adminDeleteEventView(data) {
       </section>
 
       <div class="delete-btn-container">
+
         <form method="POST">
           <button type="submit" class="delete-form-btns" id="form-delete-btn">Delete Event</button>
         </form>
 
-        <form action="/events/admin/events-homepage" method="GET">
-          <button class="delete-form-btns" id="cancel-btn">Cancel & Return</button>
-        </form>
+        <button type="button" 
+        onclick="location.href='/events/admin/events-homepage'"
+        class="delete-form-btns" id="cancel-btn">
+        Cancel & Return
+        </button>
 
-        <form action="/events/admin/events-details/${data.event.event_id}/${formatURL(escape(data.event.event_name))}" method="GET">
-          <button class="delete-form-btns" id="form-view-details-btn">View Details</button>
-        </form>
+
+        <button type="button" 
+        onclick="location.href='/events/admin/events-details/${data.event.event_id}/${formatURL(escape(data.event.event_name))}'" 
+        class="delete-form-btns" id="form-view-details-btn">
+        View Details
+        </button>
+
       </div>
 
     </main>
