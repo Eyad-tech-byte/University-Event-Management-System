@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { formatDate, formatLineBreaks, formatTime, formatURL } from "../../assets/events-script.js";
+import { formatDate, formatLineBreaks, formatTime } from "../../assets/events-script.js";
 
 export function eventsDetailsView(data) {
 
