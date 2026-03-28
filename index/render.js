@@ -28,6 +28,7 @@ export function render(viewFn, data, request, status = 200) {
                 <li><a href="/news/news-home">News</a></li>
                 <li><a href="/register/registration-form">Register</a></li>
             </ul>
+            </div>
         </nav>
         `
 
@@ -49,6 +50,7 @@ export function render(viewFn, data, request, status = 200) {
                 <li><a href="/events/admin/events-homepage">Edit Events</a></li>
                 <li><a href="/news/news-admin">Edit News</a></li>
             </ul>
+            </div>
         </nav>
         `
     }
