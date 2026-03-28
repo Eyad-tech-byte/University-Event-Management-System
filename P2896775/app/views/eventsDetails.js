@@ -129,7 +129,7 @@ export function eventsDetailsView(data) {
       </section>
 
       <button type="button"
-      onclick="location.href='/register/${data.events.event_id}/${formatURL(data.events.event_name)}'"
+      onclick="location.href='/register'"
       id="register-button">
       Register Now
       </button>
