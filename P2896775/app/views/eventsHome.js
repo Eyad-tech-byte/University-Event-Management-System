@@ -62,7 +62,7 @@ export function eventsHomeView(data) {
         <div class="search-container">
           <label for="search-category">Search:</label>
           <input type="search" id="search-category" name="search-student" placeholder="Type an event to search"/>
-          <button class="search-btn">Search</button>
+          <button type="submit" class="search-btn">Search</button>
         </div>
       </form>
     </nav>

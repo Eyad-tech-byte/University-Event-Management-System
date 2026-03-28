@@ -67,6 +67,7 @@ export function adminEventsHomeView(data) {
         <li><a href="/Imaginary-University-Managment-System/admin">Back</a></li>
         <li><a href="/events/admin/events-homepage">Dashboard</a></li>
         <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+        
         <!-- Log Out logic handled by teammate (p2898534) -->
         <li><a href="/logout">Log Out</a></li>
       </ul>
@@ -75,7 +76,7 @@ export function adminEventsHomeView(data) {
         <div class="search-container">
           <label for="search-category">Search:</label>
           <input type="search" id="search-category" name="search-admin" placeholder="Type an event to search">
-          <button class="search-btn">Search</button>
+          <button type="submit" class="search-btn">Search</button>
         </div>
       </form>
     </nav>
