@@ -81,6 +81,7 @@ export function adminEventsDetailsView(data) {
       <ul>
         <li><a href="/events/admin/events-homepage">Dashboard</a></li>
         <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+        <!-- Log Out logic handled by teammate (p2898534) -->
         <li><a href="/logout">Log Out</a></li>
       </ul>
     </nav>

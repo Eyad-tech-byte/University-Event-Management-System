@@ -128,6 +128,7 @@ export function eventsDetailsView(data) {
         </aside>
       </section>
 
+      <!-- Register button page handled by teammate (p2898534): redirects to student registration form -->
       <button type="button"
       onclick="location.href='/register'"
       id="register-button">

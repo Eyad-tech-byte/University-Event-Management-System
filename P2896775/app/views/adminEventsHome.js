@@ -58,9 +58,8 @@ export function adminEventsHomeView(data) {
   return`
     <div class="page-wrapper">
     <header>
-      <h1>Admin events page</h1>
-      <br>
-      <p>Create, Delete and Update events</p>
+      <h1>Admin Events Page</h1>
+      <p>Create, Delete or Update events</p>
     </header>
 
     <nav>
@@ -68,6 +67,7 @@ export function adminEventsHomeView(data) {
         <li><a href="/Imaginary-University-Managment-System/admin">Back</a></li>
         <li><a href="/events/admin/events-homepage">Dashboard</a></li>
         <li><a href="/events/admin/event-creation-form">Create Event</a></li>
+        <!-- Log Out logic handled by teammate (p2898534) -->
         <li><a href="/logout">Log Out</a></li>
       </ul>
 

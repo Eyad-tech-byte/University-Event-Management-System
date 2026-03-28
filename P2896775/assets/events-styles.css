@@ -22,15 +22,16 @@ main {
 
 header {
     text-align: center;
-    padding: 1rem;
-    background-color: darkcyan;
+    padding: 2rem;
+    background-color: teal;
+    color: white;
 }
 
 nav {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    background-color: azure;
+    background-color: aliceblue;
     padding: 1rem;
 }
 
@@ -64,7 +65,7 @@ nav form {
 }
 
 footer {
-    background-color: lightblue;
+    background-color: lightsteelblue;
     padding: 1.5rem;
 }
 
