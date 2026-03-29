@@ -67,6 +67,7 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
 
       <p>© 2026 Imaginary University. All rights reserved.</p>
       </footer>
+      
       <script src="/p2896775/assets/events-script.js"></script>
       </body>
     </html>
