@@ -14,8 +14,12 @@ export function addView({short, long, similar,
     errors = { 
         short_title: {}, 
         short_idName: {}, 
+        short_date: {}, 
+        short_catagory: {}, 
+        short_image: {}, 
         short_paragraph: {},
         long_title: {},
+        long_image: {}, 
         long_header: {},
         long_paragraph: {},
         long_header_2: {},
@@ -93,8 +97,12 @@ export function addView({short, long, similar,
         const { 
             short_title, 
             short_idName, 
+            short_date, 
+            short_catagory, 
+            short_image, 
             short_paragraph,
             long_title,
+            long_image, 
             long_header,
             long_paragraph,
             long_header_2,
@@ -122,42 +130,46 @@ export function addView({short, long, similar,
                     <div class="general-info">
                         <div class="error-message">
                             <label for="title">Title:</label>
-                            <input type="text" id="title" name="short_title" required>
+                            <input type="text" id="title" name="short_title" required minLength="5">
                             ${short_title.message}
                         </div>
 
-                        <div>
+                        <div class="error-message">
                             <label for="add-date">Date:</label>
                             <input type="date" id="add-date" name="short_date" required>
+                            ${short_date.message}
                         </div>
                     
-                        <div>
+                        <div class="error-message">
                             <label for="catagory">catagory:</label>
                             <select id="catagory" name="short_catagory" required>
                                 <option value="sports">Sports</option>
                                 <option value="art">Art</option>
                                 <option value="technology">Technology</option>
                                 <option value="academic">Academic</option>
+                                ${short_catagory.message}
                             </select>
                         </div> 
 
-                        <div>
+                        <div class="error-message">
                             <label for="img">img: </label>
                             <input id="img" name="short_image" type="file" accept="image/*" required>
+                            ${short_image.message}
                         </div>
 
                         <div class="error-message">
                             <label for="idName">ID-Name:</label>
-                            <input type="text" id="idName" name="short_idName" required>
+                            <input type="text" id="idName" name="short_idName" required minLength="3">
                             ${short_idName.message}
                         </div>
                     </div>
             
-            
-                    <div class="short-parag">
-                        <div class"error-message">
-                            <label for="paragraph">write your paragraph here:</label><br>
-                            <textarea id="paragraph" name="short_paragraph" placeholder="Type your first paragraph..." ></textarea>
+                    <div class="parag-error">
+                        <div class="short-parag">
+                                <label for="paragraph">write your paragraph here:</label><br>
+                                <textarea id="paragraph" name="short_paragraph" placeholder="Type your first paragraph..." required></textarea>
+                        </div>
+                        <div class="error-message-parag">
                             ${short_paragraph.message}
                         </div>
                     </div>
@@ -166,56 +178,102 @@ export function addView({short, long, similar,
             <div class="long">
             <section class="add-long-page">
                 ${long_news}
-            </section> 
+            </section>   
+            <div class="general-long-info">
             <fieldset>
                 <legend>Long Information:</legend>
-                    <div class="error-message">
-                    <label for="title_1">Title:</label>
-                    <input type="text" id="title_1" name="long_title"><br><br>
-                    ${long_title.message}
+              
+                    <div class="error-message-2">
+                        <label for="title_1">Title:</label>
+                        <input type="text" id="title_1" name="long_title" required minLength="5">
+                        ${long_title.message}
                     </div>
 
-                    <div class="file">
+                    <div class="error-message-2">
                         <label for="img_1">img: </label>
-                        <input id="img_1" name="long_image" type="file" accept="image/*" required><br><br>
+                        <input id="img_1" name="long_image" type="file" accept="image/*" required>
+                        ${long_image.message}
                     </div>
                     <hr>
 
-                    <label for="title_2">Header:</label>
-                    <input type="text" id="title_2" name="long_header" ><br><br>
+                    <div class="error-message-2">
+                        <label for="title_2">Header:</label>
+                        <input type="text" id="title_2" name="long_header" required minLength="5">
                     ${long_header.message}
-                    <label for="paragraph_1">write your paragraph here:</label>
-                    <textarea id="paragraph_1" name="long_paragraph"  placeholder="Type your paragraph..." ></textarea><br><br>
-                    ${long_paragraph.message}
+                    </div>
+
+                    <div class="parag-error-long">
+                        <div class="long-parag">
+                            <label for="paragraph_1">write your paragraph here:</label>
+                            <textarea id="paragraph_1" name="long_paragraph"  placeholder="Type your paragraph..." required></textarea>
+                        </div>
+                        <div class="error-message-parag-2">
+                                ${long_paragraph.message}
+                        </div>
+                    </div>
                     <hr>
 
-                    <label for="title_3">Header 2:</label>
-                    <input type="text" id="title_3" name="long_header_2"><br><br>
-                    ${long_header_2.message}
-                    <label for="paragraph_2">write your paragraph here:</label>
-                    <textarea id="paragraph_2" name="long_paragraph_2" placeholder="Type your paragraph..." ></textarea><br><br>
-                    ${long_paragraph_2.message}
+                    <div class="error-message-2">
+                        <label for="title_3">Header 2:</label>
+                        <input type="text" id="title_3" name="long_header_2" required minLength="5">
+                        ${long_header_2.message}
+                    </div>
+
+                    <div class="parag-error-long">
+                        <div class="long-parag">
+                            <label for="paragraph_2">write your paragraph here:</label>
+                            <textarea id="paragraph_2" name="long_paragraph_2" placeholder="Type your paragraph..." required></textarea>
+                        </div>
+                        <div class="error-message-parag-2">
+                            ${long_paragraph_2.message}
+                        </div>
+                    </div>
                     <hr>
 
-                    <label for="title_4">Header 3:</label>
-                    <input type="text" id="title_4" name="long_header_3"  ><br><br>
-                    ${long_header_3.message}
-                    <label for="paragraph_3">write your paragraph here:</label>
-                    <textarea id="paragraph_3" name="long_paragraph_3" placeholder="Type your paragraph..." ></textarea><br><br>
-                    ${long_paragraph_3.message}
+                    <div class="error-message-2">
+                        <label for="title_4">Header 3:</label>
+                        <input type="text" id="title_4" name="long_header_3"  required minLength="5">
+                        ${long_header_3.message}
+                    </div>
+
+                    <div class="parag-error-long">
+                        <div class="long-parag">
+                            <label for="paragraph_3">write your paragraph here:</label>
+                            <textarea id="paragraph_3" name="long_paragraph_3" placeholder="Type your paragraph..." required></textarea>
+                        </div>
+                        <div class="error-message-parag-2">
+                            ${long_paragraph_3.message}
+                        </div>
+                    </div>
                     <hr>
 
-                    <label for="title_5">Header 4:</label>
-                    <input type="text" id="title_5" name="long_header_4"  ><br><br>
-                    ${long_header_4.message}
-                    <label for="paragraph_4">write your paragraph here:</label>
-                    <textarea id="paragraph_4" name="long_paragraph_4" placeholder="Type your paragraph..." ></textarea><br><br>
-                    ${long_paragraph_4.message}
+                    <div class="error-message-2">
+                        <label for="title_5">Header 4:</label>
+                        <input type="text" id="title_5" name="long_header_4"  required minLength="5">
+                        ${long_header_4.message}
+                    </div>
+
+                    <div class="parag-error-long">
+                        <div class="long-parag">
+                            <label for="paragraph_4">write your paragraph here:</label>
+                            <textarea id="paragraph_4" name="long_paragraph_4" placeholder="Type your paragraph..." required></textarea>
+                        </div>
+                        <div class="error-message-parag-2">
+                            ${long_paragraph_4.message}
+                        </div>
+                    </div>
                     
-                    <label for="paragraph_5">write your paragraph here:</label>
-                    <textarea id="paragraph_5" name="long_paragraph_5" placeholder="Type your paragraph..." ></textarea><br><br>
-                    ${long_paragraph_5.message}
+                    <div class="parag-error-long">
+                        <div class="long-parag">
+                            <label for="paragraph_5">write your paragraph here:</label>
+                            <textarea id="paragraph_5" name="long_paragraph_5" placeholder="Type your paragraph..." required></textarea>
+                        </div>
+                        <div class="error-message-parag-2">
+                            ${long_paragraph_5.message}
+                        </div>
+                    </div>
                 
+                </div>
             </fieldset>
             </div>
         

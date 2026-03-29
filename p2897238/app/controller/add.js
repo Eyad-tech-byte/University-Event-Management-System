@@ -2,18 +2,19 @@ import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle
 import render from "../../render.js";
 import { addView } from "../views/add.js";
 import redirect from "../redirect.js";
-import { validateField, required, minLength, validateSchema }  from "../validation.js";
-import { addingNewsSchema } from "../schema/add.js";
 
-export function exampleController({ request }){
+export function exampleController(ctx){
+    const { errors } = ctx;
+
     const short = getExampleShortArticle();
     const long = getExampleLongArticle();
     const similar = getExampleSimilarArticle();
    
-    return render(addView, { short, long, similar }, request);
+    return render(addView, { short, long, similar, errors }, ctx);
 }
 
-export async function imageController({ request }){
+export async function imageController(ctx){
+    const { request } = ctx;
     const url = new URL(request.url);
     const id = url.pathname.split("/")[2];
 
@@ -44,49 +45,40 @@ export async function imageController({ request }){
 
 
 
-export async function createNewsController({ request }){
-    const formData = await request.formData();
+export async function createNewsController(ctx, next){
+    const { headers, isValid, validated, formData } = ctx;
 
-    const { isValid, errors } = validateSchema(formData, addingNewsSchema);
+    if(!isValid) return next(ctx);
 
-    const short_article_id = formData.get('short_idName');
-    const short_article_title = formData.get('short_title');
-    const short_article_date = formData.get('short_date');
-    const short_article_catagory = formData.get('short_catagory');
-    const short_article_content = formData.get('short_paragraph');
+    const short_article_id = validated['short_idName'];
+    const short_article_title = validated['short_title'];
+    const short_article_date = validated['short_date'];
+    const short_article_catagory = validated['short_catagory'];
+    const short_article_content = validated['short_paragraph'];
 
-    const image = formData.get('short_image');
+    const image = validated['short_image'];
     const short_article_image = new Uint8Array(await image.arrayBuffer());
 
-    const long_article_id = formData.get('short_idName');
-    const long_article_title_1 = formData.get('long_title');
+    const long_article_id = validated['short_idName'];
+    const long_article_title_1 = validated['long_title'];
 
-    const news_image = formData.get('long_image');
+    const news_image = validated['long_image'];
     const long_article_image = new Uint8Array(await news_image.arrayBuffer());
 
-    const long_article_date = formData.get('short_date'); 
-    const long_article_catagory = formData.get('short_catagory'); 
-    const long_article_title_2 = formData.get('long_header'); 
-    const long_article_content_1 = formData.get('long_paragraph');
-    const long_article_title_3 = formData.get('long_header_2'); 
-    const long_article_content_2 = formData.get('long_paragraph_2');
-    const long_article_title_4 = formData.get('long_header_3');
-    const long_article_content_3 = formData.get('long_paragraph_3');
-    const long_article_title_5 = formData.get('long_header_4');
-    const long_article_content_4 = formData.get('long_paragraph_4');
-    const long_article_content_5 = formData.get('long_paragraph_5');
+    const long_article_date = validated['short_date']; 
+    const long_article_catagory = validated['short_catagory']; 
+    const long_article_title_2 = validated['long_header']; 
+    const long_article_content_1 = validated['long_paragraph'];
+    const long_article_title_3 = validated['long_header_2']; 
+    const long_article_content_2 = validated['long_paragraph_2'];
+    const long_article_title_4 = validated['long_header_3'];
+    const long_article_content_3 = validated['long_paragraph_3'];
+    const long_article_title_5 = validated['long_header_4'];
+    const long_article_content_4 = validated['long_paragraph_4'];
+    const long_article_content_5 = validated['long_paragraph_5'];
 
     const short_article_image_type = 'not_small';
     const long_article_image_type = 'not_big';
-
-
-    if(!isValid){
-        const short = getExampleShortArticle();
-        const long = getExampleLongArticle();
-        const similar = getExampleSimilarArticle();
-
-        return render(addView, { short, long, similar, errors }, request, 400);
-    }
 
     createShortNews(
         short_article_id, 
@@ -134,7 +126,8 @@ export async function createNewsController({ request }){
     if (formData.get('similar_MUN')){
         createSimilar(news_id, 'mun', 'The university successfully hosted its annual Model United Nations (MUN)');
     }
-    const headers = new Headers();
+    
+    console.log("news is added")
     return redirect(headers, '/news/news-home', `added '${short_article_title}' Successfully`);
 }
 

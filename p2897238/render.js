@@ -1,9 +1,9 @@
 import { escape } from "@std/html/entities";
 import { getFlash } from "./app/flash.js";
 
-export default function render(viewFn, data, request, status = 200){
+export default function render(viewFn, data, ctx){
+    const { request, headers, status = 200 } = ctx;
     const content = viewFn(data);
-    const headers = new Headers();
 
     const flash = getFlash(request.headers, headers);
     const flashMessage = flash ? `
