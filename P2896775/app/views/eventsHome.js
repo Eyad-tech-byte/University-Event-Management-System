@@ -21,7 +21,7 @@ export function eventsHomeView(data) {
   }
 
 
-  let eventsHtml;
+  let eventsCardHtml;
 
   if (data.events.length != 0) {
     eventsHtml =
@@ -70,7 +70,7 @@ export function eventsHomeView(data) {
     <main>
       <section id="all-events">
         <h2>${searchText || "All Events"}</h2>
-        ${eventsHtml || `<p id="no-events-error">No events available for the search result.</p>`}
+        ${eventsCardHtml || `<p id="no-events-error">No events available for the search result.</p>`}
       </section>  
     </main>
     </div>
