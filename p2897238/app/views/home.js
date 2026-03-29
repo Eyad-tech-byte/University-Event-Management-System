@@ -13,11 +13,11 @@ export function homesView({ news, events }){
                 <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
                     <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
                     ${escape(article.content)}
-                    <ins> view more...</ins><br>
+                    <span class="underline"> view more...</span><br>
                 </a>
             </figure>
 
-            <a href="/news/news-${article.catagory}"><ins>#${article.catagory}</ins></a>
+            <a href="/news/news-${article.catagory}"><span class="underline">#${article.catagory}</span></a>
             <hr>
         </article>
         `).join("\n"); 

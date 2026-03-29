@@ -86,9 +86,7 @@ export function addView({short, long, similar,
         
         const similar_news = similar.map(similar_article => ` 
             <aside class="add-similar">
-                <a href="/news/news-${similar_article.similar_article_target}-event">
-                    <span>${similar_article.similar_article_content}<ins>view more...</ins></span>
-                </a>
+                <span>${similar_article.similar_article_content}<ins>view more...</ins></span>
                 <hr>
             </aside>
         `).join("\n");
