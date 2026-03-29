@@ -24,7 +24,7 @@ export function eventsHomeView(data) {
   let eventsCardHtml;
 
   if (data.events.length != 0) {
-    eventsHtml =
+    eventsCardHtml =
     data.events.map(event => 
     `
     <a href="/events/events-details/${event.event_id}/${formatURL(escape(event.event_name))}">
