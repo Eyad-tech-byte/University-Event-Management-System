@@ -2,8 +2,6 @@ import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle
 import render from "../../render.js";
 import { addView } from "../views/add.js";
 import redirect from "../redirect.js";
-import { validateField, required, minLength, validateSchema }  from "../validation.js";
-import { addingNewsSchema } from "../schema/add.js";
 
 export function exampleController(ctx){
     const { errors } = ctx;

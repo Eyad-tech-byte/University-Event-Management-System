@@ -36,7 +36,7 @@ export function updatesController(ctx){
 }
 
 export function UpdateNewsController(ctx, next){
-    const { headers, isValid, validated, errors } = ctx;
+    const { headers, isValid, validated } = ctx;
     
     if(!isValid) {
         return next(ctx);
