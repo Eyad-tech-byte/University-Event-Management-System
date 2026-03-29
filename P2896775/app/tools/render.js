@@ -46,7 +46,7 @@ export default function render(viewFn, data, ctx, bodyClass = "") {
 
         ${content}
 
-        <footer>
+      <footer>
         <div id="top-row-container">
         <address id="uni-address">
           <h4>Address</h4>
