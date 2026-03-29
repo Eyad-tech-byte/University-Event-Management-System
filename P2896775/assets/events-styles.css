@@ -236,7 +236,7 @@ footer p {
     height: 500px;
 }
 
-.events-details-page .event-content-wrapper {
+.events-details-page .event-layout {
     display: flex;
     gap: 40px;
     padding: 40px;
@@ -274,7 +274,7 @@ footer p {
     margin-bottom: 1rem;
 }
 
-.events-details-page .event-aside {
+.events-details-page .event-sidebar {
     flex: 30%;
     padding: 2rem;
     padding-top: 3rem;
@@ -283,17 +283,17 @@ footer p {
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
-.events-details-page .event-aside hr {
+.events-details-page .event-sidebar hr {
     margin: 30px 0;
 }
 
 
-.events-details-page .event-aside p, 
-.events-details-page .event-aside h4 {
+.events-details-page .event-sidebar p, 
+.events-details-page .event-sidebar h4 {
     margin-bottom: 1rem;
 }
 
-.events-details-page .event-aside h3 {
+.events-details-page .event-sidebar h3 {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -309,14 +309,14 @@ footer p {
 
 @media (max-width: 900px) {
 
-    .events-details-page .event-content-wrapper {
+    .events-details-page .event-layout {
         flex-direction: column;
         padding: 20px;
         gap: 4rem;
     }
 
     .events-details-page .event-description,
-    .events-details-page .event-aside {
+    .events-details-page .event-sidebar {
         flex: 100%;
         padding: 1.5rem;
     }
