@@ -203,6 +203,11 @@ footer p {
     padding-top: 2rem;
 }
 
+/* =========================
+   EVENTS HOME PAGE
+   MEDIA QUERIES
+========================= */
+
 @media screen and (max-width: 768px) {
     .events-homepage nav .navigation-links {
       flex-direction: column;
@@ -298,9 +303,12 @@ footer p {
     cursor: pointer;
 }
 
+/* =========================
+   EVENTS DETAILS PAGE
+   MEDIA QUERIES
+========================= */
 
 @media (max-width: 900px) {
-
     .events-details-page .event-layout {
         flex-direction: column;
         padding: 20px;
@@ -416,6 +424,12 @@ footer p {
     background-color: whitesmoke;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
+
+/* =========================
+   FORMS PAGES (CREATE  AND
+   UPDATE FORMS)
+   MEDIA QUERIES
+========================= */
 
 @media (max-width: 900px) {
     .admin-event-forms .event-forms {
