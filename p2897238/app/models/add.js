@@ -1,14 +1,14 @@
 import { db } from "../../../db.js";
 
-export function getExampleShortArticle(){
+export function getExampleShortNews(){
     return db.prepare(`SELECT * FROM short_example_news`).all();
 }
 
-export function getExampleLongArticle(){
+export function getExampleLongNews(){
     return db.prepare(`SELECT * FROM long_example_news`).all();
 }
 
-export function getExampleSimilarArticle(){
+export function getExampleSimilarNews(){
     return db.prepare(`SELECT * FROM similar_example_news`).all();
 }
 

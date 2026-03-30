@@ -1,4 +1,4 @@
-import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle, createShortNews, createLongNews, createSimilar, getShortImage, getLongImage } from "../models/add.js";
+import { getExampleLongNews, getExampleShortNews, getExampleSimilarNews, createShortNews, createLongNews, createSimilar, getShortImage, getLongImage } from "../models/add.js";
 import render from "../render.js";
 import { addView } from "../views/add.js";
 import redirect from "../redirect.js";
@@ -6,9 +6,9 @@ import redirect from "../redirect.js";
 export function exampleController(ctx){
     const { errors } = ctx;
 
-    const short = getExampleShortArticle();
-    const long = getExampleLongArticle();
-    const similar = getExampleSimilarArticle();
+    const short = getExampleShortNews();
+    const long = getExampleLongNews();
+    const similar = getExampleSimilarNews();
    
     return render(addView, { short, long, similar, errors }, ctx);
 }

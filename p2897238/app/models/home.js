@@ -1,26 +1,26 @@
 import { db } from "../../../db.js";
 
-export function getAllArticles(){
+export function getAllNews(){
     return db.prepare(`SELECT * FROM news`).all();
 }
 
-export function getAllSections(){
+export function getAllEvntNews(){
     return db.prepare(`SELECT * FROM events_news_page`).all();
 }
 
-export function getSportsArticles(){
+export function getSportsNews(){
     return db.prepare(`SELECT * FROM news WHERE catagory = 'sports' `).all();
 }
 
-export function getArtArticles(){
+export function getArtNews(){
     return db.prepare(`SELECT * FROM news WHERE catagory = 'art' `).all();
 }
 
-export function getTechnologyArticles(){
+export function getTechnologyNews(){
     return db.prepare(`SELECT * FROM news WHERE catagory = 'technology' `).all();
 }
 
-export function getAcademicArticles(){
+export function getAcademicNews(){
     return db.prepare(`SELECT * FROM news WHERE catagory = 'academic' `).all();
 }
 

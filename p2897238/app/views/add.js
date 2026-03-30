@@ -146,7 +146,7 @@ export function addView({short, long, similar,
                             </select>
                         </div> 
 
-                        <div>
+                        <div class="error-message">
                             <label for="img">img: </label>
                             <input id="img" name="short_image" type="file" accept="image/*" required> 
                         </div>
@@ -183,7 +183,7 @@ export function addView({short, long, similar,
                         ${long_title.message}
                     </div>
 
-                    <div>
+                    <div class="error-message-2">
                         <label for="img_1">img: </label>
                         <input id="img_1" name="long_image" type="file" accept="image/*" required>
                     </div>

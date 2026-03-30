@@ -1,10 +1,10 @@
 import { db } from "../../../db.js";
 
-export function getUpdateShortArticle(){
+export function getUpdateShortNews(){
     return db.prepare(`SELECT * FROM news`).all();
 }
 
-export function getUpdateLongArticle(){
+export function getUpdateLongNews(){
     return db.prepare(`SELECT * FROM news_page`).all();
 }
 
