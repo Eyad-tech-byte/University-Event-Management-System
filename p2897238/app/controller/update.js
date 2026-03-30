@@ -1,11 +1,11 @@
-import { getUpdateShortArticle, getNews, UpdateFirstNews, UpdateSecondNews } from "../models/update.js";
+import { getUpdateShortNews, getNews, UpdateFirstNews, UpdateSecondNews } from "../models/update.js";
 import render from "../render.js";
 import { updateView } from "../views/update.js";
 import { updateSecondView } from "../views/update2.js";
 import redirect from "../redirect.js";
 
 export function updateController(ctx){
-    const update = getUpdateShortArticle();
+    const update = getUpdateShortNews();
 
     return render(updateView, { update }, ctx);
 }

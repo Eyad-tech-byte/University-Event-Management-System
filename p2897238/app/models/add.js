@@ -1,29 +1,29 @@
 import { db } from "../../../db.js";
 
-export function getExampleShortArticle(){
-    return db.prepare(`SELECT * FROM short_article`).all();
+export function getExampleShortNews(){
+    return db.prepare(`SELECT * FROM short_example_news`).all();
 }
 
-export function getExampleLongArticle(){
-    return db.prepare(`SELECT * FROM long_article`).all();
+export function getExampleLongNews(){
+    return db.prepare(`SELECT * FROM long_example_news`).all();
 }
 
-export function getExampleSimilarArticle(){
-    return db.prepare(`SELECT * FROM similar_article`).all();
+export function getExampleSimilarNews(){
+    return db.prepare(`SELECT * FROM similar_example_news`).all();
 }
 
 export function createShortNews(idName, title, date, image, image_type, catagory, content) {
     db.prepare(`
-        INSERT INTO article (idName, title, date, image, image_type, catagory, content) 
+        INSERT INTO news (idName, title, date, image, image_type, catagory, content) 
         VALUES ( :idName, :title, :date, :image, :image_type, :catagory, :content )
         `).run({ idName, title, date, image, image_type, catagory, content });
 }
 
 export function getShortImage(idName){
-    return db.prepare(`SELECT * FROM article WHERE idName = ?`).get(idName)
+    return db.prepare(`SELECT * FROM news WHERE idName = ?`).get(idName)
 }
 export function getLongImage(news_id){
-    return db.prepare(`SELECT * FROM news_article WHERE news_id = ?`).get(news_id)
+    return db.prepare(`SELECT * FROM news_page WHERE news_id = ?`).get(news_id)
 }
 
 export function createLongNews(
@@ -43,7 +43,7 @@ export function createLongNews(
     news_content_4, 
     news_content_5 ) {
         db.prepare(`
-            INSERT INTO news_article (
+            INSERT INTO news_page (
                 news_id,
                 news_title_1, 
                 news_image,
@@ -93,8 +93,8 @@ export function createLongNews(
                 news_content_5 });
 }
 
-export function createSimilar(news_section_id, news_section_target, news_section_content){
+export function createSimilar(news_similar_id, news_similar_target, news_similar_content){
     db.prepare(`
-        INSERT INTO news_section (news_section_id, news_section_target, news_section_content) VALUES (?, ?, ?)
-        `).run(news_section_id, news_section_target, news_section_content);
+        INSERT INTO news_similar (news_similar_id, news_similar_target, news_similar_content) VALUES (?, ?, ?)
+        `).run(news_similar_id, news_similar_target, news_similar_content);
 }

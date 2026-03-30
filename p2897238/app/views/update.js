@@ -2,28 +2,28 @@ import { escape } from "@std/html/entities";
 
 export function updateView({ update }){
     
-    const update_news = update.map(article => `
+    const update_news = update.map(news => `
             <article class="update-news">
                 <div class="update-tittle">
-                    <strong>${escape(article.title)}</strong>
-                    <time datetime="${article.date}"> ${article.date}</time>
+                    <strong>${escape(news.title)}</strong>
+                    <time datetime="${news.date}"> ${news.date}</time>
                 </div>
 
                 <figure class="update-img">
-                    <a target="_blank" href="/news/news-${escape(article.idName.toLowerCase())}-event">
-                        <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
-                        ${escape(article.content)}
+                    <a target="_blank" href="/news/news-${escape(news.idName.toLowerCase())}-event">
+                        <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
+                        ${escape(news.content)}
                         <ins> view more...</ins><br>
                     </a>
                 </figure>
 
-                <a href="/news/news-${article.catagory}"><ins>#${article.catagory}</ins></a>
+                <a href="/news/news-${news.catagory}"><ins>#${news.catagory}</ins></a>
                 <hr>
             </article>
 
             <div>
-                <input type="checkbox" id="${escape(article.idName)}" name="update_news" value="${escape(article.idName)}">
-                <label for="${escape(article.idName)}">To update this one tick the checkbox</label>
+                <input type="checkbox" id="${escape(news.idName)}" name="update_news" value="${escape(news.idName)}">
+                <label for="${escape(news.idName)}">To update this one tick the checkbox</label>
             </div>
         `).join("\n");
 

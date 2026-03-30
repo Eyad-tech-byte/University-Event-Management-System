@@ -7,33 +7,33 @@ export function homesView({ news, events, comments,
         comment: {}
     }}){
     
-    const news_events = news.map(article => `
+    const news_events = news.map(news => `
         <article class="news"> 
             <div class="tittle">
-                <strong>${escape(article.title)}</strong>
-                <time datetime="${article.date}"> ${article.date}</time>
+                <strong>${escape(news.title)}</strong>
+                <time datetime="${news.date}"> ${news.date}</time>
             </div>
 
             <figure class="first_image">
-                <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
-                    <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
-                    ${escape(article.content)}
+                <a href="/news/news-${escape(news.idName.toLowerCase())}-event">
+                    <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
+                    ${escape(news.content)}
                     <span class="underline"> view more...</span><br>
                 </a>
             </figure>
 
-            <a href="/news/news-${article.catagory}"><span class="underline">#${article.catagory}</span></a>
+            <a href="/news/news-${news.catagory}"><span class="underline">#${news.catagory}</span></a>
             <hr>
         </article>
         `).join("\n"); 
         
-        const events_news = events.map(section => `
+        const events_news = events.map(events_news_page => `
             <article class="events">
-                <img src=${section.section_image} alt=${escape(section.section_title)} width="300" height="200">
+                <img src=${events_news_page.events_news_image} alt=${escape(events_news_page.events_news_title)} width="300" height="200">
                 <div>
-                    <b>${section.section_title}</b><br><br>
-                    ${section.section_content}<br><br>
-                    <time datetime=${section.section_date}>${section.section_date}</time><br><br>
+                    <b>${events_news_page.events_news_title}</b><br><br>
+                    ${events_news_page.events_news_content}<br><br>
+                    <time datetime=${events_news_page.events_news_date}>${events_news_page.events_news_date}</time><br><br>
                     <button type="button"><a href="/events/events-homepage">View Details</a></button>
                 </div>
             </article>

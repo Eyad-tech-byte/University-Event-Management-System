@@ -8,6 +8,11 @@ import { notFoundController } from "./index/controllers/notFoundIndex.js";
 
 export default function server(request) {
     const url = new URL(request.url);
+    
+    if (request.method == "GET" && url.pathname.startsWith("/file/")){
+        return imageController({ request });
+    }
+    
     console.log(`\n${request.method} ${url.pathname} ${url.search}`);
 
     if(url.pathname == "/") {
@@ -28,8 +33,6 @@ export default function server(request) {
     if(url.pathname.startsWith("/news")){
         return newsServer(request);
     }
-    if (request.method == "GET" && url.pathname.startsWith("/file/")){
-        return imageController({ request });
-    }
+    
     return notFoundController({ request });
 }
