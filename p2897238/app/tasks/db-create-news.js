@@ -8,6 +8,7 @@ db.exec(`
     DROP TABLE IF EXISTS short_article;
     DROP TABLE IF EXISTS long_article;
     DROP TABLE IF EXISTS similar_article;
+    DROP TABLE IF EXISTS comments;
 
     CREATE TABLE article (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -311,6 +312,14 @@ db.exec(`
     INSERT INTO similar_article (similar_article_id, similar_article_target, similar_article_content) VALUES
         ('1', 'example_1', 'This is only an example sentence. It can represent any event news and is similar to your topic'),
         ('2', 'example_2', 'This is only an example sentence. It can represent any event news and is similar to your topic');
+
+    CREATE TABLE comments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        comment TEXT NOT NULL
+    );
+    INSERT INTO comments(name, comment) VALUES
+        ('Eyad', 'This is my first comment');
 
     `)
 

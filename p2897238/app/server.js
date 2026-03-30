@@ -1,17 +1,18 @@
-import { exampleController, createNewsController } from "./app/controller/add.js";
-import { adminController } from "./app/controller/admin.js";
-import { academicController, artController, homeController, sportsController, technologyController } from "./app/controller/home.js";
-import { newsController, footballController, roboticsController, munController, campusArtController, basketballController, auditionController } from "./app/controller/news.js";
-import { notFoundController } from "./app/controller/notFoundController.js";
-import { deleteController, removeController } from "./app/controller/remove.js";
-import { staticController } from "../index/controllers/static.js";
-import { updateController, UpdatedController,updatesController, UpdateNewsController } from "./app/controller/update.js";
-import ApplicationRouter from "../router.js";
-import { newsHome } from "./app/middleware/newsHome.js";
-import { withHeaders } from "./app/middleware/header.js";
-import { addingNewsSchema } from "./app/schema/add.js"
-import { validate } from "./app/middleware/validate.js"
-import { updatingNewsSchema } from "./app/schema/update.js";
+import { exampleController, createNewsController } from "./controller/add.js";
+import { adminController } from "./controller/admin.js";
+import { academicController, addCommentsController, artController, homeController, sportsController, technologyController } from "./controller/home.js";
+import { newsController, footballController, roboticsController, munController, campusArtController, basketballController, auditionController } from "./controller/news.js";
+import { notFoundController } from "./controller/notFoundController.js";
+import { deleteController, removeController } from "./controller/remove.js";
+import { staticController } from "../../index/controllers/static.js";
+import { updateController, UpdatedController,updatesController, UpdateNewsController } from "./controller/update.js";
+import ApplicationRouter from "../../router.js";
+import { newsHome } from "./middleware/newsHome.js";
+import { withHeaders } from "./middleware/header.js";
+import { addingNewsSchema } from "./schema/add.js"
+import { validate } from "./middleware/validate.js"
+import { updatingNewsSchema } from "./schema/update.js";
+import { addingCommentSchema } from "./schema/comment.js"
 
 const app = new ApplicationRouter();
 
@@ -21,6 +22,8 @@ app.use(withHeaders);
 app.get("/assets/*", staticController);
 
 app.get("/news/news-home", homeController);
+app.post("/news/news-home", homeController, validate(addingCommentSchema), addCommentsController);
+
 app.get("/news/news-sports", sportsController);
 app.get("/news/news-art", artController);
 app.get("/news/news-technology", technologyController);

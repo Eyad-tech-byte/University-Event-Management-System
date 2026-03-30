@@ -1,6 +1,11 @@
 import { escape } from "@std/html/entities";
+import { fragments } from "./add.js";
 
-export function homesView({ news, events }){
+export function homesView({ news, events, comments, 
+    error = {
+        name: {},
+        comment: {}
+    }}){
     
     const news_events = news.map(article => `
         <article class="news"> 
@@ -13,11 +18,11 @@ export function homesView({ news, events }){
                 <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
                     <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
                     ${escape(article.content)}
-                    <ins> view more...</ins><br>
+                    <span class="underline"> view more...</span><br>
                 </a>
             </figure>
 
-            <a href="/news/news-${article.catagory}"><ins>#${article.catagory}</ins></a>
+            <a href="/news/news-${article.catagory}"><span class="underline">#${article.catagory}</span></a>
             <hr>
         </article>
         `).join("\n"); 
@@ -34,6 +39,16 @@ export function homesView({ news, events }){
             </article>
             <hr>
         `).join("\n");
+
+        const Comment_news = comments.map(comments => `
+            <div>
+                <p>Name: ${escape(comments.name)}</p>
+                <p>${escape(comments.comment)}</p>
+                <hr>
+            </div>
+            `).join("\n");
+
+        const { name, comment } = fragments(error);
 
     return `
     <main class="big">
@@ -54,23 +69,33 @@ export function homesView({ news, events }){
         <aside class="comments_calender">
             <h2>Calendar</h2>
             <div id="date"></div>
-                <br><br>
+            <br><br>
 
-                <h2>Comments</h2>
-                <form autocomplete="off">
-                    <label>Name:</label><br>
-                    <input type="text" id="name" placeholder="your name..."><br><br>
+            <h2>Comments</h2>
+            <form method="POST" autocomplete="off">
+                <div class="creating-comment">
+                    <div class="name-input">
+                        <label>Name:</label><br>
+                        <input type="text" name="name" id="name" placeholder="your name..." required minLength="3">
+                        ${name.message}
+                    </div>
 
-                    <label>Write your comment:</label><br>
-                    <textarea id="comment" rows="5" placeholder="type your comment..."></textarea><br><br>
+                    <div class="comment-input">
+                        <label>Write your comment:</label><br>
+                        <textarea id="comment" name="comment" rows="5" placeholder="type your comment..." required minLength="4"></textarea>
+                        ${comment.message}
+                    </div>
 
-                    <input type="button" value="Submit">
-                    <input type="reset" value="reset">
-                </form>
+                    <div class="commentButton">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="reset">
+                    </div>
+                </div>
+            </form>
 
-                <br>
-
-                <div id="commentBox"></div>
+            <div id="commentBox">
+                ${Comment_news}
+            </div>
         </aside>
     </main>
     `

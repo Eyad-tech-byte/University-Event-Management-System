@@ -14,12 +14,10 @@ export function addView({short, long, similar,
     errors = { 
         short_title: {}, 
         short_idName: {}, 
-        short_date: {}, 
+        short_date: {},
         short_catagory: {}, 
-        short_image: {}, 
         short_paragraph: {},
         long_title: {},
-        long_image: {}, 
         long_header: {},
         long_paragraph: {},
         long_header_2: {},
@@ -30,6 +28,7 @@ export function addView({short, long, similar,
         long_paragraph_4: {},
         long_paragraph_5: {}
      }}){
+        
     const short_news = short.map(short_article => `
         <article class="add-news"> 
             <div class="add-tittle">
@@ -86,9 +85,7 @@ export function addView({short, long, similar,
         
         const similar_news = similar.map(similar_article => ` 
             <aside class="add-similar">
-                <a href="/news/news-${similar_article.similar_article_target}-event">
-                    <span>${similar_article.similar_article_content}<ins>view more...</ins></span>
-                </a>
+                <span>${similar_article.similar_article_content}<ins>view more...</ins></span>
                 <hr>
             </aside>
         `).join("\n");
@@ -97,12 +94,10 @@ export function addView({short, long, similar,
         const { 
             short_title, 
             short_idName, 
-            short_date, 
+            short_date,
             short_catagory, 
-            short_image, 
             short_paragraph,
             long_title,
-            long_image, 
             long_header,
             long_paragraph,
             long_header_2,
@@ -151,10 +146,9 @@ export function addView({short, long, similar,
                             </select>
                         </div> 
 
-                        <div class="error-message">
+                        <div>
                             <label for="img">img: </label>
-                            <input id="img" name="short_image" type="file" accept="image/*" required>
-                            ${short_image.message}
+                            <input id="img" name="short_image" type="file" accept="image/*" required> 
                         </div>
 
                         <div class="error-message">
@@ -166,8 +160,8 @@ export function addView({short, long, similar,
             
                     <div class="parag-error">
                         <div class="short-parag">
-                                <label for="paragraph">write your paragraph here:</label><br>
-                                <textarea id="paragraph" name="short_paragraph" placeholder="Type your first paragraph..." required></textarea>
+                            <label for="paragraph">write your paragraph here:</label><br>
+                            <textarea id="paragraph" name="short_paragraph" placeholder="Type your first paragraph..." required minLength="100"></textarea>
                         </div>
                         <div class="error-message-parag">
                             ${short_paragraph.message}
@@ -189,10 +183,9 @@ export function addView({short, long, similar,
                         ${long_title.message}
                     </div>
 
-                    <div class="error-message-2">
+                    <div>
                         <label for="img_1">img: </label>
                         <input id="img_1" name="long_image" type="file" accept="image/*" required>
-                        ${long_image.message}
                     </div>
                     <hr>
 
@@ -205,7 +198,7 @@ export function addView({short, long, similar,
                     <div class="parag-error-long">
                         <div class="long-parag">
                             <label for="paragraph_1">write your paragraph here:</label>
-                            <textarea id="paragraph_1" name="long_paragraph"  placeholder="Type your paragraph..." required></textarea>
+                            <textarea id="paragraph_1" name="long_paragraph"  placeholder="Type your paragraph..." required minLength="120"></textarea>
                         </div>
                         <div class="error-message-parag-2">
                                 ${long_paragraph.message}
@@ -222,7 +215,7 @@ export function addView({short, long, similar,
                     <div class="parag-error-long">
                         <div class="long-parag">
                             <label for="paragraph_2">write your paragraph here:</label>
-                            <textarea id="paragraph_2" name="long_paragraph_2" placeholder="Type your paragraph..." required></textarea>
+                            <textarea id="paragraph_2" name="long_paragraph_2" placeholder="Type your paragraph..." required minLength="100"></textarea>
                         </div>
                         <div class="error-message-parag-2">
                             ${long_paragraph_2.message}
@@ -239,7 +232,7 @@ export function addView({short, long, similar,
                     <div class="parag-error-long">
                         <div class="long-parag">
                             <label for="paragraph_3">write your paragraph here:</label>
-                            <textarea id="paragraph_3" name="long_paragraph_3" placeholder="Type your paragraph..." required></textarea>
+                            <textarea id="paragraph_3" name="long_paragraph_3" placeholder="Type your paragraph..." required minLength="100"></textarea>
                         </div>
                         <div class="error-message-parag-2">
                             ${long_paragraph_3.message}
@@ -256,7 +249,7 @@ export function addView({short, long, similar,
                     <div class="parag-error-long">
                         <div class="long-parag">
                             <label for="paragraph_4">write your paragraph here:</label>
-                            <textarea id="paragraph_4" name="long_paragraph_4" placeholder="Type your paragraph..." required></textarea>
+                            <textarea id="paragraph_4" name="long_paragraph_4" placeholder="Type your paragraph..." required minLength="70"></textarea>
                         </div>
                         <div class="error-message-parag-2">
                             ${long_paragraph_4.message}
@@ -266,7 +259,7 @@ export function addView({short, long, similar,
                     <div class="parag-error-long">
                         <div class="long-parag">
                             <label for="paragraph_5">write your paragraph here:</label>
-                            <textarea id="paragraph_5" name="long_paragraph_5" placeholder="Type your paragraph..." required></textarea>
+                            <textarea id="paragraph_5" name="long_paragraph_5" placeholder="Type your paragraph..." required minLength="50"></textarea>
                         </div>
                         <div class="error-message-parag-2">
                             ${long_paragraph_5.message}

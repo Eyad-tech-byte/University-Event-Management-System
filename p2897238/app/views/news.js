@@ -14,7 +14,7 @@ export function newsView({ content, similarThings }){
 
             <div class="time">
                 <time datetime="${news_article.news_date}"> ${news_article.news_date} </time>  
-                <span>#${news_article.news_catagory}</span>
+                <span class="underline">#${news_article.news_catagory}</span>
             </div>
 
             <h3>${escape(news_article.news_title_2)}</h3>
@@ -36,13 +36,13 @@ export function newsView({ content, similarThings }){
             <h3>${escape(news_article.news_title_5)}</h3>
             <p>${escape(news_article.news_content_4)}</p>
             
-            <p>${escape(news_article.news_content_5)} <a href="/events/events-homepage"><ins>here</ins></a></p>
+            <p>${escape(news_article.news_content_5)} <a href="/events/events-homepage" class="underline">here</a></p>
         </article>
         `).join("\n");
         
         const similarArticles = similarThings.map(news_section => ` 
             <a href="/news/news-${news_section.news_section_target}-event">
-                <span>${news_section.news_section_content}<ins> view more...</ins></span>
+                ${news_section.news_section_content}<span class="underline"> view more...</span>
             </a>
             <hr>
             `).join("\n");

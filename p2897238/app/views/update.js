@@ -10,7 +10,7 @@ export function updateView({ update }){
                 </div>
 
                 <figure class="update-img">
-                    <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
+                    <a target="_blank" href="/news/news-${escape(article.idName.toLowerCase())}-event">
                         <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
                         ${escape(article.content)}
                         <ins> view more...</ins><br>

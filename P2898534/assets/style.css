@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  width: 700px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4e73df;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #2e59d9;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #2e59d9;
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #4e73df;
+}
+
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+

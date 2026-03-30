@@ -80,7 +80,7 @@ export function updateSecondView({first, second,
                     <div class="parag-error">
                         <div class="short-parag">
                             <label for="update_paragraph">write your paragraph here:</label>
-                            <textarea id="update_paragraph" name="first_paragraph" required>${escape(article.content)}</textarea>
+                            <textarea id="update_paragraph" name="first_paragraph" required minLength="100">${escape(article.content)}</textarea>
                         </div>
                         <div class="error-message-parag">
                         ${first_paragraph.message}
@@ -143,7 +143,7 @@ export function updateSecondView({first, second,
                 <div class="parag-error-long">
                         <div class="long-parag">
                 <label for="update_paragraph_1">write your paragraph here:</label>
-                <textarea id="update_paragraph_1" name="second_paragraph" required>${escape(news_article.news_content_1)}</textarea>
+                <textarea id="update_paragraph_1" name="second_paragraph" required minLength="120">${escape(news_article.news_content_1)}</textarea>
                 </div>
                 <div class="error-message-parag-2">
                 ${second_paragraph.message}
@@ -160,7 +160,7 @@ export function updateSecondView({first, second,
                 <div class="parag-error-long">
                         <div class="long-parag">
                 <label for="update_paragraph_2">write your paragraph here:</label>
-                <textarea id="update_paragraph_2" name="second_paragraph_2" required>${escape(news_article.news_content_2)}</textarea>
+                <textarea id="update_paragraph_2" name="second_paragraph_2" required minLength="100">${escape(news_article.news_content_2)}</textarea>
                 </div>
                 <div class="error-message-parag-2">
                 ${second_paragraph_2.message}
@@ -178,7 +178,7 @@ export function updateSecondView({first, second,
                 <div class="parag-error-long">
                         <div class="long-parag">
                 <label for="update_paragraph_3">write your paragraph here:</label>
-                <textarea id="update_paragraph_3" name="second_paragraph_3" required>${escape(news_article.news_content_3)}</textarea>
+                <textarea id="update_paragraph_3" name="second_paragraph_3" requirequired minLength="100"red>${escape(news_article.news_content_3)}</textarea>
                 </div>
                 <div class="error-message-parag-2">
                 ${second_paragraph_3.message}
@@ -195,7 +195,7 @@ export function updateSecondView({first, second,
                 <div class="parag-error-long">
                         <div class="long-parag">
                 <label for="update_paragraph_4">write your paragraph here:</label>
-                <textarea id="update_paragraph_4" name="second_paragraph_4" required>${escape(news_article.news_content_4)}</textarea>
+                <textarea id="update_paragraph_4" name="second_paragraph_4" required minLength="70">${escape(news_article.news_content_4)}</textarea>
                </div>
                <div class="error-message-parag-2">
                 ${second_paragraph_4.message}
@@ -205,7 +205,7 @@ export function updateSecondView({first, second,
                 <div class="parag-error-long">
                     <div class="long-parag">
                         <label for="update_paragraph_5">write your paragraph here:</label>
-                        <textarea id="update_paragraph_5" name="second_paragraph_5" required>${escape(news_article.news_content_5)}</textarea>
+                        <textarea id="update_paragraph_5" name="second_paragraph_5" required minLength="50">${escape(news_article.news_content_5)}</textarea>
                     </div>
                     <div class="error-message-parag-2">
                         ${second_paragraph_5.message}
