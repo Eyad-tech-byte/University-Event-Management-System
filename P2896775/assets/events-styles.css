@@ -69,7 +69,7 @@ footer {
     padding: 1.5rem;
 }
 
-#footer-top-row-container {
+footer #footer-top-row-container {
     display: flex;
     justify-content: space-between;
 }
