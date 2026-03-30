@@ -10,7 +10,7 @@ export function adminNewCategoryView({ errors = {} }) {
     return `
     <div class="page-wrapper">
       <nav>
-        <ul>
+        <ul class="navigation-links">
           <li><a href="/events/admin/events-homepage">Dashboard</a></li>
           <li><a href="/events/admin/event-creation-form">Create Event</a></li>
           <li><a href="/logout">Log out</a></li>
