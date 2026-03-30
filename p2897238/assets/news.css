@@ -33,7 +33,7 @@ body {
 }
 
 /* --------------------- nav --------------------- */
-.navAll{
+.main-nav{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -107,6 +107,10 @@ a {
     width: 80%;
     padding: 10px;
     border: 1px solid;
+}
+
+.calendar{
+    margin-bottom: 60px;
 }
 
 .comments_calender input[type=text], .comments_calender textarea {
@@ -748,7 +752,7 @@ aside#flash{
 }
 
 @media screen and (max-width: 1224px) {
-    .navAll{
+    .main-nav{
         justify-content: space-around;
         gap: 30px;
     }
@@ -775,7 +779,7 @@ aside#flash{
 }
 
 @media screen and (max-width: 1024px) {
-    .main-header, .navBar ul, .navAll, .main-footer, .big{
+    .main-header, .navBar ul, .main-nav, .main-footer, .big{
         flex-direction: column;
     }
 

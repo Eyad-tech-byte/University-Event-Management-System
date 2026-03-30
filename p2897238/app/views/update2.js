@@ -38,14 +38,16 @@ export function updateSecondView({first, second,
 
     const first_news = first.map(news => `
         <article class="add-news">
-            <div class="add-tittle"> 
+            <header class="add-tittle"> 
                 <strong>${escape(news.title)}</strong>
                 <time datetime="${news.date}"> ${news.date}</time>
-            </div>
+            </header>
             <figure class="add-img">
                 <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
-                ${escape(news.content)}
-                <ins> view more...</ins><br>
+                <figcaption>
+                    ${escape(news.content)}
+                    <span class="underline"> view more...</span><br>
+                </figcaption>
             </figure>
             
             <hr>
@@ -91,7 +93,7 @@ export function updateSecondView({first, second,
 
         const second_news = second.map(news_page => `
             <article class="add-news-items">   
-                <h1>${escape(news_page.news_title_1)}</h1>
+                <h2>${escape(news_page.news_title_1)}</h2>
 
                 <figure class="add-news-img">
                     <img src="/file/${escape(news_page.news_id)}" alt=${escape(news_page.news_title_2)} width="400" height="450">
@@ -178,7 +180,7 @@ export function updateSecondView({first, second,
                 <div class="parag-error-long">
                         <div class="long-parag">
                 <label for="update_paragraph_3">write your paragraph here:</label>
-                <textarea id="update_paragraph_3" name="second_paragraph_3" requirequired minLength="100"red>${escape(news_page.news_content_3)}</textarea>
+                <textarea id="update_paragraph_3" name="second_paragraph_3" required minLength="100"red>${escape(news_page.news_content_3)}</textarea>
                 </div>
                 <div class="error-message-parag-2">
                 ${second_paragraph_3.message}
