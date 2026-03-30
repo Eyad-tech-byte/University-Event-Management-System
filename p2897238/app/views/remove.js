@@ -4,20 +4,22 @@ export function removeView({ checkbox }){
     
     const remove_news = checkbox.map(news => `
             <article class="remove-news">
-                <div class="remove-tittle">
+                <header class="remove-tittle">
                     <strong>${escape(news.title)}</strong>
                     <time datetime="${news.date}"> ${news.date}</time>
-                </div>
+                </header>
 
                 <figure class="remove-img">
                     <a target="_blank" href="/news/news-${escape(news.idName.toLowerCase())}-event">
                         <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
-                        ${escape(news.content)}
-                        <ins> view more...</ins><br>
+                        <figcaption>
+                            ${escape(news.content)}
+                            <span class="underline"> view more...</span><br>
+                        </figcaption>
                     </a>
                 </figure>
 
-                <a href="/news/news-${news.catagory}"><ins>#${news.catagory}</ins></a>
+                <a href="/news/news-${news.catagory}"><span class="underline">#${news.catagory}</span></a>
                 <hr>
             </article>
 

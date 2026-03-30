@@ -31,25 +31,27 @@ export function addView({short, long, similar,
         
     const short_news = short.map(short_example_news => `
         <article class="add-news"> 
-            <div class="add-tittle">
+            <header class="add-tittle">
                 <strong>${escape(short_example_news.short_example_news_title)}</strong>
                 <time datetime="${short_example_news.short_example_news_date}"> ${short_example_news.short_example_news_date}</time>
-            </div>
+            </header>
 
             <figure class="add-img">
                     <img src="${short_example_news.short_example_news_image}" alt="${escape(short_example_news.short_example_news_title)}" width="300" height="200">
-                    ${escape(short_example_news.short_example_news_content)}
-                    <ins> view more...</ins><br>
+                    <figcaption>
+                        ${escape(short_example_news.short_example_news_content)}
+                        <span class="underline"> view more...</span><br>
+                    </figcaption>
             </figure>
 
-            <span><ins>#${short_example_news.short_example_news_catagory}</ins></span>
+            <span class="underline">#${short_example_news.short_example_news_catagory}</span>
             <hr>
         </article>
         `).join("\n");
 
     const long_news = long.map(long_example_news => `
         <article class="add-news-items">
-            <h1>${escape(long_example_news.long_example_news_title_1)}</h1>
+            <h2>${escape(long_example_news.long_example_news_title_1)}</h2>
 
             <figure class="add-news-img">
                 <img src="${long_example_news.long_example_news_image}" alt="${escape(long_example_news.long_example_news_title_2)}" width="400" height="450">

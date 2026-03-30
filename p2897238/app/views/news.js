@@ -4,7 +4,7 @@ export function newsView({ content, similarThings }){
     
     const contentOfNews = content.map(news_page => `
         <article class="news-items">
-            <h1>${escape(news_page.news_title_1)}</h1>
+            <h2>${escape(news_page.news_title_1)}</h2>
 
             <figure class="news_img">
                 <a target="_self" href="/file/${escape(news_page.news_id)}">

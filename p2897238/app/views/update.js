@@ -4,20 +4,22 @@ export function updateView({ update }){
     
     const update_news = update.map(news => `
             <article class="update-news">
-                <div class="update-tittle">
+                <header class="update-tittle">
                     <strong>${escape(news.title)}</strong>
                     <time datetime="${news.date}"> ${news.date}</time>
-                </div>
+                </header>
 
                 <figure class="update-img">
                     <a target="_blank" href="/news/news-${escape(news.idName.toLowerCase())}-event">
                         <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
-                        ${escape(news.content)}
-                        <ins> view more...</ins><br>
+                        <figcaption>
+                            ${escape(news.content)}
+                            <span class="underline"> view more...</span><br>
+                        </figcaption>
                     </a>
                 </figure>
 
-                <a href="/news/news-${news.catagory}"><ins>#${news.catagory}</ins></a>
+                <a href="/news/news-${news.catagory}"><span class="underline">#${news.catagory}</span></a>
                 <hr>
             </article>
 

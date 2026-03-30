@@ -27,33 +27,34 @@ export default function render(viewFn, data, ctx){
 
             <body>
                 <header class="main-header">
-                    <h1><a href="/">Imaginary University Managment System</a></h1>
+                    <h1><a href="/">Imaginary University Management System</a></h1>
                 </header>
 
                 <nav class="main-nav">
-                    <div class="navAll">
-                        <div class="navBar">
-                            <ul>
-                                <li><a href="/">Back</a></li>
-                                <li><a href="/news/news-home">All</a></li>
-                                <li><a href="/news/news-sports">Sports</a></li>
-                                <li><a href="/news/news-art">Art</a></li>
-                                <li><a href="/news/news-technology">Technology</a></li>
-                                <li><a href="/news/news-academic">Academic</a></li>
-                                <li><a href="/news/news-admin">Admin</a></li>
-                            </ul>
-                        </div>
-                        <div class="search">
-                            <form action="/news/news-home" method="GET" autocomplete="off">
-                                <label style="color: white;">Search: </label>
-                                <input class="serch" type="search" id="search" name="search">
-                                <button class="sarch" type="submit">Search</button>
-                            </form>    
-                        </div>
+                    <div class="navBar">
+                        <ul>
+                            <li><a href="/">Back</a></li>
+                            <li><a href="/news/news-home">All</a></li>
+                            <li><a href="/news/news-sports">Sports</a></li>
+                            <li><a href="/news/news-art">Art</a></li>
+                            <li><a href="/news/news-technology">Technology</a></li>
+                            <li><a href="/news/news-academic">Academic</a></li>
+                            <li><a href="/news/news-admin">Admin</a></li>
+                        </ul>
                     </div>
+                    
+                    <form action="/news/news-home" method="GET" autocomplete="off" class="search">
+                        <label for="search">Search: </label>
+                        <input type="search" id="search" name="search">
+                        <button class="sarch" type="submit">Search</button>
+                    </form>    
                 </nav>
-                ${flashMessage}
-                ${content}
+
+                
+                <main>
+                    ${flashMessage}
+                    ${content}
+                </main>
    
                 <footer class="main-footer">
                     <div>
