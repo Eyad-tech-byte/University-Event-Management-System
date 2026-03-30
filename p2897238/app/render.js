@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { getFlash } from "./app/flash.js";
+import { getFlash } from "./flash.js";
 
 export default function render(viewFn, data, ctx){
     const { request, headers, status = 200 } = ctx;

@@ -1,4 +1,4 @@
-import render from "../../render.js";
+import render from "../render.js";
 import { getNewsId, getNewsSimilar, getFootballNews, getMunNews, getFootballSimilar, getMunSimilar, getRoboticsSimilar, getArtSimilar, getAuditionSimilar, getBasketballSimilar, getRoboticsNews, getArtNews, getAuditionNews, getBasketballNews } from "../models/news.js";
 import { newsView } from "../views/news.js";
 

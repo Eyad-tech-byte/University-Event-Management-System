@@ -23,3 +23,11 @@ export function getTechnologyArticles(){
 export function getAcademicArticles(){
     return db.prepare(`SELECT * FROM article WHERE catagory = 'academic' `).all();
 }
+
+export function getComments(){
+    return db.prepare(`SELECT * FROM comments`).all();
+}
+
+export function addComments(name, comment) {
+    db.prepare(`INSERT INTO comments (name, comment) VALUES ( :name, :comment )`).run({ name, comment });
+}

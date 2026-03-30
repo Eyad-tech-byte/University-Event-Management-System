@@ -1,5 +1,5 @@
 import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle, createShortNews, createLongNews, createSimilar, getShortImage, getLongImage } from "../models/add.js";
-import render from "../../render.js";
+import render from "../render.js";
 import { addView } from "../views/add.js";
 import redirect from "../redirect.js";
 
@@ -52,17 +52,17 @@ export async function createNewsController(ctx, next){
 
     const short_article_id = validated['short_idName'];
     const short_article_title = validated['short_title'];
-    const short_article_date = validated['short_date'];
+    const short_article_date = formData.get('short_date');
     const short_article_catagory = validated['short_catagory'];
     const short_article_content = validated['short_paragraph'];
 
-    const image = validated['short_image'];
+    const image = formData.get('short_image');
     const short_article_image = new Uint8Array(await image.arrayBuffer());
 
     const long_article_id = validated['short_idName'];
     const long_article_title_1 = validated['long_title'];
 
-    const news_image = validated['long_image'];
+    const news_image = formData.get('long_image');
     const long_article_image = new Uint8Array(await news_image.arrayBuffer());
 
     const long_article_date = validated['short_date']; 
@@ -90,21 +90,21 @@ export async function createNewsController(ctx, next){
         short_article_content);
 
     createLongNews(
-            long_article_id,
-            long_article_title_1, 
-            long_article_image,
-            long_article_image_type, 
-            long_article_date, 
-            long_article_catagory, 
-            long_article_title_2, 
-            long_article_content_1, 
-            long_article_title_3, 
-            long_article_content_2, 
-            long_article_title_4, 
-            long_article_content_3, 
-            long_article_title_5,
-            long_article_content_4, 
-            long_article_content_5);
+        long_article_id,
+        long_article_title_1, 
+        long_article_image,
+        long_article_image_type, 
+        long_article_date, 
+        long_article_catagory, 
+        long_article_title_2, 
+        long_article_content_1, 
+        long_article_title_3, 
+        long_article_content_2, 
+        long_article_title_4, 
+        long_article_content_3, 
+        long_article_title_5,
+        long_article_content_4, 
+        long_article_content_5);
 
     const news_id = short_article_id;
 
