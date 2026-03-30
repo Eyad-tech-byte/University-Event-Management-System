@@ -1,22 +1,22 @@
 import { db } from "../../../db.js";
 
 export function getUpdateShortArticle(){
-    return db.prepare(`SELECT * FROM article`).all();
+    return db.prepare(`SELECT * FROM news`).all();
 }
 
 export function getUpdateLongArticle(){
-    return db.prepare(`SELECT * FROM news_article`).all();
+    return db.prepare(`SELECT * FROM news_page`).all();
 }
 
 export function getNews(idName){
-    const first = db.prepare(`SELECT * FROM article WHERE idName = ?`).all(idName);
-    const second = db.prepare(`SELECT * FROM news_article WHERE news_id = ?`).all(idName);
+    const first = db.prepare(`SELECT * FROM news WHERE idName = ?`).all(idName);
+    const second = db.prepare(`SELECT * FROM news_page WHERE news_id = ?`).all(idName);
 
     return { first, second };
 }
 
 export function UpdateFirstNews(idName, title, date, content) {
-    db.prepare(`UPDATE article SET title = ?, date = ?, content = ? WHERE idName = ?`).run(title, date, content, idName);
+    db.prepare(`UPDATE news SET title = ?, date = ?, content = ? WHERE idName = ?`).run(title, date, content, idName);
 }
 
 export function UpdateSecondNews(
@@ -33,7 +33,7 @@ export function UpdateSecondNews(
     news_content_4, 
     news_content_5 ) {
         db.prepare(`
-            UPDATE news_article SET
+            UPDATE news_page SET
                 news_title_1 = ?, 
                 news_date = ?, 
                 news_title_2 = ?, 

@@ -29,63 +29,63 @@ export function addView({short, long, similar,
         long_paragraph_5: {}
      }}){
         
-    const short_news = short.map(short_article => `
+    const short_news = short.map(short_example_news => `
         <article class="add-news"> 
             <div class="add-tittle">
-                <strong>${escape(short_article.short_article_title)}</strong>
-                <time datetime="${short_article.short_article_date}"> ${short_article.short_article_date}</time>
+                <strong>${escape(short_example_news.short_example_news_title)}</strong>
+                <time datetime="${short_example_news.short_example_news_date}"> ${short_example_news.short_example_news_date}</time>
             </div>
 
             <figure class="add-img">
-                    <img src="${short_article.short_article_image}" alt="${escape(short_article.short_article_title)}" width="300" height="200">
-                    ${escape(short_article.short_article_content)}
+                    <img src="${short_example_news.short_example_news_image}" alt="${escape(short_example_news.short_example_news_title)}" width="300" height="200">
+                    ${escape(short_example_news.short_example_news_content)}
                     <ins> view more...</ins><br>
             </figure>
 
-            <span><ins>#${short_article.short_article_catagory}</ins></span>
+            <span><ins>#${short_example_news.short_example_news_catagory}</ins></span>
             <hr>
         </article>
         `).join("\n");
 
-    const long_news = long.map(long_article => `
+    const long_news = long.map(long_example_news => `
         <article class="add-news-items">
-            <h1>${escape(long_article.long_article_title_1)}</h1>
+            <h1>${escape(long_example_news.long_example_news_title_1)}</h1>
 
             <figure class="add-news-img">
-                <img src="${long_article.long_article_image}" alt="${escape(long_article.long_article_title_2)}" width="400" height="450">
+                <img src="${long_example_news.long_example_news_image}" alt="${escape(long_example_news.long_example_news_title_2)}" width="400" height="450">
             </figure>
             
             <div class="add-time">
-                <time datetime="${long_article.long_article_date}"> ${long_article.long_article_date} </time>  
-                <span>#${long_article.long_article_catagory}</span>
+                <time datetime="${long_example_news.long_example_news_date}"> ${long_example_news.long_example_news_date} </time>  
+                <span>#${long_example_news.long_example_news_catagory}</span>
             </div>
 
-            <h3>${escape(long_article.long_article_title_2)}</h3>
-            <p>${escape(long_article.long_article_content_1)}</p>
+            <h3>${escape(long_example_news.long_example_news_title_2)}</h3>
+            <p>${escape(long_example_news.long_example_news_content_1)}</p>
             <br>
             
             <div class="add-both">
                 <div>
-                    <h3>${escape(long_article.long_article_title_3)}</h3>
-                    <p>${escape(long_article.long_article_content_2)}</p>
+                    <h3>${escape(long_example_news.long_example_news_title_3)}</h3>
+                    <p>${escape(long_example_news.long_example_news_content_2)}</p>
                 </div>
                 <div>
-                    <h3>${escape(long_article.long_article_title_4)}</h3>
-                    <p>${escape(long_article.long_article_content_3)}</p>
+                    <h3>${escape(long_example_news.long_example_news_title_4)}</h3>
+                    <p>${escape(long_example_news.long_example_news_content_3)}</p>
                 </div>
             </div>
             <br>
 
-            <h3>${escape(long_article.long_article_title_5)}</h3>
-            <p>${escape(long_article.long_article_content_4)}</p>
+            <h3>${escape(long_example_news.long_example_news_title_5)}</h3>
+            <p>${escape(long_example_news.long_example_news_content_4)}</p>
             
-            <p>${escape(long_article.long_article_content_5)} <a href="/"><ins>here</ins></a></p>
+            <p>${escape(long_example_news.long_example_news_content_5)} <a href="/"><ins>here</ins></a></p>
         </article>
         `).join("\n");
         
-        const similar_news = similar.map(similar_article => ` 
+        const similar_news = similar.map(similar_example_news => ` 
             <aside class="add-similar">
-                <span>${similar_article.similar_article_content}<ins>view more...</ins></span>
+                <span>${similar_example_news.similar_example_news_content}<ins>view more...</ins></span>
                 <hr>
             </aside>
         `).join("\n");

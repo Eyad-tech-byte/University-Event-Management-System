@@ -1,16 +1,16 @@
 import { db } from "../../../db.js"
 
 db.exec(`
-    DROP TABLE IF EXISTS article;
-    DROP TABLE IF EXISTS section;
-    DROP TABLE IF EXISTS news_article;
-    DROP TABLE IF EXISTS news_section;
-    DROP TABLE IF EXISTS short_article;
-    DROP TABLE IF EXISTS long_article;
-    DROP TABLE IF EXISTS similar_article;
+    DROP TABLE IF EXISTS news;
+    DROP TABLE IF EXISTS events_news_page;
     DROP TABLE IF EXISTS comments;
+    DROP TABLE IF EXISTS news_page;
+    DROP TABLE IF EXISTS news_similar;
+    DROP TABLE IF EXISTS short_example_news;
+    DROP TABLE IF EXISTS long_example_news;
+    DROP TABLE IF EXISTS similar_example_news;
 
-    CREATE TABLE article (
+    CREATE TABLE news (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         idName TEXT NOT NULL,
         title TEXT NOT NULL,
@@ -21,7 +21,7 @@ db.exec(`
         content TEXT NOT NULL
     );
     
-    INSERT INTO article (idName, title, date, image, image_type, catagory, content) VALUES
+    INSERT INTO news (idName, title, date, image, image_type, catagory, content) VALUES
         ('football', 'Football Champions','2026-02-22','/p2897238/assets/img/football.jpg', 'small', 'sports',
         'The university football team achieved a remarkable victory this season by winning the championship after 
         months of dedication and teamwork. Their strong defense and smart strategy secured success in the final 
@@ -67,20 +67,29 @@ db.exec(`
         competitive sports.');
 
 
-    CREATE TABLE section (
+    CREATE TABLE events_news_page (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        section_image TEXT NOT NULL,
-        section_title TEXT NOT NULL,
-        section_content TEXT NOT NULL,
-        section_date TEXT NOT NULL
+        events_news_image TEXT NOT NULL,
+        events_news_title TEXT NOT NULL,
+        events_news_content TEXT NOT NULL,
+        events_news_date TEXT NOT NULL
     );
-    INSERT INTO section (section_image, section_title, section_content, section_date) VALUES
+    INSERT INTO events_news_page (events_news_image, events_news_title, events_news_content, events_news_date) VALUES
         ('/p2897238/assets/img/run.jpeg', 'Campus Marathon 5km', 'A fun and inclusive 5K marathon open to all students and staff.', '2026-04-02'),
         ('/p2897238/assets/img/showCase.jpg', 'University Talent Showcase', 'A campus-wide talent showcase featuring drama, monologues, and creative
         performance.', '2026-05-20');
 
 
-    CREATE TABLE news_article (
+    CREATE TABLE comments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        comment TEXT NOT NULL
+    );
+    INSERT INTO comments(name, comment) VALUES
+        ('Eyad', 'This is my first comment');
+
+
+    CREATE TABLE news_page (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         news_id TEXT NOT NULL,
         news_title_1 TEXT NOT NULL,
@@ -99,7 +108,7 @@ db.exec(`
         news_content_5 TEXT NOT NULL
     );
 
-    INSERT INTO news_article (
+    INSERT INTO news_page (
         news_id,
         news_title_1, 
         news_image, 
@@ -212,13 +221,13 @@ db.exec(`
         'Students gathered on campus to celebrate the victory, cheering for the team and recognizing their hard work and dedication.',
         'Want to join the team? Check the latest sports events and upcoming tryouts');
 
-    CREATE TABLE news_section (
+    CREATE TABLE news_similar (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        news_section_id TEXT NOT NULL,
-        news_section_target TEXT NOTT NULL,
-        news_section_content TEXT NOT NULL
+        news_similar_id TEXT NOT NULL,
+        news_similar_target TEXT NOTT NULL,
+        news_similar_content TEXT NOT NULL
     );
-    INSERT INTO news_section (news_section_id, news_section_target, news_section_content) VALUES
+    INSERT INTO news_similar (news_similar_id, news_similar_target, news_similar_content) VALUES
         ('1', 'basketball', 'The basketball team won the basketball tournament with skill and energy.'),
         ('2', 'robotics', 'The university robotics team won a major robotics competition by designing and building an impressive robot.'),
         ('3', 'football', 'The university football team won the football tournament after a season full of hard work and practice.'),
@@ -227,64 +236,64 @@ db.exec(`
         ('6', 'art', 'The university hosted its Annual Art Festival, showcasing student creativity through exhibitions');
 
 
-    CREATE TABLE short_article (
+    CREATE TABLE short_example_news (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        short_article_id TEXT NOT NULL,
-        short_article_title TEXT NOT NULL,
-        short_article_date TEXT NOT NULL,
-        short_article_image BLOB,
-        short_article_image_type TEXT NOT NULL,
-        short_article_catagory TEXT NOT NULL,
-        short_article_content TEXT NOT NULL
+        short_example_news_id TEXT NOT NULL,
+        short_example_news_title TEXT NOT NULL,
+        short_example_news_date TEXT NOT NULL,
+        short_example_news_image BLOB,
+        short_example_news_image_type TEXT NOT NULL,
+        short_example_news_catagory TEXT NOT NULL,
+        short_example_news_content TEXT NOT NULL
     );
-    INSERT INTO short_article (
-        short_article_id,
-        short_article_title,
-        short_article_date,
-        short_article_image,
-        short_article_image_type,
-        short_article_catagory,
-        short_article_content
+    INSERT INTO short_example_news (
+        short_example_news_id,
+        short_example_news_title,
+        short_example_news_date,
+        short_example_news_image,
+        short_example_news_image_type,
+        short_example_news_catagory,
+        short_example_news_content
     ) VALUES
         ('example', 'Title','Date:x-x-xxxx','/p2897238/assets/img/Example_image.png', 'example_short', 'catagory',
         'Write a short preview of the main article here so readers can quickly understand what the event is about. 
         This summary should give them a clear idea of the highlights and encourage them to continue reading the full article');
 
 
-    CREATE TABLE long_article (
+    CREATE TABLE long_example_news (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        long_article_id TEXT NOT NULL,
-        long_article_title_1 TEXT NOT NULL,
-        long_article_image BLOB,
-        long_article_image_type TEXT NOT NULL,
-        long_article_date TEXT NOT NULL,
-        long_article_catagory TEXT NOT NULL,
-        long_article_title_2 TEXT NOT NULL,
-        long_article_content_1 TEXT NOT NULL,
-        long_article_title_3 TEXT NOT NULL,
-        long_article_content_2 TEXT NOT NULL,
-        long_article_title_4 TEXT NOT NULL,
-        long_article_content_3 TEXT NOT NULL,
-        long_article_title_5 TEXT NOT NULL,
-        long_article_content_4 TEXT NOT NULL,
-        long_article_content_5 TEXT NOT NULL
+        long_example_news_id TEXT NOT NULL,
+        long_example_news_title_1 TEXT NOT NULL,
+        long_example_news_image BLOB,
+        long_example_news_image_type TEXT NOT NULL,
+        long_example_news_date TEXT NOT NULL,
+        long_example_news_catagory TEXT NOT NULL,
+        long_example_news_title_2 TEXT NOT NULL,
+        long_example_news_content_1 TEXT NOT NULL,
+        long_example_news_title_3 TEXT NOT NULL,
+        long_example_news_content_2 TEXT NOT NULL,
+        long_example_news_title_4 TEXT NOT NULL,
+        long_example_news_content_3 TEXT NOT NULL,
+        long_example_news_title_5 TEXT NOT NULL,
+        long_example_news_content_4 TEXT NOT NULL,
+        long_example_news_content_5 TEXT NOT NULL
     );
-    INSERT INTO long_article (
-        long_article_id,
-        long_article_title_1, 
-        long_article_image, 
-        long_article_image_type,
-        long_article_date, 
-        long_article_catagory, 
-        long_article_title_2, 
-        long_article_content_1, 
-        long_article_title_3, 
-        long_article_content_2, 
-        long_article_title_4, 
-        long_article_content_3, 
-        long_article_title_5,
-        long_article_content_4, 
-        long_article_content_5 
+    INSERT INTO long_example_news (
+        long_example_news_id,
+        long_example_news_title_1, 
+        long_example_news_image, 
+        long_example_news_image_type,
+        long_example_news_date, 
+        long_example_news_catagory, 
+        long_example_news_title_2, 
+        long_example_news_content_1, 
+        long_example_news_title_3, 
+        long_example_news_content_2, 
+        long_example_news_title_4, 
+        long_example_news_content_3, 
+        long_example_news_title_5,
+        long_example_news_content_4, 
+        long_example_news_content_5 
     ) VALUES
         ('example',
         'Title',
@@ -303,23 +312,17 @@ db.exec(`
         'Add a closing paragraph here. You may include a call-to-action such as encouraging readers to check upcoming events, visit the main page, or read more details about this event.');
 
 
-    CREATE TABLE similar_article (
+    CREATE TABLE similar_example_news (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        similar_article_id TEXT NOT NULL,
-        similar_article_target TEXT NOT NULL,
-        similar_article_content TEXT NOT NULL
+        similar_example_news_id TEXT NOT NULL,
+        similar_example_news_target TEXT NOT NULL,
+        similar_example_news_content TEXT NOT NULL
     );
-    INSERT INTO similar_article (similar_article_id, similar_article_target, similar_article_content) VALUES
+    INSERT INTO similar_example_news (similar_example_news_id, similar_example_news_target, similar_example_news_content) VALUES
         ('1', 'example_1', 'This is only an example sentence. It can represent any event news and is similar to your topic'),
         ('2', 'example_2', 'This is only an example sentence. It can represent any event news and is similar to your topic');
 
-    CREATE TABLE comments (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        comment TEXT NOT NULL
-    );
-    INSERT INTO comments(name, comment) VALUES
-        ('Eyad', 'This is my first comment');
+   
 
     `)
 
