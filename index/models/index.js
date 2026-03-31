@@ -19,5 +19,5 @@ export function getSomeEvents() {
 }
 
     export function getNews(){
-        return db.prepare(`SELECT * FROM article WHERE catagory = 'sports' OR catagory = 'academic'`).all();
+        return db.prepare(`SELECT * FROM news WHERE catagory = 'sports' OR catagory = 'academic'`).all();
     }
