@@ -39,9 +39,10 @@ export default function server(request) {
     if(url.pathname == "/login") {
             return loginController({request});
         }
-        if(url.pathname == "/register/registration-form") {
-            return registerController({request});
-        }
+        
+    if(url.pathname == "/register") {
+        return registerController({request});
+    }
 
     return notFoundController({ request });
 }
