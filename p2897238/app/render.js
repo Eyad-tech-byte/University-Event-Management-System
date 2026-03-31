@@ -1,5 +1,5 @@
 import { escape } from "@std/html/entities";
-import { getFlash } from "./app/flash.js";
+import { getFlash } from "./flash.js";
 
 export default function render(viewFn, data, ctx){
     const { request, headers, status = 200 } = ctx;
@@ -26,34 +26,37 @@ export default function render(viewFn, data, ctx){
             </head>
 
             <body>
-                <header>
-                    <h1><a href="/">Imaginary University Managment System</a></h1>
+                <header class="main-header">
+                    <h1><a href="/">Imaginary University Management System</a></h1>
                 </header>
 
-                <nav>
-                    <div class="navAll">
-                        <div class="navBar">
-                            <ul>
-                                <li><a href="/">Back</a></li>
-                                <li><a href="/news/news-home">All</a></li>
-                                <li><a href="/news/news-sports">Sports</a></li>
-                                <li><a href="/news/news-art">Art</a></li>
-                                <li><a href="/news/news-technology">Technology</a></li>
-                                <li><a href="/news/news-academic">Academic</a></li>
-                                <li><a href="/news/news-admin">Admin</a></li>
-                            </ul>
-                        </div>
-                        <div class="search">
-                            <label style="color: white;">Search: </label>
-                            <input class="serch" type="search" id="search" name="search">
-                            <button class="sarch">Search</button>    
-                        </div>
+                <nav class="main-nav">
+                    <div class="navBar">
+                        <ul>
+                            <li><a href="/">Back</a></li>
+                            <li><a href="/news/news-home">All</a></li>
+                            <li><a href="/news/news-sports">Sports</a></li>
+                            <li><a href="/news/news-art">Art</a></li>
+                            <li><a href="/news/news-technology">Technology</a></li>
+                            <li><a href="/news/news-academic">Academic</a></li>
+                            <li><a href="/news/news-admin">Admin</a></li>
+                        </ul>
                     </div>
+                    
+                    <form action="/news/news-home" method="GET" autocomplete="off" class="search">
+                        <label for="search">Search: </label>
+                        <input type="search" id="search" name="search">
+                        <button class="sarch" type="submit">Search</button>
+                    </form>    
                 </nav>
-                ${flashMessage}
-                ${content}
+
+                
+                <main>
+                    ${flashMessage}
+                    ${content}
+                </main>
    
-                <footer>
+                <footer class="main-footer">
                     <div>
                         <address style="align-self: flex-end;">
                             Address<br><br>
@@ -74,7 +77,7 @@ export default function render(viewFn, data, ctx){
                     </div>
                 </footer>
 
-                
+                <script src="/p2897238/assets/news.js"></script>                
 
             </body>
         </html>

@@ -1,5 +1,5 @@
 import { getRemoveNews, getDeleteNews } from "../models/remove.js";
-import render from "../../render.js";
+import render from "../render.js";
 import { removeView } from "../views/remove.js";
 import redirect from "../redirect.js";
 

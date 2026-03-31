@@ -1,14 +1,14 @@
-import { getExampleLongArticle, getExampleShortArticle, getExampleSimilarArticle, createShortNews, createLongNews, createSimilar, getShortImage, getLongImage } from "../models/add.js";
-import render from "../../render.js";
+import { getExampleLongNews, getExampleShortNews, getExampleSimilarNews, createShortNews, createLongNews, createSimilar, getShortImage, getLongImage } from "../models/add.js";
+import render from "../render.js";
 import { addView } from "../views/add.js";
 import redirect from "../redirect.js";
 
 export function exampleController(ctx){
     const { errors } = ctx;
 
-    const short = getExampleShortArticle();
-    const long = getExampleLongArticle();
-    const similar = getExampleSimilarArticle();
+    const short = getExampleShortNews();
+    const long = getExampleLongNews();
+    const similar = getExampleSimilarNews();
    
     return render(addView, { short, long, similar, errors }, ctx);
 }
@@ -50,63 +50,63 @@ export async function createNewsController(ctx, next){
 
     if(!isValid) return next(ctx);
 
-    const short_article_id = validated['short_idName'];
-    const short_article_title = validated['short_title'];
-    const short_article_date = validated['short_date'];
-    const short_article_catagory = validated['short_catagory'];
-    const short_article_content = validated['short_paragraph'];
+    const short_example_news_id = validated['short_idName'];
+    const short_example_news_title = validated['short_title'];
+    const short_example_news_date = formData.get('short_date');
+    const short_example_news_catagory = validated['short_catagory'];
+    const short_example_news_content = validated['short_paragraph'];
 
-    const image = validated['short_image'];
-    const short_article_image = new Uint8Array(await image.arrayBuffer());
+    const image = formData.get('short_image');
+    const short_example_news_image = new Uint8Array(await image.arrayBuffer());
 
-    const long_article_id = validated['short_idName'];
-    const long_article_title_1 = validated['long_title'];
+    const long_example_news_id = validated['short_idName'];
+    const long_example_news_title_1 = validated['long_title'];
 
-    const news_image = validated['long_image'];
-    const long_article_image = new Uint8Array(await news_image.arrayBuffer());
+    const news_image = formData.get('long_image');
+    const long_example_news_image = new Uint8Array(await news_image.arrayBuffer());
 
-    const long_article_date = validated['short_date']; 
-    const long_article_catagory = validated['short_catagory']; 
-    const long_article_title_2 = validated['long_header']; 
-    const long_article_content_1 = validated['long_paragraph'];
-    const long_article_title_3 = validated['long_header_2']; 
-    const long_article_content_2 = validated['long_paragraph_2'];
-    const long_article_title_4 = validated['long_header_3'];
-    const long_article_content_3 = validated['long_paragraph_3'];
-    const long_article_title_5 = validated['long_header_4'];
-    const long_article_content_4 = validated['long_paragraph_4'];
-    const long_article_content_5 = validated['long_paragraph_5'];
+    const long_example_news_date = validated['short_date']; 
+    const long_example_news_catagory = validated['short_catagory']; 
+    const long_example_news_title_2 = validated['long_header']; 
+    const long_example_news_content_1 = validated['long_paragraph'];
+    const long_example_news_title_3 = validated['long_header_2']; 
+    const long_example_news_content_2 = validated['long_paragraph_2'];
+    const long_example_news_title_4 = validated['long_header_3'];
+    const long_example_news_content_3 = validated['long_paragraph_3'];
+    const long_example_news_title_5 = validated['long_header_4'];
+    const long_example_news_content_4 = validated['long_paragraph_4'];
+    const long_example_news_content_5 = validated['long_paragraph_5'];
 
-    const short_article_image_type = 'not_small';
-    const long_article_image_type = 'not_big';
+    const short_example_news_image_type = 'not_small';
+    const long_example_news_image_type = 'not_big';
 
     createShortNews(
-        short_article_id, 
-        short_article_title, 
-        short_article_date, 
-        short_article_image, 
-        short_article_image_type, 
-        short_article_catagory, 
-        short_article_content);
+        short_example_news_id, 
+        short_example_news_title, 
+        short_example_news_date, 
+        short_example_news_image, 
+        short_example_news_image_type, 
+        short_example_news_catagory, 
+        short_example_news_content);
 
     createLongNews(
-            long_article_id,
-            long_article_title_1, 
-            long_article_image,
-            long_article_image_type, 
-            long_article_date, 
-            long_article_catagory, 
-            long_article_title_2, 
-            long_article_content_1, 
-            long_article_title_3, 
-            long_article_content_2, 
-            long_article_title_4, 
-            long_article_content_3, 
-            long_article_title_5,
-            long_article_content_4, 
-            long_article_content_5);
+        long_example_news_id,
+        long_example_news_title_1, 
+        long_example_news_image,
+        long_example_news_image_type, 
+        long_example_news_date, 
+        long_example_news_catagory, 
+        long_example_news_title_2, 
+        long_example_news_content_1, 
+        long_example_news_title_3, 
+        long_example_news_content_2, 
+        long_example_news_title_4, 
+        long_example_news_content_3, 
+        long_example_news_title_5,
+        long_example_news_content_4, 
+        long_example_news_content_5);
 
-    const news_id = short_article_id;
+    const news_id = short_example_news_id;
 
     if (formData.get('similar_football')){
         createSimilar(news_id, 'football', 'The university football team won the football tournament after a season full of hard work and practice.');
@@ -128,7 +128,7 @@ export async function createNewsController(ctx, next){
     }
     
     console.log("news is added")
-    return redirect(headers, '/news/news-home', `added '${short_article_title}' Successfully`);
+    return redirect(headers, '/news/news-home', `added '${short_example_news_title}' Successfully`);
 }
 
 

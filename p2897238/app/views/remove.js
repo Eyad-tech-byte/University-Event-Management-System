@@ -2,28 +2,30 @@ import { escape } from "@std/html/entities";
 
 export function removeView({ checkbox }){
     
-    const remove_news = checkbox.map(article => `
+    const remove_news = checkbox.map(news => `
             <article class="remove-news">
-                <div class="remove-tittle">
-                    <strong>${escape(article.title)}</strong>
-                    <time datetime="${article.date}"> ${article.date}</time>
-                </div>
+                <header class="remove-tittle">
+                    <strong>${escape(news.title)}</strong>
+                    <time datetime="${news.date}"> ${news.date}</time>
+                </header>
 
                 <figure class="remove-img">
-                    <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
-                        <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
-                        ${escape(article.content)}
-                        <ins> view more...</ins><br>
+                    <a target="_blank" href="/news/news-${escape(news.idName.toLowerCase())}-event">
+                        <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
+                        <figcaption>
+                            ${escape(news.content)}
+                            <span class="underline"> view more...</span><br>
+                        </figcaption>
                     </a>
                 </figure>
 
-                <a href="/news/news-${article.catagory}"><ins>#${article.catagory}</ins></a>
+                <a href="/news/news-${news.catagory}"><span class="underline">#${news.catagory}</span></a>
                 <hr>
             </article>
 
             <div>
-                <input type="checkbox" id="${escape(article.idName)}" name="news_delete" value="${escape(article.idName)}">
-                <label for="${escape(article.idName)}">To remove this one tick the checkbox</label>
+                <input type="checkbox" id="${escape(news.idName)}" name="news_delete" value="${escape(news.idName)}">
+                <label for="${escape(news.idName)}">To remove this one tick the checkbox</label>
             </div>
         `).join("\n");
 

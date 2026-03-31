@@ -1,39 +1,56 @@
 import { escape } from "@std/html/entities";
+import { fragments } from "./add.js";
 
-export function homesView({ news, events }){
+export function homesView({ news, events, comments, 
+    error = {
+        name: {},
+        comment: {}
+    }}){
     
-    const news_events = news.map(article => `
+    const news_events = news.map(news => `
         <article class="news"> 
-            <div class="tittle">
-                <strong>${escape(article.title)}</strong>
-                <time datetime="${article.date}"> ${article.date}</time>
-            </div>
+            <header class="tittle">
+                <strong>${escape(news.title)}</strong>
+                <time datetime="${news.date}"> ${news.date}</time>
+            </header>
 
             <figure class="first_image">
-                <a href="/news/news-${escape(article.idName.toLowerCase())}-event">
-                    <img src="/file/${escape(article.idName)}" alt="${escape(article.title)}" width="300" height="200">
-                    ${escape(article.content)}
-                    <ins> view more...</ins><br>
+                <a href="/news/news-${escape(news.idName.toLowerCase())}-event">
+                    <img src="/file/${escape(news.idName)}" alt="${escape(news.title)}" width="300" height="200">
+                    <figcaption>
+                        ${escape(news.content)}
+                        <span class="underline"> view more...</span><br>
+                    </figcaption>
                 </a>
             </figure>
 
-            <a href="/news/news-${article.catagory}"><ins>#${article.catagory}</ins></a>
+            <a href="/news/news-${news.catagory}"><span class="underline">#${news.catagory}</span></a>
             <hr>
         </article>
         `).join("\n"); 
         
-        const events_news = events.map(section => `
+        const events_news = events.map(events_news_page => `
             <article class="events">
-                <img src=${section.section_image} alt=${escape(section.section_title)} width="300" height="200">
+                <img src="${events_news_page.events_news_image}" alt="${escape(events_news_page.events_news_title)}" width="300" height="200">
                 <div>
-                    <b>${section.section_title}</b><br><br>
-                    ${section.section_content}<br><br>
-                    <time datetime=${section.section_date}>${section.section_date}</time><br><br>
-                    <button type="button"><a href="/events/events-homepage">View Details</a></button>
+                    <b>${escape(events_news_page.events_news_title)}</b><br><br>
+                    ${escape(events_news_page.events_news_content)}<br><br>
+                    <time datetime="${events_news_page.events_news_date}">${events_news_page.events_news_date}</time><br><br>
+                    <a href="/events/events-homepage"><button type="button">View Details</button></a>
                 </div>
             </article>
             <hr>
         `).join("\n");
+
+        const Comment_news = comments.map(comments => `
+            <div>
+                <p>Name: ${escape(comments.name)}</p>
+                <p>${escape(comments.comment)}</p>
+                <hr>
+            </div>
+            `).join("\n");
+
+        const { name, comment } = fragments(error);
 
     return `
     <main class="big">
@@ -52,25 +69,38 @@ export function homesView({ news, events }){
         </div>
 
         <aside class="comments_calender">
-            <h2>Calendar</h2>
-            <div id="date"></div>
-                <br><br>
+            <section class="calendar">
+                <h2>Calendar</h2>
+                <div id="date"></div>
+            </section>
 
+            <section>
                 <h2>Comments</h2>
-                <form autocomplete="off">
-                    <label>Name:</label><br>
-                    <input type="text" id="name" placeholder="your name..."><br><br>
+                <form method="POST" autocomplete="off">
+                    <div class="creating-comment">
+                        <div class="name-input">
+                            <label for="name">Name:</label><br>
+                            <input type="text" name="name" id="name" placeholder="your name..." required minLength="3">
+                            ${name.message}
+                        </div>
 
-                    <label>Write your comment:</label><br>
-                    <textarea id="comment" rows="5" placeholder="type your comment..."></textarea><br><br>
+                        <div class="comment-input">
+                            <label for="comment">Write your comment:</label><br>
+                            <textarea id="comment" name="comment" rows="5" placeholder="type your comment..." required minLength="4"></textarea>
+                            ${comment.message}
+                        </div>
 
-                    <input type="button" value="Submit">
-                    <input type="reset" value="reset">
+                        <div class="commentButton">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="reset">
+                        </div>
+                    </div>
                 </form>
 
-                <br>
-
-                <div id="commentBox"></div>
+                <div id="commentBox">
+                    ${Comment_news}
+                </div>
+            </section>
         </aside>
     </main>
     `

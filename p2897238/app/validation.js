@@ -8,16 +8,6 @@ export function minLength(min){
     }
 }
 
-export function minWords(min){
-    return(name, value) => {
-        const words = value.trim().split(" ").filter(word => word !== "");
-        
-        if (words.length < min){
-            return `${name} must have at least ${min} words`;
-        }
-    }
-}
-
 export function validateField(name, value, validators){
     for (const validator of validators){
         const error = validator(name, value);
