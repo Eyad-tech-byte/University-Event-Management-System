@@ -14,7 +14,7 @@ return `
 
   <p id="message"></p>
 
-  <a href="register.html">Don't have an account? Register</a>
+  <a href="/register">Don't have an account? Register</a>
 </div>
 
 
