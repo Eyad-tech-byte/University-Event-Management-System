@@ -56,16 +56,16 @@ export function homesView({ news, events, comments,
     <main class="big">
         <div class="small">
 
-            <section class="news_page">
-                <h2>Event News</h2>
-                ${news_events}
-            </section>
-                
-            <section class="events_page">
-                <h2><mark>Dont miss these events!</mark></h2>
-                ${events_news}
-                <button type="button"><a href="/events/events-homepage">view more events</a></button>
-            </section>
+        <section class="news_page">
+            <h2>Event News</h2>
+            ${news_events}
+        </section>
+            
+        <section class="events_page">
+            <h2><mark>Dont miss these events!</mark></h2>
+            ${events_news}
+            <button type="button"><a href="/events/events-homepage">view more events</a></button>
+        </section>
         </div>
 
         <aside class="comments_calender">

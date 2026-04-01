@@ -27,18 +27,15 @@ body {
 /* ---------------------  --------------------- */
 
 .main-nav, .main-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     background-color: black;
     padding: 30px;
     color: white;
 }
 
 /* --------------------- nav --------------------- */
-.main-nav{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 .navBar ul{
     list-style-type: none;
     display: flex;
@@ -66,11 +63,6 @@ a {
 }
 
 /* --------------------- footer --------------------- */
-.main-footer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
 
 .main-footer address {
     padding: 15px;
