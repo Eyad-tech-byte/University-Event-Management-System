@@ -102,7 +102,7 @@ db.exec(`
 'Campus Marathon 5K Run',
 '2026-04-02',
 'A fun and inclusive 5K marathon open to all students and staff.',
-'https://www.eusa.eu/files/News/2014/cze_marathon-marathon.jpg',
+'https://www.datocms-assets.com/18841/1732099782-dsc4810-1.jpg?fm=webp&w=1200',
 'Lace up your running shoes and join us for the Campus Marathon 5K Run! This fun and inclusive event is open to all students and staff, whether you''re a seasoned runner or just looking to enjoy an active morning with the university community.',
 'Who Can Participate?',
 '– Open to all enrolled students and university staff.

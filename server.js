@@ -5,7 +5,8 @@ import newsServer from "./p2897238/app/server.js";
 import { imageController } from "./p2897238/app/controller/add.js";
 import { adminController } from "./index/controllers/indexAdmin.js";
 import { notFoundController } from "./index/controllers/notFoundIndex.js";
-
+import { loginController } from "./P2898534/app/controller/login.js";
+import { registerController } from "./P2898534/app/controller/register.js";
 export default function server(request) {
     const url = new URL(request.url);
     
@@ -33,6 +34,15 @@ export default function server(request) {
     if(url.pathname.startsWith("/news")){
         return newsServer(request);
     }
+
     
+    if(url.pathname == "/login") {
+            return loginController({request});
+        }
+        
+    if(url.pathname == "/register") {
+        return registerController({request});
+    }
+
     return notFoundController({ request });
 }
